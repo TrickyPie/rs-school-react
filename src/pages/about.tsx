@@ -1,8 +1,8 @@
 import React from 'react';
 
 class About extends React.Component {
-  render() {
-    return <h2>About Us</h2>;
+  render(): JSX.Element {
+    return <h2> </h2>;
   }
 }
 

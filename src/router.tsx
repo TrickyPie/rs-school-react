@@ -6,7 +6,7 @@ import Home from './pages/home';
 import { Layout } from './components/layout';
 
 class AppRouter extends React.Component {
-  render() {
+  render(): JSX.Element {
     return (
       <Routes>
         <Route path="/" element={<Layout />}>
