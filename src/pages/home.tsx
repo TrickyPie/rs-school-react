@@ -1,13 +1,9 @@
 import React from 'react';
-import { SearchBar } from '../components/search-bar';
+// import { SearchBar } from '../components/search-bar';
 
 class MainPage extends React.Component {
   render(): JSX.Element {
-    return (
-      <>
-        <SearchBar />
-      </>
-    );
+    return <>{/* <SearchBar /> */}</>;
   }
 }
 
