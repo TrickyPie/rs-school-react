@@ -23,13 +23,13 @@ export class Search extends React.Component {
     return (
       <div className="search-bar-wrapper">
         <div className="search-bar">
+          <i className="search-bar__icon" />
           <input
             className="search-bar__input"
             type="text"
             value={searchValue}
             onChange={this.handleChange}
           />
-          <i className="search-bar__icon" />
         </div>
         <button className="search-bar__button">Search</button>
       </div>
