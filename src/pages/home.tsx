@@ -1,5 +1,5 @@
 import React from 'react';
-import { Search } from '../components/search-bar';
+import { Search } from '../components/search/search';
 
 class MainPage extends React.Component {
   render(): JSX.Element {
