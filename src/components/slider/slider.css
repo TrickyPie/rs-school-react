@@ -1,0 +1,8 @@
+.slider-image {
+  transition: all 1s ease-in-out;
+  height: 20vw;
+}
+
+.slider-image.not-active {
+  display: none;
+}

@@ -2,7 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import About from './pages/about';
 import NotFound from './pages/notfound';
-import Home from './pages/home';
+import Home from './pages/home/home';
 import { Layout } from './components/layout/layout';
 
 class AppRouter extends React.Component {

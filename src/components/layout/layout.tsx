@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import { Header } from '../header/header';
-import Home from '../../pages/home';
+import Home from '../../pages/home/home';
 import About from '../../pages/about';
 import NotFound from '../../pages/notfound';
 
