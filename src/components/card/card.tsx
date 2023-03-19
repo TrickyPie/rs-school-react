@@ -18,14 +18,14 @@ export type props = {
 };
 
 export class Card extends React.Component<props> {
-  public render() {
-    let petFriendlyImage = null;
+  public render(): JSX.Element {
+    let petFriendlyImage: JSX.Element | null = null;
     if (this.props.petFriendly) {
       petFriendlyImage = (
         <img src={pet} alt="Pet-friendly icon" className="pet-friendly-icon" title="Pet friendly" />
       );
     }
-    let easyCareImage = null;
+    let easyCareImage: JSX.Element | null = null;
     if (this.props.easyCare) {
       easyCareImage = (
         <img src={care} alt="Easy-care icon" className="easy-care-icon" title="Easy care" />
@@ -43,11 +43,11 @@ export class Card extends React.Component<props> {
         {easyCareImage}
         <div className="card-plant-info">
           <div className="card-sun-wrapper">
-            <img className="card-sun-icon" src={sun} alt=""></img>
+            <img className="card-sun-icon" src={sun} alt="" />
             <p className="card-sun-info">{this.props.bright}</p>
           </div>
           <div className="card-water-wrapper">
-            <img className="card-water-icon" src={water} alt=""></img>
+            <img className="card-water-icon" src={water} alt="" />
             <p className="card-water-info">{this.props.water}</p>
           </div>
         </div>

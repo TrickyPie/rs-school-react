@@ -10,13 +10,13 @@ type state = {
 };
 
 export class Slider extends React.Component<props, state> {
-  timerID: number | undefined;
+  private timerID?: number;
 
   public state: state = {
     currentIndex: 0,
   };
 
-  componentDidMount() {
+  public componentDidMount(): void {
     this.timerID = window.setInterval((): void => {
       this.setState((prevState: Readonly<state>): { currentIndex: number } => ({
         currentIndex: (prevState.currentIndex + 1) % this.props.image.length,
@@ -24,15 +24,15 @@ export class Slider extends React.Component<props, state> {
     }, 3000);
   }
 
-  componentWillUnmount() {
+  public componentWillUnmount(): void {
     if (this.timerID) {
       clearInterval(this.timerID);
     }
   }
 
-  render() {
-    const { image } = this.props;
-    const { currentIndex } = this.state;
+  public render(): JSX.Element {
+    const { image }: props = this.props;
+    const { currentIndex }: state = this.state;
 
     return (
       <div className="slider">

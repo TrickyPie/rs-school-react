@@ -11,7 +11,7 @@ export class Search extends React.Component {
     searchValue: localStorage.getItem('searchValue') || '',
   };
 
-  public componentWillUnmount(value?: string) {
+  public componentWillUnmount(value?: string): void {
     localStorage.setItem('searchValue', value || this.state.searchValue);
   }
 
@@ -20,7 +20,7 @@ export class Search extends React.Component {
     this.setState({ searchValue: event.target.value });
   };
 
-  public render() {
+  public render(): JSX.Element {
     const { searchValue } = this.state;
     return (
       <div className="search-bar-wrapper">

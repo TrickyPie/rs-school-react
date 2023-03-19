@@ -1,4 +1,4 @@
-import { Card } from '../../components/card/card';
+import { Card, props } from '../../components/card/card';
 import React from 'react';
 import cardData from '../../mock/mock';
 
@@ -11,7 +11,7 @@ export class Cards extends React.Component<CardsProps> {
     const { cardData } = this.props;
     return (
       <>
-        {cardData.map((cardProps) => {
+        {cardData.map((cardProps: props): JSX.Element => {
           {
             return <Card key={cardProps.id} {...cardProps} />;
           }
