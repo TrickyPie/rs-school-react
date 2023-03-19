@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+fieldset,
+form,
+label,
+legend,
+section {
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+a:active,
+a {
+  text-decoration: none;
+  padding: 20px;
+}
+
+:root {
+  --color-background-light: #dcdcdc;
+  --color-background-dark: #3f3f3f;
+  --color-text-light: #bdbdbd;
+  --color-text-dark: #2b2b2b;
+  --color-green: #009f4f;
+  --color-green-light: #06bd61;
+  font-family: 'Manjari', sans-serif;
+  transition: all 0.7s ease-in-out;
+}
