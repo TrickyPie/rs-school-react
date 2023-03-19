@@ -1,7 +1,6 @@
-import { Card } from '../../components/card/card';
 import React from 'react';
 import { Search } from '../../components/search/search';
-import cardData from '../../mock/mock';
+import { Cards } from '../../components/cards/cards';
 import './home.css';
 
 class MainPage extends React.Component {
@@ -9,13 +8,7 @@ class MainPage extends React.Component {
     return (
       <>
         {<Search />}
-        <div className="cards-container">
-          {cardData.map((cardProps) => {
-            {
-              return <Card key={cardProps.id} {...cardProps} />;
-            }
-          })}
-        </div>
+        <div className="cards-container">{<Cards />}</div>
       </>
     );
   }

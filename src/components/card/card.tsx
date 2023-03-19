@@ -6,7 +6,7 @@ import care from '../../assets/png/growth.png';
 import { Slider } from '../../components/slider/slider';
 import './card.css';
 
-type props = {
+export type props = {
   id: number;
   image: string[];
   title: string;
@@ -32,7 +32,7 @@ export class Card extends React.Component<props> {
       );
     }
     return (
-      <div className="card-wrapper">
+      <div className="card-wrapper" data-testid="card-test">
         <div className="slider-wrapper">
           <Slider image={this.props.image} />
         </div>

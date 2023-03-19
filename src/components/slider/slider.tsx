@@ -36,11 +36,17 @@ export class Slider extends React.Component<props, state> {
 
     return (
       <div className="slider">
-        <img src={image[currentIndex]} alt="Plant Image" className="slider-image active-image" />
+        <img
+          src={image[currentIndex]}
+          alt="Plant Image"
+          className="slider-image active-image"
+          data-testid="slider-test"
+        />
         <img
           src={image[(currentIndex + 1) % image.length]}
           alt="Plant Image"
           className="slider-image not-active"
+          data-testid="slider-test"
         />
       </div>
     );
