@@ -1,9 +1,9 @@
-import { Card, props } from '../../components/card/card';
+import { Card } from '../../components/card/card';
 import React from 'react';
 import cardData from '../../mock/mock';
 
 type CardsProps = {
-  cardData: props[];
+  cardData: typeof cardData;
 };
 
 export class Cards extends React.Component<CardsProps> {
