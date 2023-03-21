@@ -1,5 +1,5 @@
 import React from 'react';
-import './slider.css';
+import './app-slider-style.css';
 
 type props = {
   image: string[];

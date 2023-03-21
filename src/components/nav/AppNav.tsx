@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 export class Nav extends React.Component {
   private home = 'Home';
   private about = 'About us';
+  private form = 'Form';
 
   render() {
     return (
@@ -14,6 +15,9 @@ export class Nav extends React.Component {
           </li>
           <li className="navigation-item">
             <NavLink to="/about-us">{this.about}</NavLink>
+          </li>
+          <li className="navigation-item">
+            <NavLink to="/form">{this.form}</NavLink>
           </li>
         </ul>
       </nav>
