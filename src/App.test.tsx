@@ -1,9 +1,9 @@
-import { describe, it } from 'vitest';
+import { describe, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { Card } from './components/card/card';
-import { Slider } from './components/slider/slider';
-import { Cards } from './components/cards/cards';
+import { Card } from './components/card/AppCard';
+import { Slider } from './components/slider/AppSlider';
+import { Cards } from './components/cards/AppCards';
 import cardData from './mock/mock';
 
 describe('Card', () => {
@@ -36,8 +36,16 @@ describe('Slider', () => {
     './src/assets/images/ficus-lyrata3.jpg',
   ];
 
-  it('should render two images', () => {
+  beforeEach(() => {
     const { container } = render(<Slider image={images} />);
+    vi.useFakeTimers();
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it('should render two images', () => {
     expect(screen.getAllByTestId('slider-test')).toHaveLength(2);
   });
 });

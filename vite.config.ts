@@ -11,5 +11,13 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
+    css: true,
+    coverage: {
+      include: ['src/**/*'],
+      exclude: ['src/assets/*', 'src/main.tsx'],
+      enabled: true,
+      reporter: ['text'],
+      all: true,
+    },
   },
 });
