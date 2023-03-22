@@ -1,41 +1,40 @@
 import React from 'react';
 
-interface RadioData {
-  id: string;
-  label: string;
-  defaultChecked: boolean;
+interface RadioProps {
+  className: string;
+  legendTitle: string;
+  name: string;
+  options: RadioBtn[];
 }
 
-interface RadioProps {
-  className?: string;
-  id?: string;
-  radioData: RadioData[];
-  legendTitle?: string;
+interface RadioBtn {
+  label: string;
+  value: string;
 }
 
 export class Radio extends React.Component<RadioProps> {
   render() {
-    const { className, id, radioData, legendTitle } = this.props;
+    const { className, legendTitle, name, options } = this.props;
 
     return (
-      <div className={className} id={id}>
-        <fieldset className={`${className}-fieldset`}>
-          <legend className={`${className}-legend title`}>{legendTitle}</legend>
-          {radioData.map((radio) => (
-            <div key={radio.id} className={`${className}-wrapper`}>
-              <input
-                className={`${className}-input input`}
-                type="checkbox"
-                id={radio.id}
-                defaultChecked={radio.defaultChecked}
-              />
-              <label className={`${className}-text text`} htmlFor={radio.id}>
-                {radio.label}
-              </label>
-            </div>
-          ))}
-        </fieldset>
-      </div>
+      <fieldset className={className}>
+        <legend className={`${className}-title title`}>{legendTitle}</legend>
+
+        {options.map((option) => (
+          <div className={`${className}-text-wrapper`} key={option.value}>
+            <input
+              className={`${className}-input input`}
+              type="radio"
+              id={option.value}
+              name={name}
+              value={option.value}
+            />
+            <label className={`${className}-text text`} htmlFor={option.value}>
+              {option.label}
+            </label>
+          </div>
+        ))}
+      </fieldset>
     );
   }
 }

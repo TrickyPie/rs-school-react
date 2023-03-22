@@ -71,7 +71,8 @@ select::-ms-expand {
   color: white;
 }
 
-.form-input-wrapper {
+.form-input-wrapper,
+.form-region-select {
   display: flex;
   gap: 0.2rem;
 }
