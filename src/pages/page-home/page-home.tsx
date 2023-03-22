@@ -1,6 +1,6 @@
 import React from 'react';
-import { Search } from '../../components/search/AppSearch';
-import { Cards } from '../../components/cards/AppCards';
+import { Search } from '../../components/search/Search';
+import { Cards } from '../../components/cards/Cards';
 import cardData from '../../mock/mock';
 import './page-home-style.css';
 

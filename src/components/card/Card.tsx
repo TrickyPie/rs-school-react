@@ -3,8 +3,8 @@ import sun from '../../assets/png/contrast.png';
 import water from '../../assets/png/drop.png';
 import pet from '../../assets/png/pet.png';
 import care from '../../assets/png/growth.png';
-import { Slider } from '../slider/AppSlider';
-import './app-card-style.css';
+import { Slider } from '../slider/Slider';
+import './card-style.css';
 
 export type props = {
   id: number;

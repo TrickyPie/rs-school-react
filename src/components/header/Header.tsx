@@ -1,6 +1,6 @@
-import './app-header-style.css';
+import './header-style.css';
 import React from 'react';
-import { Nav } from '../nav/AppNav';
+import { Nav } from '../nav/Nav';
 
 type props = {
   title: string;

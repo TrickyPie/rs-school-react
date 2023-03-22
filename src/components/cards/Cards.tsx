@@ -1,4 +1,4 @@
-import { Card, props } from '../card/AppCard';
+import { Card, props } from '../card/Card';
 import React from 'react';
 import cardData from '../../mock/mock';
 

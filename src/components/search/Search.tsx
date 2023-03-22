@@ -1,5 +1,5 @@
 import React from 'react';
-import './app-search-style.css';
+import './search-style.css';
 import search from '../../assets/png/search.png';
 
 type SearchState = {

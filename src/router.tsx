@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import About from './pages/page-about';
 import NotFound from './pages/page-notfound';
 import Home from './pages/page-home/page-home';
-import { Layout } from './components/layout/AppLayout';
+import { Layout } from './components/layout/Layout';
 import Form from './pages/page-form/page-form';
 
 class AppRouter extends React.Component {

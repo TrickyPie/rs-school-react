@@ -1,9 +1,9 @@
 import { describe, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { Card } from './components/card/AppCard';
-import { Slider } from './components/slider/AppSlider';
-import { Cards } from './components/cards/AppCards';
+import { Card } from './components/card/Card';
+import { Slider } from './components/slider/Slider';
+import { Cards } from './components/cards/Cards';
 import cardData from './mock/mock';
 
 describe('Card', () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../header/AppHeader';
+import { Header } from '../header/Header';
 
 type props = {
   title: string;
