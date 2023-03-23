@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 
 interface SelectProps {
   label: string;
@@ -8,6 +8,7 @@ interface SelectProps {
   classNameLabel?: string;
   classNameSelect?: string;
   classNameOption?: string;
+  selectRef?: React.RefObject<HTMLSelectElement>;
 }
 
 export class Select extends React.Component<SelectProps> {
@@ -21,13 +22,12 @@ export class Select extends React.Component<SelectProps> {
       classNameSelect,
       classNameOption,
     } = this.props;
-
     return (
       <fieldset className={classNameWrapper}>
         <label className={classNameLabel} htmlFor={name}>
           {label}
         </label>
-        <select className={classNameSelect} name={name} id={name}>
+        <select className={classNameSelect} name={name} id={name} ref={this.props.selectRef}>
           {options.map((option) => (
             <option key={option.value} className={classNameOption} value={option.value}>
               {option.value}

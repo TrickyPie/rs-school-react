@@ -11,22 +11,24 @@ interface CheckboxProps {
   id?: string;
   checkboxData: CheckboxData[];
   legendTitle?: string;
+  checkboxRefs: React.RefObject<HTMLInputElement>[];
 }
 
 export class Checkbox extends React.Component<CheckboxProps> {
   render() {
-    const { className, id, checkboxData, legendTitle } = this.props;
+    const { className, id, checkboxData, legendTitle, checkboxRefs } = this.props;
 
     return (
       <fieldset className={`${className}-fieldset`} id={id}>
         <legend className={`${className}-legend title`}>{legendTitle}</legend>
-        {checkboxData.map((checkbox) => (
+        {checkboxData.map((checkbox, index) => (
           <div key={checkbox.id} className={`${className}-wrapper`}>
             <input
               className={`${className}-input input`}
               type="checkbox"
               id={checkbox.id}
               defaultChecked={checkbox.defaultChecked}
+              ref={checkboxRefs[index]}
             />
             <label className={`${className}-text text`} htmlFor={checkbox.id}>
               {checkbox.label}

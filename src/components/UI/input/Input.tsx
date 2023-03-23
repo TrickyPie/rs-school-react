@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { createRef } from 'react';
 
 interface InputProps {
   id: string;
@@ -6,9 +6,14 @@ interface InputProps {
   type: string;
   name: string;
   value?: string | File;
+  reference?: React.Ref<HTMLInputElement>;
 }
 
 export class Input extends React.Component<InputProps> {
+  constructor(props: InputProps) {
+    super(props);
+  }
+
   render() {
     const { id, label, type, name, value } = this.props;
     return (
@@ -16,23 +21,15 @@ export class Input extends React.Component<InputProps> {
         <label className={`form-${name.toLowerCase()} title`} htmlFor={id}>
           {label}:
         </label>
-        {type === 'file' ? (
-          <input
-            className={`form-${name.toLowerCase()}-input input`}
-            id={id}
-            type={type}
-            name={name}
-          />
-        ) : (
-          <input
-            className={`form-${name.toLowerCase()}-input input`}
-            id={id}
-            type={type}
-            name={name}
-            value={value as string}
-            placeholder={type === 'text' ? label : ''}
-          />
-        )}
+        <input
+          className={`form-${name.toLowerCase()}-input input`}
+          id={id}
+          type={type}
+          name={name}
+          value={type === 'text' ? (value as string) : undefined}
+          placeholder={type === 'text' ? label : ''}
+          ref={this.props.reference}
+        />
       </div>
     );
   }
