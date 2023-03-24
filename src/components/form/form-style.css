@@ -160,3 +160,12 @@ select::-ms-expand {
   color: white;
   font-size: calc(1rem + 1%);
 }
+
+.confirmation-popup {
+  font-size: calc(1rem + 5%);
+  font-weight: 700;
+}
+
+.error {
+  color: #ff4800;
+}

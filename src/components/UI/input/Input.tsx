@@ -7,6 +7,7 @@ interface InputProps {
   name: string;
   value?: string | File;
   reference?: React.Ref<HTMLInputElement>;
+  error: string;
 }
 
 export class Input extends React.Component<InputProps> {
@@ -15,7 +16,7 @@ export class Input extends React.Component<InputProps> {
   }
 
   render() {
-    const { id, label, type, name, value } = this.props;
+    const { id, label, type, name, value, error } = this.props;
     return (
       <div className={`form-input-wrapper wrapper-${type}`}>
         <label className={`form-${name.toLowerCase()} title`} htmlFor={id}>
@@ -30,6 +31,7 @@ export class Input extends React.Component<InputProps> {
           placeholder={type === 'text' ? label : ''}
           ref={this.props.reference}
         />
+        {this.props.error.length > 0 && <p className="error">{this.props.error}</p>}
       </div>
     );
   }
