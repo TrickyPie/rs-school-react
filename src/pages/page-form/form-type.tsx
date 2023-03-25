@@ -5,7 +5,7 @@ type FormResult = {
   avatar: string;
   region: string;
   promo: string | undefined;
-  sunLvl: string | undefined;
+  dream: string | undefined;
 };
 
 export default FormResult;

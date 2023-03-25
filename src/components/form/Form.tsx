@@ -19,13 +19,15 @@ interface FormProps {
 
 interface FormState {
   showPopup: boolean;
-  firstName: boolean;
-  lastName: boolean;
-  avatar: boolean;
-  birthDate: boolean;
-  select: boolean;
-  checkbox: boolean;
-  radio: boolean;
+  validities: {
+    firstName: boolean;
+    lastName: boolean;
+    avatar: boolean;
+    birthDate: boolean;
+    select: boolean;
+    checkbox: boolean;
+    radio: boolean;
+  };
   error: boolean;
 }
 
@@ -51,92 +53,73 @@ class Form extends React.Component<FormProps, FormState> {
     super(props);
     this.state = {
       showPopup: false,
-      firstName: true,
-      lastName: true,
-      avatar: true,
-      birthDate: true,
-      select: true,
-      checkbox: true,
-      radio: true,
+      validities: {
+        firstName: true,
+        lastName: true,
+        avatar: true,
+        birthDate: true,
+        select: true,
+        checkbox: true,
+        radio: true,
+      },
       error: false,
     };
   }
 
-  private handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  private handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
+    const { firstnameRef, lastnameRef, birthdayRef, avatarRef, selectRef, checkboxRef, radioRefs } =
+      this;
     const result: FormResult = {
-      fName: this.firstnameRef.current?.value ?? '',
-      lName: this.lastnameRef.current?.value ?? '',
-      birthday: this.birthdayRef.current?.value ?? '',
-      avatar: this.avatarRef?.current?.files?.length
-        ? URL.createObjectURL(this.avatarRef?.current?.files[0])
+      fName: firstnameRef.current?.value ?? '',
+      lName: lastnameRef.current?.value ?? '',
+      birthday: birthdayRef.current?.value ?? '',
+      avatar: avatarRef?.current?.files?.length
+        ? URL.createObjectURL(avatarRef?.current?.files[0])
         : '',
-      region: this.selectRef.current?.value ?? '',
-      promo: this.checkboxRef.current?.checked ? this.checkboxRef.current?.name : '',
-      sunLvl: this.radioRefs.find((ref) => ref.current?.checked)?.current?.name,
+      region: selectRef.current?.value ?? '',
+      promo: checkboxRef.current?.checked ? checkboxRef.current.name : '',
+      dream: radioRefs.find((ref) => ref.current?.checked)?.current?.value ?? '',
     };
 
-    this.changeState(result, () => {
-      this.setState(
-        {
-          error: this.validateAll(),
-        },
-        () => {
-          if (this.state.error) {
-            this.props.callback(result);
-            this.showConfirmationPopup();
-            if (this.formRef.current) {
-              this.formRef.current.reset();
-            }
-          }
-        }
-      );
+    this.validateAll(result);
+  };
+
+  public validateAll = (result: FormResult): void => {
+    const validities = {
+      firstName: validateName(result.fName),
+      lastName: validateName(result.lName),
+      avatar: validateFile(this.avatarRef.current?.files?.[0] || null),
+      birthDate: validateDate(result.birthday),
+      select: validateNotEmpty(result.region),
+      checkbox: validateNotEmpty(result.promo || ''),
+      radio: validateNotEmpty(result.dream || ''),
+    };
+    const error: boolean = !Object.values(validities).every((value: boolean): boolean => value);
+
+    this.setState({ validities, error }, (): void => {
+      if (!error) {
+        this.props.callback(result);
+        this.showConfirmationPopup();
+        this.formRef.current?.reset();
+      }
     });
   };
 
-  public changeState = (result: FormResult, callback?: () => void) => {
-    const isFNameValid = validateName(result.fName);
-    const isLNameValid = validateName(result.lName);
-    const isAvatarValid = validateFile(this.avatarRef.current?.files?.[0] || null);
-    const isBirthdayValid = validateDate(result.birthday);
-    const isSelectValid = validateNotEmpty(result.region);
-    const isCheckboxValid = validateNotEmpty(result.promo || '');
-    const isRadioValid = validateNotEmpty(result.sunLvl || '');
-
-    this.setState(
-      {
-        firstName: isFNameValid,
-        lastName: isLNameValid,
-        avatar: isAvatarValid,
-        birthDate: isBirthdayValid,
-        select: isSelectValid,
-        checkbox: isCheckboxValid,
-        radio: isRadioValid,
-      },
-      callback
-    );
-  };
-
-  public validateAll = () => {
-    const valid =
-      this.state.firstName &&
-      this.state.lastName &&
-      this.state.birthDate &&
-      this.state.avatar &&
-      this.state.select &&
-      this.state.checkbox &&
-      this.state.radio;
-    return valid;
-  };
-
-  public showConfirmationPopup = () => {
+  public showConfirmationPopup = (): void => {
     this.setState({ showPopup: true });
   };
 
   public render(): JSX.Element {
     return (
       <>
+        {this.state.showPopup && (
+          <ConfirmationPopup
+            message="Form submitted!"
+            hideOn={() => this.setState({ showPopup: false })}
+          />
+        )}
         <form className="form" onSubmit={this.handleSubmit} ref={this.formRef}>
           {inputsData.map((input, index) => (
             <Input
@@ -146,25 +129,23 @@ class Form extends React.Component<FormProps, FormState> {
               type={input.type}
               name={input.name}
               reference={this.inputsRef[index]}
-              error={this.state[input.name as keyof typeof this.state] ? '' : input.error}
+              error={
+                this.state.validities[input.name as keyof typeof this.state.validities]
+                  ? ''
+                  : input.error
+              }
             />
           ))}
           <Select {...selectData} selectRef={this.selectRef} />
-          {!this.state.select && <p className="error">This field is required.</p>}
+          {!this.state.validities.select && <p className="error">This field is required.</p>}
           <Checkbox {...promoData} checkboxRef={this.checkboxRef} />
-          {!this.state.checkbox && <p className="error">This field is required.</p>}
+          {!this.state.validities.checkbox && <p className="error">This field is required.</p>}
           <Radio {...radioData} radioRefs={this.radioRefs} />
-          {!this.state.radio && (
+          {!this.state.validities.radio && (
             <p className="error">This field is required. Choose only one answer.</p>
           )}
           <SubmitBtn className="form-submit" />
         </form>
-        {this.state.showPopup && (
-          <ConfirmationPopup
-            message="Form submitted successfully!"
-            hideOn={() => this.setState({ showPopup: false })}
-          />
-        )}
       </>
     );
   }
