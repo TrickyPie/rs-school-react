@@ -1,4 +1,12 @@
-const regionOptions = [{ value: 'Lisbon' }, { value: 'Porto' }, { value: 'Algarve' }];
+const regionOptions = [
+  { value: 'Asia' },
+  { value: 'Africa' },
+  { value: 'North America' },
+  { value: 'South America' },
+  { value: 'Antarctica' },
+  { value: 'Europe' },
+  { value: 'Australia' },
+];
 
 const regionSelect = {
   label: 'Choose your region:',

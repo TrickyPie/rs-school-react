@@ -28,6 +28,7 @@ export class Select extends React.Component<SelectProps> {
           {label}
         </label>
         <select className={classNameSelect} name={name} id={name} ref={this.props.selectRef}>
+          <option value="">Select an option</option>
           {options.map((option) => (
             <option key={option.value} className={classNameOption} value={option.value}>
               {option.value}

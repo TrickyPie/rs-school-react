@@ -27,7 +27,7 @@ export class Radio extends React.Component<RadioProps> {
               className={`${className}-input input`}
               type="radio"
               id={option.value}
-              name={name}
+              name={option.label}
               value={option.value}
               ref={radioRefs[index]}
             />

@@ -1,5 +1,17 @@
 .input-cards-container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, max-content);
   gap: 3rem;
+}
+
+@media (max-width: 1300px) {
+  .input-cards-container {
+    grid-template-columns: repeat(2, max-content);
+  }
+}
+
+@media (max-width: 883px) {
+  .input-cards-container {
+    grid-template-columns: 100%;
+  }
 }

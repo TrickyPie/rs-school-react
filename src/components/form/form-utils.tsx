@@ -27,7 +27,7 @@ export function validateFile(file: File | null): boolean {
   return true;
 }
 
-export function validateRadio(name: string): boolean {
+export function validateNotEmpty(name: string): boolean {
   if (name === '') {
     return false;
   }

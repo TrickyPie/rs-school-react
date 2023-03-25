@@ -1,19 +1,19 @@
 const radioData = {
   className: 'form-sunny-lvl',
-  legendTitle: 'How sunny is the window sill?',
+  legendTitle: 'What do you dream about?',
   name: 'sunLvl',
   options: [
     {
-      label: 'little lvl',
-      value: 'littleSunny',
+      label: 'Get enough sleep',
+      value: 'little',
     },
     {
-      label: 'medium lvl',
-      value: 'mediumSunny',
+      label: 'Find a job',
+      value: 'medium',
     },
     {
-      label: 'a lot lvl',
-      value: 'aLotSunny',
+      label: 'Pet the penguin',
+      value: 'a lot',
     },
   ],
 };

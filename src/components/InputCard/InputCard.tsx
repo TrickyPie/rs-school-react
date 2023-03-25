@@ -1,5 +1,6 @@
 import FormResult from '../../pages/page-form/form-type';
 import React from 'react';
+import './input-card-style.css';
 import characteristicsData from 'mock/checkbox-mock';
 
 interface CardProps {
@@ -12,18 +13,33 @@ export class InputCard extends React.Component<CardProps> {
     return (
       <>
         {res.map((item, ind) => (
-          <div key={`input-card${ind}`}>
-            <img className="input-card-avatar" src={item.avatar} />
-            <p className="input-card-name">
-              {item.fName} {item.lName}
+          <div className="input-card" key={`input-card${ind}`}>
+            <div className="input-card-wrapper">
+              <img className="input-card-avatar" src={item.avatar} />
+              <div className="user-info">
+                <p className="input-card-name">
+                  {item.fName} {item.lName}
+                </p>
+                <p className="input-card-birthday">
+                  <span className="input-card-title">Birthday: </span>
+                  {item.birthday}
+                </p>
+                <p className="input-card-region">
+                  <span className="input-card-title">Region: </span>
+                  {item.region}
+                </p>
+              </div>
+            </div>
+
+            <div className="input-card-promo-list">
+              {' '}
+              <span className="input-card-title">You agreed to receive promotional materials.</span>
+            </div>
+
+            <p className="input-card-sunny">
+              <span className="input-card-title">Your dream: </span>
+              {item.sunLvl}
             </p>
-            <p className="input-card-name">Birthday: {item.birthday}</p>
-            <p>Region: {item.region}</p>
-            {item.characteristics.length &&
-              item.characteristics.map((characteristic) => (
-                <p key={characteristic}>{characteristic}</p>
-              ))}
-            <p>{item.sunLvl}</p>
           </div>
         ))}
       </>

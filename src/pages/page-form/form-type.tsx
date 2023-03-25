@@ -4,7 +4,7 @@ type FormResult = {
   birthday: string;
   avatar: string;
   region: string;
-  characteristics: (string | undefined)[];
+  promo: string | undefined;
   sunLvl: string | undefined;
 };
 
