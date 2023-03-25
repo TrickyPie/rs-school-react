@@ -27,6 +27,7 @@ export class Checkbox extends React.Component<CheckboxProps> {
               className={`${className}-input input`}
               type="checkbox"
               id={checkbox.id}
+              name={checkbox.label}
               defaultChecked={checkbox.defaultChecked}
               ref={checkboxRefs[index]}
             />

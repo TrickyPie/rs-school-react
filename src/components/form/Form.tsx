@@ -11,7 +11,7 @@ import characteristicsData from '../../mock/checkbox-mock';
 import radioData from '../../mock/radio-mock';
 import FormResult from '../../pages/page-form/form-type';
 import { ConfirmationPopup } from '../../components/confirmationPopup/ConfirmationPopup';
-import { validateName, validateDate, validateFile } from './form-utils';
+import { validateName, validateDate, validateFile, validateRadio } from './form-utils';
 
 interface FormProps {
   callback: (result: FormResult) => void;
@@ -23,7 +23,6 @@ interface FormState {
   lastName: boolean;
   avatar: boolean;
   birthDate: boolean;
-  checkbox: boolean;
   radio: boolean;
   error: boolean;
 }
@@ -33,12 +32,6 @@ class Form extends React.Component<FormProps, FormState> {
   private lastnameRef: React.RefObject<HTMLInputElement> = createRef();
   private birthdayRef: React.RefObject<HTMLInputElement> = createRef();
   private avatarRef: React.RefObject<HTMLInputElement> = createRef();
-  private inputsRef: React.RefObject<HTMLInputElement>[] = [
-    this.firstnameRef,
-    this.lastnameRef,
-    this.avatarRef,
-    this.birthdayRef,
-  ];
   private selectRef: React.RefObject<HTMLSelectElement> = createRef();
   private checkboxRefs: React.RefObject<HTMLInputElement>[] = characteristicsData.checkboxData.map(
     () => React.createRef()
@@ -46,6 +39,12 @@ class Form extends React.Component<FormProps, FormState> {
   private radioRefs: React.RefObject<HTMLInputElement>[] = radioData.options.map(() =>
     React.createRef()
   );
+  private inputsRef: React.RefObject<HTMLInputElement>[] = [
+    this.firstnameRef,
+    this.lastnameRef,
+    this.avatarRef,
+    this.birthdayRef,
+  ];
 
   constructor(props: FormProps) {
     super(props);
@@ -55,7 +54,6 @@ class Form extends React.Component<FormProps, FormState> {
       lastName: true,
       avatar: true,
       birthDate: true,
-      checkbox: true,
       radio: true,
       error: false,
     };
@@ -66,7 +64,7 @@ class Form extends React.Component<FormProps, FormState> {
 
     const selectedCheckboxes: (string | undefined)[] = this.checkboxRefs
       .filter((ref: React.RefObject<HTMLInputElement>): boolean | undefined => ref.current?.checked)
-      .map((ref: React.RefObject<HTMLInputElement>): string | undefined => ref.current?.id);
+      .map((ref: React.RefObject<HTMLInputElement>): string | undefined => ref.current?.name);
 
     const selectedRadioId: string | undefined = this.radioRefs.find((ref) => ref.current?.checked)
       ?.current?.id;
@@ -75,17 +73,26 @@ class Form extends React.Component<FormProps, FormState> {
       fName: this.firstnameRef.current?.value ?? '',
       lName: this.lastnameRef.current?.value ?? '',
       birthday: this.birthdayRef.current?.value ?? '',
-      avatar: this.avatarRef.current?.value ?? '',
+      avatar: this.avatarRef?.current?.files?.length
+        ? URL.createObjectURL(this.avatarRef?.current?.files[0])
+        : '',
       region: this.selectRef.current?.value ?? '',
       characteristics: selectedCheckboxes ?? '',
       sunLvl: selectedRadioId,
     };
+
     this.changeState(result, () => {
-      const errors = this.validateAll();
-      if (this.state.error) {
-        this.props.callback(result);
-        this.showConfirmationPopup();
-      }
+      this.setState(
+        {
+          error: this.validateAll(),
+        },
+        () => {
+          if (this.state.error) {
+            this.props.callback(result);
+            this.showConfirmationPopup();
+          }
+        }
+      );
     });
   };
 
@@ -94,14 +101,15 @@ class Form extends React.Component<FormProps, FormState> {
     const isLNameValid = validateName(result.lName);
     const isAvatarValid = validateFile(this.avatarRef.current?.files?.[0] || null);
     const isBirthdayValid = validateDate(result.birthday);
+    const isRadioValid = validateRadio(result.sunLvl || '');
 
     this.setState(
       {
         firstName: isFNameValid,
         lastName: isLNameValid,
-
         avatar: isAvatarValid,
         birthDate: isBirthdayValid,
+        radio: isRadioValid,
       },
       callback
     );
@@ -109,11 +117,12 @@ class Form extends React.Component<FormProps, FormState> {
 
   public validateAll = () => {
     const valid =
-      this.state.firstName && this.state.lastName && this.state.birthDate && this.state.avatar;
-    console.log(this.state.firstName, this.state.lastName, this.state.birthDate, this.state.avatar);
-    this.setState({
-      error: valid,
-    });
+      this.state.firstName &&
+      this.state.lastName &&
+      this.state.birthDate &&
+      this.state.avatar &&
+      this.state.radio;
+    return valid;
   };
 
   public showConfirmationPopup = () => {
@@ -138,7 +147,9 @@ class Form extends React.Component<FormProps, FormState> {
           <Select {...selectData} selectRef={this.selectRef} />
           <Checkbox {...characteristicsData} checkboxRefs={this.checkboxRefs} />
           <Radio {...radioData} radioRefs={this.radioRefs} />
-
+          {!this.state.radio && (
+            <p className="error">This field is required. Choose only one answer.</p>
+          )}
           <SubmitBtn className="form-submit" />
         </form>
         {this.state.showPopup && (

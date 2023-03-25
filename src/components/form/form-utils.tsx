@@ -1,4 +1,4 @@
-import FormResult from 'pages/page-form/form-type';
+import React from 'react';
 
 export type error = {
   id: string;
@@ -22,6 +22,13 @@ export function validateDate(date: string): boolean {
 export function validateFile(file: File | null): boolean {
   const allowedTypes = ['image/jpeg', 'image/png'];
   if (!file || !allowedTypes.includes(file.type)) {
+    return false;
+  }
+  return true;
+}
+
+export function validateRadio(name: string): boolean {
+  if (name === '') {
     return false;
   }
   return true;
