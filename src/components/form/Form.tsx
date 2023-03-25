@@ -11,7 +11,13 @@ import promoData from '../../mock/checkbox-mock';
 import radioData from '../../mock/radio-mock';
 import FormResult from '../../pages/page-form/form-type';
 import { ConfirmationPopup } from '../../components/confirmationPopup/ConfirmationPopup';
-import { validateName, validateDate, validateFile, validateNotEmpty } from './form-utils';
+import {
+  validateName,
+  validateDate,
+  validateFile,
+  validateNotEmpty,
+  validateAll,
+} from './form-utils';
 
 interface FormProps {
   callback: (result: FormResult) => void;
@@ -83,20 +89,12 @@ class Form extends React.Component<FormProps, FormState> {
       dream: radioRefs.find((ref) => ref.current?.checked)?.current?.value ?? '',
     };
 
-    this.validateAll(result);
+    this.validate(result);
   };
 
-  public validateAll = (result: FormResult): void => {
-    const validities = {
-      firstName: validateName(result.fName),
-      lastName: validateName(result.lName),
-      avatar: validateFile(this.avatarRef.current?.files?.[0] || null),
-      birthDate: validateDate(result.birthday),
-      select: validateNotEmpty(result.region),
-      checkbox: validateNotEmpty(result.promo || ''),
-      radio: validateNotEmpty(result.dream || ''),
-    };
-    const error: boolean = !Object.values(validities).every((value: boolean): boolean => value);
+  public validate = (result: FormResult): void => {
+    const avatarData = this.avatarRef.current?.files?.[0] || null;
+    const { validities, error } = validateAll(result, avatarData);
 
     this.setState({ validities, error }, (): void => {
       if (!error) {

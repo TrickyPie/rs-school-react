@@ -1,3 +1,4 @@
+import FormResult from 'pages/page-form/form-type';
 import React from 'react';
 
 export type error = {
@@ -5,6 +6,20 @@ export type error = {
   error: string;
   validate: boolean;
 };
+
+export function validateAll(result: FormResult, file: File | null) {
+  const validities = {
+    firstName: validateName(result.fName),
+    lastName: validateName(result.lName),
+    avatar: validateFile(file || null),
+    birthDate: validateDate(result.birthday),
+    select: validateNotEmpty(result.region),
+    checkbox: validateNotEmpty(result.promo || ''),
+    radio: validateNotEmpty(result.dream || ''),
+  };
+  const error: boolean = !Object.values(validities).every((value: boolean): boolean => value);
+  return { validities, error };
+}
 
 export function validateName(name: string): boolean {
   if (name === '' || name.length < 3 || name.charAt(0) !== name.charAt(0).toUpperCase()) {
