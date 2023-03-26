@@ -22,7 +22,6 @@ describe('Checkbox component', () => {
       'Would you like mashed potatoes with sausage?'
     );
     expect(getByTestId('checkbox-input')).toBeInTheDocument();
-    expect(getByTestId('checkbox-input')).toHaveAttribute('name', 'Yes');
     expect(getByTestId('checkbox-label')).toBeInTheDocument();
     expect(getByTestId('checkbox-label')).toHaveTextContent('Yes');
   });

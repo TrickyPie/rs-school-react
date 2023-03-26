@@ -26,7 +26,7 @@ describe('Select component', () => {
     expect(optionElements[3]).toHaveTextContent('Penguin 3');
   });
 
-  it('uses the provided selectRef', () => {
+  it('uses the ref', () => {
     const { getByLabelText } = render(<Select {...props} />);
     const selectElement = getByLabelText('Super label') as HTMLSelectElement;
     expect(selectElement).toEqual(props.selectRef.current);
