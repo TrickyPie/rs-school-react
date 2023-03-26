@@ -14,7 +14,7 @@ interface CheckboxProps {
 }
 
 export class Checkbox extends React.Component<CheckboxProps> {
-  render() {
+  render(): JSX.Element {
     const { className, id, checkboxData, legendTitle, checkboxRef } = this.props;
 
     return (

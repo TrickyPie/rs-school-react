@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React from 'react';
 
 interface InputProps {
   id: string;
@@ -11,11 +11,7 @@ interface InputProps {
 }
 
 export class Input extends React.Component<InputProps> {
-  constructor(props: InputProps) {
-    super(props);
-  }
-
-  render() {
+  render(): JSX.Element {
     const { id, label, type, name, value, error } = this.props;
     return (
       <div className={`form-input-wrapper wrapper-${type}`}>
@@ -31,7 +27,7 @@ export class Input extends React.Component<InputProps> {
           placeholder={type === 'text' ? label : ''}
           ref={this.props.reference}
         />
-        {this.props.error.length > 0 && <p className="error">{this.props.error}</p>}
+        {this.props.error.length > 0 && <p className="error">{error}</p>}
       </div>
     );
   }

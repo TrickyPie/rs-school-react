@@ -1,23 +1,15 @@
-import { SubmitBtn } from '../../components/UI/submitBtn/SubmitBtn';
-import React, { createRef } from 'react';
 import './form-style.css';
-import inputsData from '../../mock/inputs-mock';
-import selectData from '../../mock/select-mock';
-import { Select } from '../../components/UI/select/Select';
+import React, { createRef } from 'react';
 import { Input } from '../../components/UI/input/Input';
+import { Select } from '../../components/UI/select/Select';
 import { Checkbox } from '../../components/UI/checkbox/Checkbox';
 import { Radio } from '../../components/UI/radioBtn/Radio';
-import promoData from '../../mock/checkbox-mock';
-import radioData from '../../mock/radio-mock';
+import { SubmitBtn } from '../../components/UI/submitBtn/SubmitBtn';
 import FormResult from '../../pages/page-form/form-type';
 import { ConfirmationPopup } from '../../components/confirmationPopup/ConfirmationPopup';
-import {
-  validateName,
-  validateDate,
-  validateFile,
-  validateNotEmpty,
-  validateAll,
-} from './form-utils';
+import { getInitial, validateAll } from './form-utils';
+import { formData } from '../../mock/form-data';
+const { promoData, inputsData, radioData, selectData } = formData;
 
 interface FormProps {
   callback: (result: FormResult) => void;
@@ -25,15 +17,7 @@ interface FormProps {
 
 interface FormState {
   showPopup: boolean;
-  validities: {
-    firstName: boolean;
-    lastName: boolean;
-    avatar: boolean;
-    birthDate: boolean;
-    select: boolean;
-    checkbox: boolean;
-    radio: boolean;
-  };
+  validities: Record<string, boolean>;
   error: boolean;
 }
 
@@ -48,6 +32,7 @@ class Form extends React.Component<FormProps, FormState> {
   private radioRefs: React.RefObject<HTMLInputElement>[] = radioData.options.map(() =>
     React.createRef()
   );
+
   private inputsRef: React.RefObject<HTMLInputElement>[] = [
     this.firstnameRef,
     this.lastnameRef,
@@ -59,15 +44,7 @@ class Form extends React.Component<FormProps, FormState> {
     super(props);
     this.state = {
       showPopup: false,
-      validities: {
-        firstName: true,
-        lastName: true,
-        avatar: true,
-        birthDate: true,
-        select: true,
-        checkbox: true,
-        radio: true,
-      },
+      validities: getInitial(),
       error: false,
     };
   }
@@ -75,25 +52,23 @@ class Form extends React.Component<FormProps, FormState> {
   private handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
 
-    const { firstnameRef, lastnameRef, birthdayRef, avatarRef, selectRef, checkboxRef, radioRefs } =
-      this;
     const result: FormResult = {
-      fName: firstnameRef.current?.value ?? '',
-      lName: lastnameRef.current?.value ?? '',
-      birthday: birthdayRef.current?.value ?? '',
-      avatar: avatarRef?.current?.files?.length
-        ? URL.createObjectURL(avatarRef?.current?.files[0])
+      fName: this.firstnameRef.current?.value ?? '',
+      lName: this.lastnameRef.current?.value ?? '',
+      birthday: this.birthdayRef.current?.value ?? '',
+      avatar: this.avatarRef?.current?.files?.length
+        ? URL.createObjectURL(this.avatarRef?.current?.files[0])
         : '',
-      region: selectRef.current?.value ?? '',
-      promo: checkboxRef.current?.checked ? checkboxRef.current.name : '',
-      dream: radioRefs.find((ref) => ref.current?.checked)?.current?.value ?? '',
+      region: this.selectRef.current?.value ?? '',
+      promo: this.checkboxRef.current?.checked ? this.checkboxRef.current.name : '',
+      dream: this.radioRefs.find((ref) => ref.current?.checked)?.current?.value ?? '',
     };
 
     this.validate(result);
   };
 
   public validate = (result: FormResult): void => {
-    const avatarData = this.avatarRef.current?.files?.[0] || null;
+    const avatarData: File | null = this.avatarRef.current?.files?.[0] || null;
     const { validities, error } = validateAll(result, avatarData);
 
     this.setState({ validities, error }, (): void => {
@@ -115,9 +90,10 @@ class Form extends React.Component<FormProps, FormState> {
         {this.state.showPopup && (
           <ConfirmationPopup
             message="Form submitted!"
-            hideOn={() => this.setState({ showPopup: false })}
+            hideOn={(): void => this.setState({ showPopup: false })}
           />
         )}
+
         <form className="form" onSubmit={this.handleSubmit} ref={this.formRef}>
           {inputsData.map((input, index) => (
             <Input
@@ -134,14 +110,18 @@ class Form extends React.Component<FormProps, FormState> {
               }
             />
           ))}
+
           <Select {...selectData} selectRef={this.selectRef} />
           {!this.state.validities.select && <p className="error">This field is required.</p>}
+
           <Checkbox {...promoData} checkboxRef={this.checkboxRef} />
           {!this.state.validities.checkbox && <p className="error">This field is required.</p>}
+
           <Radio {...radioData} radioRefs={this.radioRefs} />
           {!this.state.validities.radio && (
             <p className="error">This field is required. Choose only one answer.</p>
           )}
+
           <SubmitBtn className="form-submit" />
         </form>
       </>

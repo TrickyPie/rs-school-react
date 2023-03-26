@@ -8,7 +8,7 @@ const regionOptions = [
   { value: 'Australia' },
 ];
 
-const regionSelect = {
+const selectData = {
   label: 'Choose your region:',
   name: 'region',
   options: regionOptions,
@@ -18,4 +18,4 @@ const regionSelect = {
   classNameOption: 'form-region-option text',
 };
 
-export default regionSelect;
+export default selectData;

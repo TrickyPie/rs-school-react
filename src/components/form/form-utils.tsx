@@ -1,5 +1,5 @@
-import FormResult from 'pages/page-form/form-type';
-import React from 'react';
+import inputsData from '../../mock/inputs-mock';
+import FormResult from '../../pages/page-form/form-type';
 
 export type error = {
   id: string;
@@ -48,3 +48,12 @@ export function validateNotEmpty(name: string): boolean {
   }
   return true;
 }
+
+export const getInitial = (): Record<string, boolean> => {
+  const initialValidities: Record<string, boolean> = {};
+  inputsData.forEach((input) => (initialValidities[input.name] = true));
+  initialValidities.select = true;
+  initialValidities.checkbox = true;
+  initialValidities.radio = true;
+  return initialValidities;
+};

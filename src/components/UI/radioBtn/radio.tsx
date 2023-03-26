@@ -14,29 +14,33 @@ interface RadioProps {
 }
 
 export class Radio extends React.Component<RadioProps> {
-  render() {
+  render(): JSX.Element {
     const { className, legendTitle, name, options, radioRefs } = this.props;
-
     return (
-      <fieldset className={className}>
-        <legend className={`${className}-title title`}>{legendTitle}</legend>
-
-        {options.map((option, index) => (
-          <div className={`${className}-text-wrapper`} key={option.value}>
-            <input
-              className={`${className}-input input`}
-              type="radio"
-              id={option.value}
-              name={name}
-              value={option.label}
-              ref={radioRefs[index]}
-            />
-            <label className={`${className}-text text`} htmlFor={option.value}>
-              {option.label}
-            </label>
-          </div>
-        ))}
-      </fieldset>
+      <>
+        <fieldset className={className}>
+          <legend className={`${className}-title title`}>{legendTitle}</legend>
+          {options.map(
+            (option: RadioBtn, index: number): JSX.Element => (
+              <div className={`${className}-text-wrapper`} key={option.value}>
+                <input
+                  className={`${className}-input input`}
+                  type="radio"
+                  id={option.value}
+                  name={name}
+                  value={option.label}
+                  ref={radioRefs[index]}
+                />
+                <label className={`${className}-text text`} htmlFor={option.value}>
+                  {option.label}
+                </label>
+              </div>
+            )
+          )}
+        </fieldset>
+      </>
     );
   }
 }
+
+export default Radio;
