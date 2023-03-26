@@ -14,7 +14,7 @@ export default defineConfig({
     css: true,
     coverage: {
       include: ['src/**/*'],
-      exclude: ['src/assets/*', 'src/main.tsx'],
+      exclude: ['src/assets/*', 'src/main.tsx', 'src/vite-env.d.ts', 'src/mock'],
       enabled: true,
       reporter: ['text'],
       all: true,

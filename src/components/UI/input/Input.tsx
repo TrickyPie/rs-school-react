@@ -12,7 +12,7 @@ interface InputProps {
 
 export class Input extends React.Component<InputProps> {
   render(): JSX.Element {
-    const { id, label, type, name, value, error } = this.props;
+    const { id, label, type, name, value, error, reference } = this.props;
     return (
       <div className={`form-input-wrapper wrapper-${type}`}>
         <label className={`form-${name.toLowerCase()} title`} htmlFor={id}>
@@ -25,9 +25,9 @@ export class Input extends React.Component<InputProps> {
           name={name}
           value={type === 'text' ? (value as string) : undefined}
           placeholder={type === 'text' ? label : ''}
-          ref={this.props.reference}
+          ref={reference}
         />
-        {this.props.error.length > 0 && <p className="error">{error}</p>}
+        {error && <p className="error">{error}</p>}
       </div>
     );
   }
