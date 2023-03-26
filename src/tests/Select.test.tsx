@@ -8,6 +8,7 @@ describe('Select component', () => {
     label: 'Super label',
     name: 'test-name',
     options: options,
+    selectRef: React.createRef<HTMLSelectElement>(),
   };
 
   it('renders the label correctly', () => {
@@ -23,5 +24,11 @@ describe('Select component', () => {
     expect(optionElements[1]).toHaveTextContent('Penguin 1');
     expect(optionElements[2]).toHaveTextContent('Penguin 2');
     expect(optionElements[3]).toHaveTextContent('Penguin 3');
+  });
+
+  it('uses the provided selectRef', () => {
+    const { getByLabelText } = render(<Select {...props} />);
+    const selectElement = getByLabelText('Super label') as HTMLSelectElement;
+    expect(selectElement).toEqual(props.selectRef.current);
   });
 });
