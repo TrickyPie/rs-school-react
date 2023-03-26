@@ -18,8 +18,14 @@ export class Checkbox extends React.Component<CheckboxProps> {
     const { className, id, checkboxData, legendTitle, checkboxRef } = this.props;
 
     return (
-      <fieldset className={`${className}-fieldset`} id={`${id}-fieldset`}>
-        <legend className={`${className}-legend title`}>{legendTitle}</legend>
+      <fieldset
+        className={`${className}-fieldset`}
+        id={`${id}-fieldset`}
+        data-testid="checkbox-fieldset"
+      >
+        <legend className={`${className}-legend title`} data-testid="checkbox-legend">
+          {legendTitle}
+        </legend>
 
         <div className={`${className}-wrapper`}>
           <input
@@ -28,8 +34,9 @@ export class Checkbox extends React.Component<CheckboxProps> {
             id={id}
             name={checkboxData.label}
             ref={checkboxRef}
+            data-testid="checkbox-input"
           />
-          <label className={`${className}-text text`} htmlFor={id}>
+          <label className={`${className}-text text`} htmlFor={id} data-testid="checkbox-label">
             {checkboxData.label}
           </label>
         </div>

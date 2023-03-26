@@ -19,7 +19,9 @@ export class Radio extends React.Component<RadioProps> {
     return (
       <>
         <fieldset className={className}>
-          <legend className={`${className}-title title`}>{legendTitle}</legend>
+          <legend className={`${className}-title title`} data-testid="legend">
+            {legendTitle}
+          </legend>
           {options.map(
             (option: RadioBtn, index: number): JSX.Element => (
               <div className={`${className}-text-wrapper`} key={option.value}>
