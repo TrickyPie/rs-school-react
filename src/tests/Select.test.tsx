@@ -11,24 +11,17 @@ describe('Select component', () => {
     selectRef: React.createRef<HTMLSelectElement>(),
   };
 
-  it('renders the label correctly', () => {
-    const { getByText } = render(<Select {...props} />);
-    expect(getByText('Super label')).toBeInTheDocument();
-  });
-
-  it('renders the options correctly', () => {
-    const { getAllByRole } = render(<Select {...props} />);
-    const optionElements = getAllByRole('option');
+  it('renders the select correctly', () => {
+    const { getByLabelText } = render(<Select {...props} />);
+    const selectElement = getByLabelText('Super label') as HTMLSelectElement;
+    expect(selectElement).toEqual(props.selectRef.current);
+    expect(selectElement).toBeInTheDocument();
+    expect(selectElement.getAttribute('name')).toBe('test-name');
+    const optionElements = selectElement.querySelectorAll('option');
     expect(optionElements).toHaveLength(4);
     expect(optionElements[0]).toHaveTextContent('Select an option');
     expect(optionElements[1]).toHaveTextContent('Penguin 1');
     expect(optionElements[2]).toHaveTextContent('Penguin 2');
     expect(optionElements[3]).toHaveTextContent('Penguin 3');
-  });
-
-  it('uses the ref', () => {
-    const { getByLabelText } = render(<Select {...props} />);
-    const selectElement = getByLabelText('Super label') as HTMLSelectElement;
-    expect(selectElement).toEqual(props.selectRef.current);
   });
 });
