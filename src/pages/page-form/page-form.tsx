@@ -1,8 +1,8 @@
-import Form from '../../components/form/Form';
 import React from 'react';
-import { InputCard } from '../../components/InputCard/InputCard';
-import FormResult from './form-type';
 import './page-form-style.css';
+import FormResult from './form-type';
+import Form from '../../components/form/Form';
+import { InputCard } from '../../components/InputCard/InputCard';
 
 type FormPageProps = unknown;
 

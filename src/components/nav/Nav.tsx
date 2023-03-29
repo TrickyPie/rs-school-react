@@ -1,26 +1,21 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { NavigationLinks } from './nav-type';
 
-export class Nav extends React.Component {
-  private home = 'Home';
-  private about = 'About us';
-  private form = 'Form';
-
-  render() {
-    return (
-      <nav className="navigation">
-        <ul className="navigation-list">
-          <li className="navigation-item">
-            <NavLink to="/">{this.home}</NavLink>
-          </li>
-          <li className="navigation-item">
-            <NavLink to="/about-us">{this.about}</NavLink>
-          </li>
-          <li className="navigation-item">
-            <NavLink to="/form">{this.form}</NavLink>
-          </li>
-        </ul>
-      </nav>
-    );
-  }
-}
+export const Nav = () => {
+  return (
+    <nav className="navigation">
+      <ul className="navigation-list">
+        <li className="navigation-item">
+          <NavLink to="/">{NavigationLinks.HOME}</NavLink>
+        </li>
+        <li className="navigation-item">
+          <NavLink to="/about-us">{NavigationLinks.ABOUT}</NavLink>
+        </li>
+        <li className="navigation-item">
+          <NavLink to="/form">{NavigationLinks.FORM}</NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+};
