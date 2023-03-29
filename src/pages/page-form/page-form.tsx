@@ -4,26 +4,20 @@ import { InputCard } from '../../components/InputCard/InputCard';
 import FormResult from './form-type';
 import './page-form-style.css';
 
-type FormPageProps = {};
-
 type FormPageState = {
   data: FormResult[];
 };
 
-class FormPage extends React.Component<FormPageProps, FormPageState> {
-  constructor(props: FormPageProps) {
-    super(props);
-    this.state = {
-      data: [],
-    };
-    this.updateState = this.updateState.bind(this);
-  }
+class FormPage extends React.Component<never, FormPageState> {
+  state = {
+    data: [],
+  };
 
-  public updateState(newData: FormResult): void {
+  public updateState = (newData: FormResult): void => {
     this.setState((prevState: Readonly<FormPageState>): { data: FormResult[] } => ({
       data: [...prevState.data, newData],
     }));
-  }
+  };
 
   render(): JSX.Element {
     return (

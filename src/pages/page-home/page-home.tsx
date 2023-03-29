@@ -5,7 +5,7 @@ import cardData from '../../mock/mock';
 import './page-home-style.css';
 
 class MainPage extends React.Component {
-  render(): JSX.Element {
+  render() {
     return (
       <>
         {<Search />}

@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Checkbox } from '../components/UI/checkbox/Checkbox';
 
 import React from 'react';
