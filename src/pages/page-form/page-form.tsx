@@ -4,11 +4,13 @@ import { InputCard } from '../../components/InputCard/InputCard';
 import FormResult from './form-type';
 import './page-form-style.css';
 
+type FormPageProps = unknown;
+
 type FormPageState = {
   data: FormResult[];
 };
 
-class FormPage extends React.Component<never, FormPageState> {
+export class FormPage extends React.Component<FormPageProps, FormPageState> {
   state = {
     data: [],
   };
@@ -30,5 +32,3 @@ class FormPage extends React.Component<never, FormPageState> {
     );
   }
 }
-
-export default FormPage;
