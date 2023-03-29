@@ -17,7 +17,7 @@ export function validateAll(result: FormResult, file: File | null) {
     checkbox: validateNotEmpty(result.promo || ''),
     radio: validateNotEmpty(result.dream || ''),
   };
-  const error: boolean = !Object.values(validities).every((value: boolean): boolean => value);
+  const error = !Object.values(validities).every((value: boolean): boolean => value);
   return { validities, error };
 }
 

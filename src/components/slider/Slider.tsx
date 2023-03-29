@@ -1,54 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './slider-style.css';
 
 type props = {
   image: string[];
 };
 
-type state = {
-  currentIndex: number;
-};
+export const Slider = (props: props) => {
+  const { image } = props;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-export class Slider extends React.Component<props, state> {
-  private timerID?: number;
-
-  public state: state = {
-    currentIndex: 0,
-  };
-
-  public componentDidMount(): void {
-    this.timerID = window.setInterval((): void => {
-      this.setState((prevState: Readonly<state>): { currentIndex: number } => ({
-        currentIndex: (prevState.currentIndex + 1) % this.props.image.length,
-      }));
+  useEffect(() => {
+    const timerID = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % image.length);
     }, 3000);
-  }
 
-  public componentWillUnmount(): void {
-    if (this.timerID) {
-      clearInterval(this.timerID);
-    }
-  }
+    return () => clearInterval(timerID);
+  }, [image.length]);
 
-  public render(): JSX.Element {
-    const { image }: props = this.props;
-    const { currentIndex }: state = this.state;
-
-    return (
-      <div className="slider">
-        <img
-          src={image[currentIndex]}
-          alt="Plant Image"
-          className="slider-image active-image"
-          data-testid="slider-test"
-        />
-        <img
-          src={image[(currentIndex + 1) % image.length]}
-          alt="Plant Image"
-          className="slider-image not-active"
-          data-testid="slider-test"
-        />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="slider">
+      <img
+        src={image[currentIndex]}
+        alt="Plant Image"
+        className="slider-image active-image"
+        data-testid="slider-test"
+      />
+      <img
+        src={image[(currentIndex + 1) % image.length]}
+        alt="Plant Image"
+        className="slider-image not-active"
+        data-testid="slider-test"
+      />
+    </div>
+  );
+};

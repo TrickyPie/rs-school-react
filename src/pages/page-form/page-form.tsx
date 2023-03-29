@@ -4,7 +4,7 @@ import { InputCard } from '../../components/InputCard/InputCard';
 import FormResult from './form-type';
 import './page-form-style.css';
 
-type FormPageProps = {};
+type FormPageProps = unknown;
 
 type FormPageState = {
   data: FormResult[];
