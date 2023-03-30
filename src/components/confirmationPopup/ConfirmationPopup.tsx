@@ -1,46 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 type ConfirmationPopupProps = {
   message: string;
   hideOn: () => void;
 };
 
-interface ConfirmationPopupState {
-  isVisible: boolean;
-}
+export const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ message, hideOn }) => {
+  const [isVisible, setIsVisible] = useState(true);
 
-export class ConfirmationPopup extends React.Component<
-  ConfirmationPopupProps,
-  ConfirmationPopupState
-> {
-  private timeoutId: NodeJS.Timeout | undefined;
-
-  constructor(props: ConfirmationPopupProps) {
-    super(props);
-    this.state = {
-      isVisible: true,
-    };
-  }
-
-  public componentDidMount() {
-    this.timeoutId = setTimeout(() => {
-      this.hide();
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      hide();
     }, 3000);
-  }
 
-  public componentWillUnmount() {
-    clearTimeout(this.timeoutId);
-  }
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  });
 
-  public hide = () => {
-    this.setState({ isVisible: false });
-    this.props.hideOn();
+  const hide = () => {
+    setIsVisible(false);
+    hideOn();
   };
 
-  public render() {
-    const { message } = this.props;
-    const { isVisible } = this.state;
-
-    return <>{isVisible && <div className="confirmation-popup">{message}</div>}</>;
-  }
-}
+  return <>{isVisible && <div className="confirmation-popup">{message}</div>}</>;
+};

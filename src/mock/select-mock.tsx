@@ -1,4 +1,4 @@
-const regionOptions = [
+/* const regionOptions = [
   { value: 'Asia' },
   { value: 'Africa' },
   { value: 'North America' },
@@ -19,3 +19,4 @@ const selectData = {
 };
 
 export default selectData;
+ */

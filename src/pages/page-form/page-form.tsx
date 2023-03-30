@@ -1,40 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './page-form-style.css';
 import FormResult from './form-type';
-import Form from '../../components/form/Form';
 import { InputCard } from '../../components/InputCard/InputCard';
+import { CustomForm } from '../../components/form/Form';
 
-type FormPageProps = unknown;
+export const FormPage = () => {
+  const [data, setData] = useState<FormResult[]>([]);
 
-type FormPageState = {
-  data: FormResult[];
+  const updateState = (newData: FormResult): void => {
+    setData((prevState) => [...prevState, newData]);
+    console.log(newData);
+  };
+
+  return (
+    <>
+      <CustomForm callback={updateState} />
+      <div className="input-cards-container">
+        <InputCard res={data} />
+      </div>
+    </>
+  );
 };
-
-class FormPage extends React.Component<FormPageProps, FormPageState> {
-  constructor(props: FormPageProps) {
-    super(props);
-    this.state = {
-      data: [],
-    };
-    this.updateState = this.updateState.bind(this);
-  }
-
-  public updateState(newData: FormResult): void {
-    this.setState((prevState: Readonly<FormPageState>): { data: FormResult[] } => ({
-      data: [...prevState.data, newData],
-    }));
-  }
-
-  render(): JSX.Element {
-    return (
-      <>
-        <Form callback={this.updateState} />
-        <div className="input-cards-container">
-          <InputCard res={this.state.data} />
-        </div>
-      </>
-    );
-  }
-}
-
-export default FormPage;

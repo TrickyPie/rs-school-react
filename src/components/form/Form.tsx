@@ -1,132 +1,123 @@
 import './form-style.css';
-import React, { createRef } from 'react';
-import { Input } from '../../components/UI/input/Input';
+import { useForm } from 'react-hook-form';
+import React from 'react';
 import { Select } from '../../components/UI/select/Select';
 import { Checkbox } from '../../components/UI/checkbox/Checkbox';
 import { Radio } from '../../components/UI/radioBtn/Radio';
-import { SubmitBtn } from '../../components/UI/submitBtn/SubmitBtn';
 import FormResult from '../../pages/page-form/form-type';
 import { ConfirmationPopup } from '../../components/confirmationPopup/ConfirmationPopup';
-import { getInitial, validateAll } from './form-utils';
-import { formData } from '../../mock/form-data';
-const { promoData, inputsData, radioData, selectData } = formData;
 
 interface FormProps {
-  callback: (result: FormResult) => void;
+  callback: (data: FormResult) => void;
 }
 
-interface FormState {
-  showPopup: boolean;
-  validities: Record<string, boolean>;
-  error: boolean;
-}
+export const CustomForm: React.FC<FormProps> = ({ callback }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    clearErrors,
+  } = useForm<FormResult>({
+    mode: 'onSubmit',
+    reValidateMode: 'onSubmit',
+  });
 
-class Form extends React.Component<FormProps, FormState> {
-  private formRef: React.RefObject<HTMLFormElement> = React.createRef();
-  private firstnameRef: React.RefObject<HTMLInputElement> = createRef();
-  private lastnameRef: React.RefObject<HTMLInputElement> = createRef();
-  private birthdayRef: React.RefObject<HTMLInputElement> = createRef();
-  private avatarRef: React.RefObject<HTMLInputElement> = createRef();
-  private selectRef: React.RefObject<HTMLSelectElement> = createRef();
-  private checkboxRef: React.RefObject<HTMLInputElement> = createRef();
-  private radioRefs: React.RefObject<HTMLInputElement>[] = radioData.options.map(() =>
-    React.createRef()
-  );
-
-  private inputsRef: React.RefObject<HTMLInputElement>[] = [
-    this.firstnameRef,
-    this.lastnameRef,
-    this.avatarRef,
-    this.birthdayRef,
-  ];
-
-  constructor(props: FormProps) {
-    super(props);
-    this.state = {
-      showPopup: false,
-      validities: getInitial(),
-      error: false,
-    };
-  }
-
-  private handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
-    event.preventDefault();
-
-    const result: FormResult = {
-      fName: this.firstnameRef.current?.value ?? '',
-      lName: this.lastnameRef.current?.value ?? '',
-      birthday: this.birthdayRef.current?.value ?? '',
-      avatar: this.avatarRef?.current?.files?.length
-        ? URL.createObjectURL(this.avatarRef?.current?.files[0])
-        : '',
-      region: this.selectRef.current?.value ?? '',
-      promo: this.checkboxRef.current?.checked ? this.checkboxRef.current.name : '',
-      dream: this.radioRefs.find((ref) => ref.current?.checked)?.current?.value ?? '',
-    };
-
-    this.validate(result);
+  const onSubmit = (data: FormResult) => {
+    if (typeof callback === 'function') {
+      callback(data);
+      clearErrors();
+    }
+    console.log(data);
   };
 
-  public validate = (result: FormResult): void => {
-    const avatarData: File | null = this.avatarRef.current?.files?.[0] || null;
-    const { validities, error } = validateAll(result, avatarData);
-
-    this.setState({ validities, error }, (): void => {
-      if (!error) {
-        this.props.callback(result);
-        this.showConfirmationPopup();
-        this.formRef.current?.reset();
-      }
-    });
-  };
-
-  public showConfirmationPopup = (): void => {
-    this.setState({ showPopup: true });
-  };
-
-  public render(): JSX.Element {
-    return (
-      <>
-        {this.state.showPopup && (
-          <ConfirmationPopup
-            message="Form submitted!"
-            hideOn={(): void => this.setState({ showPopup: false })}
+  return (
+    <>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+        <div className="form-firstname-wrapper form-input-wrapper wrapper-text">
+          <label className="form-fName title" htmlFor="fName">
+            First Name:
+          </label>
+          <input
+            id="fName"
+            type="text"
+            className="form-firstname-input form-input input"
+            placeholder="Enter your first name"
+            {...register('fName', {
+              validate: {
+                required: (value) => value.trim().length > 0 || 'First name is required',
+                pattern: (value) =>
+                  /^[A-Z][a-z]{2,}$/.test(value) ||
+                  'First name must contain at least 3 characters and start with a capital letter',
+              },
+            })}
           />
-        )}
+          <span className="error">{errors.fName && errors.fName.message}</span>
+        </div>
+        <div className="form-lastname-wrapper form-input-wrapper wrapper-text">
+          <label className="form-lName title" htmlFor="lName">
+            Last Name:
+          </label>
+          <input
+            id="lName"
+            type="text"
+            className="form-lastname-input form-input input"
+            placeholder="Enter your last name"
+            {...register('lName', {
+              validate: {
+                required: (value) => value.trim().length > 0 || 'Last name is required',
+                pattern: (value) =>
+                  /^[A-Z][a-z]{2,}$/.test(value) ||
+                  'Last name must contain at least 3 characters and start with a capital letter',
+              },
+            })}
+          />
+          <span className="error">{errors.lName && errors.lName.message}</span>
+        </div>
 
-        <form className="form" onSubmit={this.handleSubmit} ref={this.formRef}>
-          {inputsData.map((input, index) => (
-            <Input
-              key={input.name}
-              id={input.id}
-              label={input.label}
-              type={input.type}
-              name={input.name}
-              reference={this.inputsRef[index]}
-              error={
-                this.state.validities[input.name as keyof typeof this.state.validities]
-                  ? ''
-                  : input.error
-              }
-            />
-          ))}
+        <Select
+          name="region"
+          label="Choose your region:"
+          classNameWrapper="form-region-wrapper"
+          classNameLabel="form-region title"
+          classNameSelect="form-region-select input"
+          classNameOption="form-region-option text"
+          options={[
+            { value: 'Asia' },
+            { value: 'Africa' },
+            { value: 'North America' },
+            { value: 'South America' },
+            { value: 'Antarctica' },
+            { value: 'Europe' },
+            { value: 'Australia' },
+          ]}
+          register={register('region', { required: true })}
+        />
+        {errors?.region && <span className="error">Region is required</span>}
 
-          <Select {...selectData} selectRef={this.selectRef} />
-          {!this.state.validities.select && <p className="error">This field is required.</p>}
+        <button type="submit" className="form-submit-btn btn">
+          Submit
+        </button>
+      </form>
+    </>
+  );
+};
 
-          <Checkbox {...promoData} checkboxRef={this.checkboxRef} />
-          {!this.state.validities.checkbox && <p className="error">This field is required.</p>}
+/*
 
-          <Radio {...radioData} radioRefs={this.radioRefs} />
-          {!this.state.validities.radio && (
-            <p className="error">This field is required. Choose only one answer.</p>
-          )}
+        <Checkbox {...promoData} checkboxRef={register({ required: true })} />
+        {formState.errors.checkbox && <p className="error">This field is required.</p>}
 
-          <SubmitBtn className="form-submit" />
-        </form>
-      </>
-    );
-  }
-}
+        <Radio
+          {...radioData}
+          radioRefs={radioData.options.map(() => register({ required: true }))}
+        />
+        {formState.errors.radio && <p className="error">This field is required.</p>}
 
-export default Form;
+        <Input
+          id="avatar"
+          label="Avatar"
+          type="file"
+          name="avatar"
+          inputRef={register({ validate: (value) => getInitial(value, 'avatar', true) })}
+          error={formState.errors.avatar?.message}
+        />*/
