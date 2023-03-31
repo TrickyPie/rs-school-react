@@ -1,6 +1,6 @@
 import './form-style.css';
 import { useForm } from 'react-hook-form';
-import React from 'react';
+import React, { useState } from 'react';
 import { Select } from '../../components/UI/select/Select';
 import { Checkbox } from '../../components/UI/checkbox/Checkbox';
 import { Radio } from '../../components/UI/radioBtn/Radio';
@@ -11,28 +11,59 @@ interface FormProps {
   callback: (data: FormResult) => void;
 }
 
-export const CustomForm: React.FC<FormProps> = ({ callback }) => {
+export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    clearErrors,
+    reset,
   } = useForm<FormResult>({
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
   });
+  const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
 
-  const onSubmit = (data: FormResult) => {
-    if (typeof callback === 'function') {
-      callback(data);
-      clearErrors();
+  const showConfirmationPopup = () => {
+    setIsConfirmationVisible(true);
+  };
+
+  const validateAvatar = (value: string | undefined) => {
+    if (!value || value.length === 0) {
+      return 'Please select a file';
     }
-    console.log(data);
+    return true;
+  };
+
+  const validateNotFutureDate = (value: string) => {
+    const selectedDate = new Date(value);
+    const currentDate = new Date();
+    return (
+      selectedDate <= currentDate ||
+      `Date must not be greater than the current one (${currentDate.toLocaleDateString()})`
+    );
+  };
+
+  const validateNotEmptyDate = (value: string) => {
+    return value !== '' || 'Please select a valid date';
+  };
+
+  const onSubmitHandler = (formData: FormResult) => {
+    if (typeof callback === 'function') {
+      callback(formData);
+    }
+    showConfirmationPopup();
+    reset();
   };
 
   return (
     <>
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
+      {isConfirmationVisible && (
+        <ConfirmationPopup
+          message="Form submitted!"
+          hideOn={() => setIsConfirmationVisible(false)}
+        />
+      )}
+      <form className="form" onSubmit={handleSubmit(onSubmitHandler)}>
         <div className="form-firstname-wrapper form-input-wrapper wrapper-text">
           <label className="form-fName title" htmlFor="fName">
             First Name:
@@ -43,10 +74,10 @@ export const CustomForm: React.FC<FormProps> = ({ callback }) => {
             className="form-firstname-input form-input input"
             placeholder="Enter your first name"
             {...register('fName', {
-              validate: {
-                required: (value) => value.trim().length > 0 || 'First name is required',
-                pattern: (value) =>
-                  /^[A-Z][a-z]{2,}$/.test(value) ||
+              required: 'First name is required',
+              pattern: {
+                value: /^[A-Z][a-z]{2,}$/,
+                message:
                   'First name must contain at least 3 characters and start with a capital letter',
               },
             })}
@@ -63,15 +94,51 @@ export const CustomForm: React.FC<FormProps> = ({ callback }) => {
             className="form-lastname-input form-input input"
             placeholder="Enter your last name"
             {...register('lName', {
-              validate: {
-                required: (value) => value.trim().length > 0 || 'Last name is required',
-                pattern: (value) =>
-                  /^[A-Z][a-z]{2,}$/.test(value) ||
+              required: 'Last name is required',
+              pattern: {
+                value: /^[A-Z][a-z]{2,}$/,
+                message:
                   'Last name must contain at least 3 characters and start with a capital letter',
               },
             })}
           />
           <span className="error">{errors.lName && errors.lName.message}</span>
+        </div>
+
+        <div className="form-avatar-wrapper form-input-wrapper wrapper-text">
+          <label className="form-avatar title" htmlFor="avatar">
+            Add avatar:
+          </label>
+          <input
+            id="avatar"
+            type="file"
+            accept=".png,.jpg,.jpeg"
+            className="form-avatar-input form-input input"
+            placeholder="Add avatar"
+            {...register('avatar', {
+              validate: validateAvatar,
+            })}
+          />
+          <span className="error">{errors.avatar && errors.avatar.message}</span>
+        </div>
+
+        <div className="form-input-wrapper wrapper-text">
+          <label className="form-birthdate title" htmlFor="date">
+            Birth date:
+          </label>
+          <input
+            id="date"
+            type="date"
+            className="form-birthdate-input form-input input"
+            {...register('birthday', {
+              required: 'Birthday is required',
+              validate: {
+                notFutureDate: validateNotFutureDate,
+                notEmptyDate: validateNotEmptyDate,
+              },
+            })}
+          />
+          <span className="error">{errors.birthday && errors.birthday.message}</span>
         </div>
 
         <Select
@@ -94,30 +161,42 @@ export const CustomForm: React.FC<FormProps> = ({ callback }) => {
         />
         {errors?.region && <span className="error">Region is required</span>}
 
-        <button type="submit" className="form-submit-btn btn">
+        <Checkbox
+          checkboxData={{
+            id: 'promo',
+            label: 'Do you agree to receive promotional messages every 5 minutes by SMS and mail?',
+          }}
+          className="form-characteristic"
+          id="form-characteristic"
+          register={register('promo', { required: true })}
+        />
+        {errors.promo && <p className="error">This field is required.</p>}
+
+        <Radio
+          className="form-sunny-lvl"
+          legendTitle="What do you dream about?"
+          name="sunLvl"
+          options={[
+            {
+              label: 'Get enough sleep',
+              value: 'little',
+            },
+            {
+              label: 'Find a job',
+              value: 'medium',
+            },
+            {
+              label: 'Pet the penguin',
+              value: 'a lot',
+            },
+          ]}
+          register={register('dream', { required: true })}
+        />
+        {errors.dream && <p className="error">This field is required.</p>}
+        <button type="submit" className="form-submit btn">
           Submit
         </button>
       </form>
     </>
   );
 };
-
-/*
-
-        <Checkbox {...promoData} checkboxRef={register({ required: true })} />
-        {formState.errors.checkbox && <p className="error">This field is required.</p>}
-
-        <Radio
-          {...radioData}
-          radioRefs={radioData.options.map(() => register({ required: true }))}
-        />
-        {formState.errors.radio && <p className="error">This field is required.</p>}
-
-        <Input
-          id="avatar"
-          label="Avatar"
-          type="file"
-          name="avatar"
-          inputRef={register({ validate: (value) => getInitial(value, 'avatar', true) })}
-          error={formState.errors.avatar?.message}
-        />*/

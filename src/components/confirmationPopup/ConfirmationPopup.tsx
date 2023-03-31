@@ -23,5 +23,5 @@ export const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ message, h
     hideOn();
   };
 
-  return <>{isVisible && <div className="confirmation-popup">{message}</div>}</>;
+  return <div className={`confirmation-popup ${isVisible ? 'visible' : ''}`}>{message}</div>;
 };

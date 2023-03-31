@@ -1,4 +1,4 @@
-const checkboxData = {
+/* const checkboxData = {
   id: 'promo',
   label: 'Do you agree to receive promotional messages every 5 minutes by SMS and mail?',
 };
@@ -10,3 +10,4 @@ const promoData = {
 };
 
 export default promoData;
+ */

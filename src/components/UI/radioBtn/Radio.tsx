@@ -1,4 +1,5 @@
 import React from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 interface RadioBtn {
   label: string;
@@ -10,39 +11,34 @@ interface RadioProps {
   legendTitle: string;
   name: string;
   options: RadioBtn[];
-  radioRefs: React.RefObject<HTMLInputElement>[];
+  register: UseFormRegisterReturn;
 }
 
-export class Radio extends React.Component<RadioProps> {
-  render(): JSX.Element {
-    const { className, legendTitle, name, options, radioRefs } = this.props;
-    return (
-      <>
-        <fieldset className={className}>
-          <legend className={`${className}-title title`} data-testid="legend">
-            {legendTitle}
-          </legend>
-          {options.map(
-            (option: RadioBtn, index: number): JSX.Element => (
-              <div className={`${className}-text-wrapper`} key={option.value}>
-                <input
-                  className={`${className}-input input`}
-                  type="radio"
-                  id={option.value}
-                  name={name}
-                  value={option.label}
-                  ref={radioRefs[index]}
-                />
-                <label className={`${className}-text text`} htmlFor={option.value}>
-                  {option.label}
-                </label>
-              </div>
-            )
-          )}
-        </fieldset>
-      </>
-    );
-  }
-}
-
-export default Radio;
+export const Radio = (props: RadioProps) => {
+  const { className, legendTitle, name, options, register } = props;
+  return (
+    <>
+      <fieldset className={className}>
+        <legend className={`${className}-title title`} data-testid="legend">
+          {legendTitle}
+        </legend>
+        {options.map(
+          (option: RadioBtn): JSX.Element => (
+            <div className={`${className}-text-wrapper`} key={option.value}>
+              <input
+                className={`${className}-input input`}
+                type="radio"
+                id={option.value}
+                value={option.label}
+                {...register}
+              />
+              <label className={`${className}-text text`} htmlFor={option.value}>
+                {option.label}
+              </label>
+            </div>
+          )
+        )}
+      </fieldset>
+    </>
+  );
+};

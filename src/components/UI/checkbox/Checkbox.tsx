@@ -1,4 +1,5 @@
 import React from 'react';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 interface CheckboxData {
   id: string;
@@ -10,37 +11,34 @@ interface CheckboxProps {
   id?: string;
   checkboxData: CheckboxData;
   legendTitle?: string;
-  checkboxRef: React.RefObject<HTMLInputElement>;
+  register: UseFormRegisterReturn;
 }
 
-export class Checkbox extends React.Component<CheckboxProps> {
-  render(): JSX.Element {
-    const { className, id, checkboxData, legendTitle, checkboxRef } = this.props;
+export const Checkbox = (props: CheckboxProps) => {
+  const { className, id, checkboxData, legendTitle, register } = props;
 
-    return (
-      <fieldset
-        className={`${className}-fieldset`}
-        id={`${id}-fieldset`}
-        data-testid="checkbox-fieldset"
-      >
-        <legend className={`${className}-legend title`} data-testid="checkbox-legend">
-          {legendTitle}
-        </legend>
+  return (
+    <fieldset
+      className={`${className}-fieldset`}
+      id={`${id}-fieldset`}
+      data-testid="checkbox-fieldset"
+    >
+      <legend className={`${className}-legend title`} data-testid="checkbox-legend">
+        {legendTitle}
+      </legend>
 
-        <div className={`${className}-wrapper`}>
-          <input
-            className={`${className}-input input`}
-            type="checkbox"
-            id={id}
-            name={checkboxData.label}
-            ref={checkboxRef}
-            data-testid="checkbox-input"
-          />
-          <label className={`${className}-text text`} htmlFor={id} data-testid="checkbox-label">
-            {checkboxData.label}
-          </label>
-        </div>
-      </fieldset>
-    );
-  }
-}
+      <div className={`${className}-wrapper`}>
+        <input
+          className={`${className}-input input`}
+          type="checkbox"
+          id={id}
+          {...register}
+          data-testid="checkbox-input"
+        />
+        <label className={`${className}-text text`} htmlFor={id} data-testid="checkbox-label">
+          {checkboxData.label}
+        </label>
+      </div>
+    </fieldset>
+  );
+};

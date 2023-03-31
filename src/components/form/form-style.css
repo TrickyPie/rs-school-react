@@ -82,7 +82,8 @@ select::-ms-expand {
 .form-region-select,
 .form-sunny-lvl,
 .form-input-wrapper,
-.form-region-wrapper {
+.form-region-wrapper,
+.form-avatar-wrapper {
   display: flex;
   gap: 0.5rem;
 }

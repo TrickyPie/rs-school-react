@@ -1,4 +1,4 @@
-import inputsData from '../../mock/inputs-mock';
+/* import inputsData from '../../mock/inputs-mock';
 import FormResult from '../../pages/page-form/form-type';
 
 export type error = {
@@ -14,7 +14,7 @@ export function validateAll(result: FormResult, file: File | null) {
     avatar: validateFile(file || null),
     birthDate: validateDate(result.birthday),
     select: validateNotEmpty(result.region),
-    checkbox: validateNotEmpty(result.promo || ''),
+    checkbox: validateNotEmpty(result.promo),
     radio: validateNotEmpty(result.dream || ''),
   };
   const error = !Object.values(validities).every((value: boolean): boolean => value);
@@ -56,4 +56,4 @@ export const getInitial = (): Record<string, boolean> => {
   initialValidities.checkbox = true;
   initialValidities.radio = true;
   return initialValidities;
-};
+}; */
