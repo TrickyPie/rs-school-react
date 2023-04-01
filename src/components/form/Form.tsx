@@ -6,6 +6,13 @@ import { Checkbox } from '../../components/UI/checkbox/Checkbox';
 import { Radio } from '../../components/UI/radioBtn/Radio';
 import FormResult from '../../pages/page-form/form-type';
 import { ConfirmationPopup } from '../../components/confirmationPopup/ConfirmationPopup';
+import {
+  validateCapitalize,
+  validateFileType,
+  validateLang,
+  validateNotEmpty,
+  validateNotFutureDate,
+} from './form-utils';
 
 interface FormProps {
   callback: (data: FormResult) => void;
@@ -23,30 +30,14 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
   });
   const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
 
-  const showConfirmationPopup = () => {
+  const showConfirmationPopup = (): void => {
     setIsConfirmationVisible(true);
   };
 
-  const validateNotFutureDate = (value: string) => {
-    const selectedDate = new Date(value);
-    const currentDate = new Date();
-    return (
-      selectedDate <= currentDate ||
-      `Date must not be greater than the current one (${currentDate.toLocaleDateString()})`
-    );
-  };
-
-  const validateNotEmptyDate = (value: string) => {
-    return value !== '' || 'Please select a valid date';
-  };
-
-  const onSubmitHandler = (formData: FormResult) => {
+  const onSubmitHandler = (formData: FormResult): void => {
     if (formData.avatar) {
-      const imageUrl = URL.createObjectURL(formData.avatar[0]);
-      console.log(imageUrl);
-      formData.updatedAvatar = imageUrl;
+      formData.updatedAvatar = URL.createObjectURL(formData.avatar[0]);
     }
-
     if (typeof callback === 'function') {
       callback(formData);
     }
@@ -56,12 +47,6 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
 
   return (
     <>
-      {isConfirmationVisible && (
-        <ConfirmationPopup
-          message="Form submitted!"
-          hideOn={() => setIsConfirmationVisible(false)}
-        />
-      )}
       <form className="form" onSubmit={handleSubmit(onSubmitHandler)}>
         <div className="form-firstname-wrapper form-input-wrapper wrapper-text">
           <label className="form-fName title" htmlFor="fName">
@@ -73,11 +58,10 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
             className="form-firstname-input form-input input"
             placeholder="Enter your first name"
             {...register('fName', {
-              required: 'First name is required',
-              pattern: {
-                value: /^[A-Z][a-z]{2,}$/,
-                message:
-                  'First name must contain at least 3 characters and start with a capital letter',
+              validate: {
+                notStartFromLow: validateCapitalize,
+                onEnglish: validateLang,
+                notEmpty: validateNotEmpty,
               },
             })}
           />
@@ -93,11 +77,10 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
             className="form-lastname-input form-input input"
             placeholder="Enter your last name"
             {...register('lName', {
-              required: 'Last name is required',
-              pattern: {
-                value: /^[A-Z][a-z]{2,}$/,
-                message:
-                  'Last name must contain at least 3 characters and start with a capital letter',
+              validate: {
+                notStartFromLow: validateCapitalize,
+                onEnglish: validateLang,
+                notEmpty: validateNotEmpty,
               },
             })}
           />
@@ -115,15 +98,9 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
             className="form-avatar-input form-input input"
             placeholder="Add avatar"
             {...register('avatar', {
-              validate: (file: FileList) => {
-                const selectedFile = file[0];
-                if (!selectedFile) {
-                  return 'Please select a file';
-                }
-                if (!['image/png', 'image/jpeg', 'image/jpg'].includes(selectedFile.type)) {
-                  return 'File type not supported';
-                }
-                return true;
+              required: 'Avatar is required',
+              validate: {
+                validFileType: validateFileType,
               },
             })}
           />
@@ -142,7 +119,7 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
               required: 'Birthday is required',
               validate: {
                 notFutureDate: validateNotFutureDate,
-                notEmptyDate: validateNotEmptyDate,
+                notEmptyDate: validateNotEmpty,
               },
             })}
           />
@@ -205,6 +182,12 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
           Submit
         </button>
       </form>
+      {isConfirmationVisible && (
+        <ConfirmationPopup
+          message="Form submitted!"
+          hideOn={() => setIsConfirmationVisible(false)}
+        />
+      )}
     </>
   );
 };

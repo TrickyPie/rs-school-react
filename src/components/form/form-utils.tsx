@@ -1,59 +1,33 @@
-/* import inputsData from '../../mock/inputs-mock';
-import FormResult from '../../pages/page-form/form-type';
-
-export type error = {
-  id: string;
-  error: string;
-  validate: boolean;
+export const validateCapitalize = (name: string): string | boolean => {
+  const trimmedName = name.trim();
+  return (
+    trimmedName.charAt(0) === trimmedName.charAt(0).toUpperCase() ||
+    'Name must start with a capital letter'
+  );
 };
 
-export function validateAll(result: FormResult, file: File | null) {
-  const validities = {
-    firstName: validateName(result.fName),
-    lastName: validateName(result.lName),
-    avatar: validateFile(file || null),
-    birthDate: validateDate(result.birthday),
-    select: validateNotEmpty(result.region),
-    checkbox: validateNotEmpty(result.promo),
-    radio: validateNotEmpty(result.dream || ''),
-  };
-  const error = !Object.values(validities).every((value: boolean): boolean => value);
-  return { validities, error };
-}
+export const validateLang = (name: string): string | boolean => {
+  const regex = /^[A-Z][a-z]{2,}$/;
+  return regex.test(name) || 'Name must contain at least 3 characters and be on english';
+};
 
-export function validateName(name: string): boolean {
-  if (name === '' || name.length < 3 || name.charAt(0) !== name.charAt(0).toUpperCase()) {
-    return false;
-  }
-  return true;
-}
-
-export function validateDate(date: string): boolean {
-  const inputDate = new Date(date);
+export const validateNotFutureDate = (value: string): string | boolean => {
+  const selectedDate = new Date(value);
   const currentDate = new Date();
-  return inputDate <= currentDate;
-}
+  return (
+    selectedDate <= currentDate ||
+    `Date must not be greater than the current one (${currentDate.toLocaleDateString()})`
+  );
+};
 
-export function validateFile(file: File | null): boolean {
-  const allowedTypes = ['image/jpeg', 'image/png'];
-  if (!file || !allowedTypes.includes(file.type)) {
-    return false;
-  }
-  return true;
-}
+export const validateNotEmpty = (value: string): string | boolean => {
+  return value !== '' || 'Please select a valid date';
+};
 
-export function validateNotEmpty(name: string): boolean {
-  if (name === '') {
-    return false;
-  }
-  return true;
-}
-
-export const getInitial = (): Record<string, boolean> => {
-  const initialValidities: Record<string, boolean> = {};
-  inputsData.forEach((input) => (initialValidities[input.name] = true));
-  initialValidities.select = true;
-  initialValidities.checkbox = true;
-  initialValidities.radio = true;
-  return initialValidities;
-}; */
+export const validateFileType = (file: FileList | null): boolean | string => {
+  const selectedFile = file?.[0];
+  return (
+    ['image/png', 'image/jpeg', 'image/jpg'].includes(selectedFile?.type || '') ||
+    'File should be png or jpeg'
+  );
+};
