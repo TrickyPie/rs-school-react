@@ -27,13 +27,6 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
     setIsConfirmationVisible(true);
   };
 
-  const validateAvatar = (value: string | undefined) => {
-    if (!value || value.length === 0) {
-      return 'Please select a file';
-    }
-    return true;
-  };
-
   const validateNotFutureDate = (value: string) => {
     const selectedDate = new Date(value);
     const currentDate = new Date();
@@ -48,6 +41,12 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
   };
 
   const onSubmitHandler = (formData: FormResult) => {
+    if (formData.avatar) {
+      const imageUrl = URL.createObjectURL(formData.avatar[0]);
+      console.log(imageUrl);
+      formData.updatedAvatar = imageUrl;
+    }
+
     if (typeof callback === 'function') {
       callback(formData);
     }
@@ -116,7 +115,16 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
             className="form-avatar-input form-input input"
             placeholder="Add avatar"
             {...register('avatar', {
-              validate: validateAvatar,
+              validate: (file: FileList) => {
+                const selectedFile = file[0];
+                if (!selectedFile) {
+                  return 'Please select a file';
+                }
+                if (!['image/png', 'image/jpeg', 'image/jpg'].includes(selectedFile.type)) {
+                  return 'File type not supported';
+                }
+                return true;
+              },
             })}
           />
           <span className="error">{errors.avatar && errors.avatar.message}</span>

@@ -14,7 +14,7 @@ export class InputCard extends React.Component<CardProps> {
         {res.map((item, ind) => (
           <div className="input-card" key={`input-card-${ind}`}>
             <div className="input-card-wrapper">
-              <img className="input-card-avatar" src={item.avatar} alt="Avatar" />
+              <img className="input-card-avatar" src={item.updatedAvatar} alt="Avatar" />
               <div className="user-info">
                 <p className="input-card-name">
                   {item.fName} {item.lName}
