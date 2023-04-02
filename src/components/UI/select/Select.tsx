@@ -1,11 +1,11 @@
 import React from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-interface Option {
+export interface Option {
   value: string;
 }
 
-interface SelectProps {
+export interface SelectProps {
   label: string;
   name: string;
   options: Option[];

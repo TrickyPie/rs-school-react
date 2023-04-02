@@ -1,12 +1,12 @@
 import React from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-interface RadioBtn {
+export interface RadioBtn {
   label: string;
   value: string;
 }
 
-interface RadioProps {
+export interface RadioProps {
   className: string;
   legendTitle: string;
   name: string;
@@ -15,7 +15,7 @@ interface RadioProps {
 }
 
 export const Radio = (props: RadioProps) => {
-  const { className, legendTitle, name, options, register } = props;
+  const { className, legendTitle, options, register } = props;
   return (
     <>
       <fieldset className={className}>

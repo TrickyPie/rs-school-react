@@ -1,20 +1,33 @@
-import { render } from '@testing-library/react';
-import { Select } from '../components/UI/select/Select';
 import React from 'react';
+import { vi } from 'vitest';
+import { fireEvent, getByLabelText, render } from '@testing-library/react';
+import { Select, SelectProps } from '../components/UI/select/Select';
+import { useForm, UseFormRegisterReturn } from 'react-hook-form';
 
 describe('Select component', () => {
   const options = [{ value: 'Penguin 1' }, { value: 'Penguin 2' }, { value: 'Penguin 3' }];
-  const props = {
+  const mockRegister = (): UseFormRegisterReturn<string> => ({
+    onChange: vi.fn(),
+    onBlur: vi.fn(),
+    ref: vi.fn(),
+    name: 'test-name',
+  });
+
+  const props: SelectProps = {
     label: 'Super label',
     name: 'test-name',
     options: options,
-    selectRef: React.createRef<HTMLSelectElement>(),
+    register: mockRegister(),
   };
 
-  it('renders the select correctly', () => {
-    const { getByLabelText } = render(<Select {...props} />);
-    const selectElement = getByLabelText('Super label') as HTMLSelectElement;
-    expect(selectElement).toEqual(props.selectRef.current);
+  let selectElement: HTMLSelectElement;
+
+  beforeEach(() => {
+    const { container } = render(<Select {...props} />);
+    selectElement = getByLabelText(container, 'Super label');
+  });
+
+  it('renders the select with options correctly', () => {
     expect(selectElement).toBeInTheDocument();
     expect(selectElement.getAttribute('name')).toBe('test-name');
     const optionElements = selectElement.querySelectorAll('option');
