@@ -32,7 +32,7 @@ export const Select = (props: SelectProps) => {
       <label className={classNameLabel} htmlFor={name}>
         {label}
       </label>
-      <select className={classNameSelect} id={name} {...register}>
+      <select className={classNameSelect} id={name} {...register} data-testid="region">
         <option value="">Select an option</option>
         {options.map((option) => (
           <option key={option.value} className={classNameOption} value={option.value}>

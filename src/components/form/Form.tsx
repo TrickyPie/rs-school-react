@@ -16,7 +16,7 @@ import { ConfirmationPopup } from '../../components/confirmationPopup/Confirmati
 import { RadioData } from '../../mock/radio-mock';
 import { RegionData } from '../../mock/select-mock';
 
-interface FormProps {
+export interface FormProps {
   callback: (data: FormResult) => void;
 }
 
@@ -51,7 +51,7 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
     <>
       <form className="form" onSubmit={handleSubmit(onSubmitHandler)}>
         <div className="form-firstname-wrapper form-input-wrapper wrapper-text">
-          <label className="form-fName title" htmlFor="fName">
+          <label className="form-fName title" htmlFor="fName" data-testid="firstNameLabel">
             First Name:
           </label>
           <input
@@ -66,11 +66,14 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
                 notEmpty: validateNotEmpty,
               },
             })}
+            data-testid="firstNameInput"
           />
-          <span className="error">{errors.fName && errors.fName.message}</span>
+          <span className="error" data-testid="firstNameError">
+            {errors.fName && errors.fName.message}
+          </span>
         </div>
         <div className="form-lastname-wrapper form-input-wrapper wrapper-text">
-          <label className="form-lName title" htmlFor="lName">
+          <label className="form-lName title" htmlFor="lName" data-testid="lastNameLabel">
             Last Name:
           </label>
           <input
@@ -85,12 +88,14 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
                 notEmpty: validateNotEmpty,
               },
             })}
+            data-testid="lastNameInput"
           />
-          <span className="error">{errors.lName && errors.lName.message}</span>
+          <span className="error" data-testid="lastNameError">
+            {errors.lName && errors.lName.message}
+          </span>
         </div>
-
         <div className="form-avatar-wrapper form-input-wrapper wrapper-text">
-          <label className="form-avatar title" htmlFor="avatar">
+          <label className="form-avatar title" htmlFor="avatar" data-testid="avatarLabel">
             Add avatar:
           </label>
           <input
@@ -101,16 +106,16 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
             placeholder="Add avatar"
             {...register('avatar', {
               required: 'Avatar is required',
-              validate: {
-                validFileType: validateFileType,
-              },
+              validate: { validFileType: validateFileType },
             })}
+            data-testid="avatarInput"
           />
-          <span className="error">{errors.avatar && errors.avatar.message}</span>
+          <span className="error" data-testid="avatarError">
+            {errors.avatar && errors.avatar.message}
+          </span>
         </div>
-
         <div className="form-input-wrapper wrapper-text">
-          <label className="form-birthdate title" htmlFor="date">
+          <label className="form-birthdate title" htmlFor="date" data-testid="birthdayLabel">
             Birth date:
           </label>
           <input
@@ -119,27 +124,30 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
             className="form-birthdate-input form-input input"
             {...register('birthday', {
               required: 'Birthday is required',
-              validate: {
-                notFutureDate: validateNotFutureDate,
-                notEmptyDate: validateNotEmpty,
-              },
+              validate: { notFutureDate: validateNotFutureDate, notEmptyDate: validateNotEmpty },
             })}
+            data-testid="birthdayInput"
           />
-          <span className="error">{errors.birthday && errors.birthday.message}</span>
+          <span className="error" data-testid="birthdayError">
+            {errors.birthday && errors.birthday.message}
+          </span>
         </div>
-
         <Select
-          name="region"
           label="Choose your region:"
+          name="region"
           classNameWrapper="form-region-wrapper"
           classNameLabel="form-region title"
           classNameSelect="form-region-select input"
           classNameOption="form-region-option text"
+          data-testid="region"
           options={RegionData}
           register={register('region', { required: true })}
         />
-        {errors?.region && <span className="error">Region is required</span>}
-
+        {errors?.region && (
+          <span className="error" data-testid="regionError">
+            Region is required
+          </span>
+        )}
         <Checkbox
           checkboxData={{
             id: 'promo',
@@ -148,18 +156,27 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
           className="form-characteristic"
           id="form-characteristic"
           register={register('promo', { required: true })}
+          data-testid="checkbox-input"
         />
-        {errors.promo && <p className="error">This field is required.</p>}
-
+        {errors.promo && (
+          <p className="error" data-testid="promoError">
+            This field is required.
+          </p>
+        )}
         <Radio
           className="form-sunny-lvl"
           legendTitle="What do you dream about?"
           name="sunLvl"
           options={RadioData}
           register={register('dream', { required: true })}
+          data-testid="sunLvlRadio"
         />
-        {errors.dream && <p className="error">This field is required.</p>}
-        <button type="submit" className="form-submit btn">
+        {errors.dream && (
+          <p className="error" data-testid="dreamError">
+            This field is required.
+          </p>
+        )}
+        <button type="submit" className="form-submit btn" data-testid="submitButton">
           Submit
         </button>
       </form>
@@ -167,6 +184,7 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
         <ConfirmationPopup
           message="Form submitted!"
           hideOn={() => setIsConfirmationVisible(false)}
+          data-testid="confirmationPopup"
         />
       )}
     </>

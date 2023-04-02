@@ -31,6 +31,7 @@ export const Radio = (props: RadioProps) => {
                 id={option.value}
                 value={option.label}
                 {...register}
+                data-testid="sunLvlRadio"
               />
               <label className={`${className}-text text`} htmlFor={option.value}>
                 {option.label}
