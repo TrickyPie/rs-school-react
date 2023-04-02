@@ -1,0 +1,220 @@
+.form {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 4rem;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  border-radius: 20px;
+}
+
+.input {
+  font-size: calc(1rem + 1%);
+}
+
+.form-avatar-input {
+  font-size: 0.9rem;
+  margin: auto 0;
+}
+
+.form-characteristic-input,
+.form-sunny-lvl-input {
+  margin-right: 0.5rem;
+}
+
+.form-firstname-input,
+.form-lastname-input {
+  border: 2px solid var(--color-green);
+  border-radius: 25px;
+  padding: 0.5rem;
+}
+
+.form-birthdate {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.form-birthdate-input {
+  background-color: var(--color-green);
+  padding: 5px;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  width: 45%;
+}
+
+.form-birthdate-input:focus {
+  background-color: var(--color-green-light);
+  transition: all 0.4s ease-in-out;
+}
+
+::-webkit-calendar-picker-indicator {
+  background-color: white;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.form-region-select {
+  position: relative;
+  display: flex;
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0.5rem;
+  color: white;
+  background-color: var(--color-green);
+  cursor: pointer;
+  height: 3rem;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+
+select::-ms-expand {
+  color: white;
+}
+
+.form-region-select,
+.form-sunny-lvl,
+.form-input-wrapper,
+.form-region-wrapper,
+.form-avatar-wrapper {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.form-region-wrapper {
+  flex-direction: column;
+}
+
+.form-region-wrapper,
+.form-region-select {
+  width: 100%;
+}
+
+.wrapper-date,
+.wrapper-file {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 1rem;
+}
+
+.wrapper-file {
+  align-items: center;
+}
+
+.wrapper-file .error,
+.wrapper-date .error {
+  grid-column: span 2;
+}
+
+.form-sunny-lvl {
+  flex-direction: column;
+}
+
+.form-sunny-lvl-title {
+  margin-bottom: 0.5rem;
+}
+
+.wrapper-text {
+  flex-direction: column;
+}
+
+.form-region-option {
+  background-color: var(--color-green-light);
+}
+
+.form-characteristic-input,
+.form-sunny-lvl-input {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.form-characteristic-input + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.form-characteristic-input + label::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.form-characteristic-input:checked + label::before {
+  background-color: var(--color-green);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.form-sunny-lvl-input + label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+
+.form-sunny-lvl-input + label::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.form-sunny-lvl-input:not(:disabled):not(:checked) + label:hover::before {
+  border-color: #b3d7ff;
+}
+
+.form-sunny-lvl-input:not(:disabled):active + label::before {
+  background-color: #b3d7ff;
+  border-color: #b3d7ff;
+}
+
+.form-sunny-lvl-input:checked + label::before {
+  background-color: var(--color-green);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.form-submit {
+  padding: 1rem;
+  border-radius: 25px;
+  background-color: var(--color-green);
+  color: white;
+  font-size: calc(1rem + 1%);
+}
+
+.confirmation-popup {
+  font-size: calc(1.4rem + 5%);
+  font-weight: 700;
+  color: white;
+  transition: all 1s ease-in-out;
+  padding: 2rem;
+  background-color: var(--color-green);
+  border-radius: 25px;
+}
+
+.error {
+  color: #ff4800;
+}

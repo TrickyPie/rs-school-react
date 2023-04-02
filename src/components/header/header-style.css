@@ -1,0 +1,44 @@
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 10vh;
+  background-color: var(--color-green);
+  font-family: 'Montserrat';
+  font-weight: 500;
+}
+
+.header-content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  height: 100%;
+}
+
+.navigation-list {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  height: 100%;
+}
+
+a {
+  color: rgb(255, 255, 255);
+}
+
+.active {
+  text-decoration: underline;
+}
+
+.page-not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+}
+
+.header-name {
+  color: rgb(255, 255, 255);
+}
