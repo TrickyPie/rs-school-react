@@ -18,7 +18,7 @@ describe('ConfirmationPopup component', () => {
       />
     );
     const popupElement = getByText(mockMessage);
-    expect(popupElement).toBeInTheDocument();
+    expect(popupElement).toBeDefined();
     act(() => {
       vi.advanceTimersByTime(3000);
     });

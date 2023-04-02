@@ -24,17 +24,17 @@ describe('Select component', () => {
 
   beforeEach(() => {
     const { container } = render(<Select {...props} />);
-    selectElement = getByLabelText(container, 'Super label');
+    selectElement = getByLabelText(container, 'Super label') as HTMLSelectElement;
   });
 
   it('renders the select with options correctly', () => {
-    expect(selectElement).toBeInTheDocument();
+    expect(selectElement).toBeDefined();
     expect(selectElement.getAttribute('name')).toBe('test-name');
     const optionElements = selectElement.querySelectorAll('option');
     expect(optionElements).toHaveLength(4);
-    expect(optionElements[0]).toHaveTextContent('Select an option');
-    expect(optionElements[1]).toHaveTextContent('Penguin 1');
-    expect(optionElements[2]).toHaveTextContent('Penguin 2');
-    expect(optionElements[3]).toHaveTextContent('Penguin 3');
+    expect(optionElements[0].textContent).toBe('Select an option');
+    expect(optionElements[1].textContent).toBe('Penguin 1');
+    expect(optionElements[2].textContent).toBe('Penguin 2');
+    expect(optionElements[3].textContent).toBe('Penguin 3');
   });
 });

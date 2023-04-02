@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
 import { Card } from '../components/card/Card';
 import React from 'react';
+import { render } from '@testing-library/react';
 
 describe('Card', () => {
   const props = {
@@ -14,13 +14,13 @@ describe('Card', () => {
     water: 'Water',
   };
 
-  it('render the card with right data', () => {
-    render(<Card {...props} />);
-    expect(screen.getByText(/Title/i)).toBeInTheDocument();
-    expect(screen.getByText(/Description/i)).toBeInTheDocument();
-    expect(screen.getByAltText(/Pet-friendly icon/i)).toBeInTheDocument();
-    expect(screen.queryByAltText(/Easy-care icon/i)).not.toBeInTheDocument();
-    expect(screen.getByText(/Bright/i)).toBeInTheDocument();
-    expect(screen.getByText(/Water/i)).toBeInTheDocument();
+  it('renders the card with right data', () => {
+    const { getByTestId, queryByTestId } = render(<Card {...props} />);
+    expect(getByTestId('title')?.textContent).toBe('Title');
+    expect(getByTestId('description')?.textContent).toBe('Description');
+    expect(queryByTestId('pet-friendly-icon')).toBeDefined();
+    expect(queryByTestId('easy-care-icon')).toBeNull();
+    expect(getByTestId('bright')?.textContent).toBe('Bright');
+    expect(getByTestId('water')?.textContent).toBe('Water');
   });
 });

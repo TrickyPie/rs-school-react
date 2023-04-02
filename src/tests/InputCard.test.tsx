@@ -4,39 +4,39 @@ import { InputCard } from '../components/InputCard/InputCard';
 
 const mockRes = [
   {
-    fName: 'John',
-    lName: 'Doe',
+    fName: 'Anastasia',
+    lName: 'Klimova',
     avatar: {} as FileList,
     updatedAvatar: 'http://example.com/avatar.jpg',
-    birthday: '01/01/2000',
-    region: 'New York',
+    birthday: '01/29/1991',
+    region: 'Lisbon',
     promo: true,
-    dream: 'To travel the world',
+    dream: 'To get a dog',
   },
 ];
 
 describe('InputCard component', () => {
   it('renders the card correctly', () => {
-    const { container } = render(<InputCard res={mockRes} />);
-    const cardElement = container.querySelector('.input-card');
-    expect(cardElement).toBeInTheDocument();
+    const { getByTestId } = render(<InputCard res={mockRes} />);
+    const cardElement = getByTestId('input-card-0');
+    expect(cardElement).toBeDefined();
 
-    const avatarElement = container.querySelector('.input-card-avatar');
-    expect(avatarElement).toHaveAttribute('src', mockRes[0].updatedAvatar);
+    const avatarElement = getByTestId('input-card-avatar-0');
+    expect(avatarElement?.getAttribute('src')).toBe(mockRes[0].updatedAvatar);
 
-    const nameElement = container.querySelector('.input-card-name');
-    expect(nameElement).toHaveTextContent(`${mockRes[0].fName} ${mockRes[0].lName}`);
+    const nameElement = getByTestId('input-card-name-0');
+    expect(nameElement?.textContent).toBe(`${mockRes[0].fName} ${mockRes[0].lName}`);
 
-    const birthdayElement = container.querySelector('.input-card-birthday');
-    expect(birthdayElement).toHaveTextContent(`Birthday: ${mockRes[0].birthday}`);
+    const birthdayElement = getByTestId('input-card-birthday-0');
+    expect(birthdayElement?.textContent).toBe(`Birthday: ${mockRes[0].birthday}`);
 
-    const regionElement = container.querySelector('.input-card-region');
-    expect(regionElement).toHaveTextContent(`Region: ${mockRes[0].region}`);
+    const regionElement = getByTestId('input-card-region-0');
+    expect(regionElement?.textContent).toBe(`Region: ${mockRes[0].region}`);
 
-    const promoElement = container.querySelector('.input-card-promo-list');
-    expect(promoElement).toHaveTextContent('You agreed to receive promotional materials.');
+    const promoElement = getByTestId('input-card-promo-list-0');
+    expect(promoElement?.textContent).toContain('You agreed to receive promotional materials.');
 
-    const dreamElement = container.querySelector('.input-card-sunny');
-    expect(dreamElement).toHaveTextContent(`Your dream: ${mockRes[0].dream}`);
+    const dreamElement = getByTestId('input-card-sunny-0');
+    expect(dreamElement?.textContent).toBe(`Your dream: ${mockRes[0].dream}`);
   });
 });

@@ -34,18 +34,26 @@ export const Card = (props: props) => {
         <Slider image={image} />
       </div>
 
-      <h3 className="card-title">{title} </h3>
-      <p className="card-description">{description}</p>
+      <h3 className="card-title" data-testid="title">
+        {title}
+      </h3>
+      <p className="card-description" data-testid="description">
+        {description}
+      </p>
       {petFriendlyImage}
       {easyCareImage}
       <div className="card-plant-info">
         <div className="card-sun-wrapper">
           <img className="card-sun-icon" src={sun} alt="" />
-          <p className="card-sun-info">{bright}</p>
+          <p className="card-sun-info" data-testid="bright">
+            {bright}
+          </p>
         </div>
         <div className="card-water-wrapper">
           <img className="card-water-icon" src={drop} alt="" />
-          <p className="card-water-info">{water}</p>
+          <p className="card-water-info" data-testid="water">
+            {water}
+          </p>
         </div>
       </div>
     </div>

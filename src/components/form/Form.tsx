@@ -1,11 +1,6 @@
-import './form-style.css';
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
-import { Select } from '../../components/UI/select/Select';
-import { Checkbox } from '../../components/UI/checkbox/Checkbox';
-import { Radio } from '../../components/UI/radioBtn/Radio';
-import FormResult from '../../pages/page-form/form-type';
-import { ConfirmationPopup } from '../../components/confirmationPopup/ConfirmationPopup';
+import './form-style.css';
 import {
   validateCapitalize,
   validateFileType,
@@ -13,6 +8,13 @@ import {
   validateNotEmpty,
   validateNotFutureDate,
 } from './form-utils';
+import { Select } from '../../components/UI/select/Select';
+import { Checkbox } from '../../components/UI/checkbox/Checkbox';
+import { Radio } from '../../components/UI/radioBtn/Radio';
+import FormResult from '../../pages/page-form/form-type';
+import { ConfirmationPopup } from '../../components/confirmationPopup/ConfirmationPopup';
+import { RadioData } from '../../mock/radio-mock';
+import { RegionData } from '../../mock/select-mock';
 
 interface FormProps {
   callback: (data: FormResult) => void;
@@ -133,15 +135,7 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
           classNameLabel="form-region title"
           classNameSelect="form-region-select input"
           classNameOption="form-region-option text"
-          options={[
-            { value: 'Asia' },
-            { value: 'Africa' },
-            { value: 'North America' },
-            { value: 'South America' },
-            { value: 'Antarctica' },
-            { value: 'Europe' },
-            { value: 'Australia' },
-          ]}
+          options={RegionData}
           register={register('region', { required: true })}
         />
         {errors?.region && <span className="error">Region is required</span>}
@@ -161,20 +155,7 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
           className="form-sunny-lvl"
           legendTitle="What do you dream about?"
           name="sunLvl"
-          options={[
-            {
-              label: 'Get enough sleep',
-              value: 'little',
-            },
-            {
-              label: 'Find a job',
-              value: 'medium',
-            },
-            {
-              label: 'Pet the penguin',
-              value: 'a lot',
-            },
-          ]}
+          options={RadioData}
           register={register('dream', { required: true })}
         />
         {errors.dream && <p className="error">This field is required.</p>}

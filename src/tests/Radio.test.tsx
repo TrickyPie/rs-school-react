@@ -26,9 +26,11 @@ describe('Radio component', () => {
 
   it('renders correctly', () => {
     const { getByTestId, getByLabelText } = render(<Radio {...props} />);
-    expect(getByTestId('legend')).toHaveTextContent('Choose your favorite');
+    const legendElement = getByTestId('legend-title');
+    expect(legendElement).toBeDefined();
+    expect(legendElement?.textContent).toBe('Choose your favorite');
     props.options.forEach((option: RadioBtn) => {
-      const radio = getByLabelText(option.label);
+      const radio = getByLabelText(option.label) as HTMLInputElement;
       expect(radio.getAttribute('id')).toBe(option.value);
       expect(radio.getAttribute('name')).toBe('test-name');
       expect(radio.getAttribute('value')).toBe(option.label);

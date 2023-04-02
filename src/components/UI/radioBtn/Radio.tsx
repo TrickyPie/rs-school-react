@@ -19,7 +19,7 @@ export const Radio = (props: RadioProps) => {
   return (
     <>
       <fieldset className={className}>
-        <legend className={`${className}-title title`} data-testid="legend">
+        <legend className={`${className}-title title`} data-testid="legend-title">
           {legendTitle}
         </legend>
         {options.map(

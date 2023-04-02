@@ -27,12 +27,15 @@ describe('Checkbox component', () => {
 
   it('renders the label and checkbox correctly', () => {
     const { getByTestId } = render(<Checkbox {...props} />);
-    expect(getByTestId('checkbox-fieldset')).toBeInTheDocument();
-    expect(getByTestId('checkbox-legend')).toHaveTextContent(
-      'Would you like mashed potatoes with sausage?'
-    );
-    expect(getByTestId('checkbox-input')).toBeInTheDocument();
-    expect(getByTestId('checkbox-label')).toBeInTheDocument();
-    expect(getByTestId('checkbox-label')).toHaveTextContent('Yes');
+    const fieldset = getByTestId('checkbox-fieldset');
+    const legend = getByTestId('checkbox-legend');
+    const input = getByTestId('checkbox-input');
+    const label = getByTestId('checkbox-label');
+
+    expect(fieldset).toBeDefined();
+    expect(legend.textContent).toBe('Would you like mashed potatoes with sausage?');
+    expect(input).toBeDefined();
+    expect(label).toBeDefined();
+    expect(label.textContent).toBe('Yes');
   });
 });
