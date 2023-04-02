@@ -1,12 +1,12 @@
 import React from 'react';
 import { UseFormRegisterReturn } from 'react-hook-form';
 
-interface CheckboxData {
+export interface CheckboxData {
   id: string;
   label: string;
 }
 
-interface CheckboxProps {
+export interface CheckboxProps {
   className?: string;
   id?: string;
   checkboxData: CheckboxData;

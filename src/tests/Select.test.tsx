@@ -1,8 +1,8 @@
 import React from 'react';
 import { vi } from 'vitest';
-import { fireEvent, getByLabelText, render } from '@testing-library/react';
+import { getByLabelText, render } from '@testing-library/react';
 import { Select, SelectProps } from '../components/UI/select/Select';
-import { useForm, UseFormRegisterReturn } from 'react-hook-form';
+import { UseFormRegisterReturn } from 'react-hook-form';
 
 describe('Select component', () => {
   const options = [{ value: 'Penguin 1' }, { value: 'Penguin 2' }, { value: 'Penguin 3' }];

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-type ConfirmationPopupProps = {
+export type ConfirmationPopupProps = {
   message: string;
   hideOn: () => void;
 };
@@ -8,17 +8,17 @@ type ConfirmationPopupProps = {
 export const ConfirmationPopup: React.FC<ConfirmationPopupProps> = ({ message, hideOn }) => {
   const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
+  useEffect((): (() => void) => {
+    const timeoutId = setTimeout((): void => {
       hide();
     }, 3000);
 
-    return () => {
+    return (): void => {
       clearTimeout(timeoutId);
     };
   });
 
-  const hide = () => {
+  const hide = (): void => {
     setIsVisible(false);
     hideOn();
   };

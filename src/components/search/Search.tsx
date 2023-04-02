@@ -5,7 +5,7 @@ import search from '../../assets/png/search.png';
 const Search = () => {
   const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
 
-  useEffect(() => {
+  useEffect((): void => {
     localStorage.setItem('searchValue', searchValue);
   }, [searchValue]);
 

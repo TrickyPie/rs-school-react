@@ -14,7 +14,14 @@ export default defineConfig({
     css: true,
     coverage: {
       include: ['src/**/*'],
-      exclude: ['src/assets/*', 'src/main.tsx', 'src/vite-env.d.ts', 'src/mock'],
+      exclude: [
+        'src/assets/*',
+        'src/main.tsx',
+        'src/vite-env.d.ts',
+        'src/mock',
+        'src/pages/page-form/form-type.tsx',
+        'src/components/nav/nav-type.tsx',
+      ],
       enabled: true,
       reporter: ['text'],
       all: true,

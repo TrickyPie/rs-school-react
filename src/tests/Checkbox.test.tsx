@@ -1,22 +1,32 @@
 import { render } from '@testing-library/react';
-import { Checkbox } from '../components/UI/checkbox/Checkbox';
-
+import { Checkbox, CheckboxData, CheckboxProps } from '../components/UI/checkbox/Checkbox';
+import { UseFormRegisterReturn } from 'react-hook-form';
 import React from 'react';
+import { vi } from 'vitest';
+
+const mockRegister = (): UseFormRegisterReturn<string> => ({
+  onChange: vi.fn(),
+  onBlur: vi.fn(),
+  ref: vi.fn(),
+  name: 'test-name',
+});
 
 describe('Checkbox component', () => {
-  const checkboxData = {
+  const checkboxData: CheckboxData = {
     id: 'test-checkbox',
     label: 'Yes',
   };
 
-  const checkbox = {
-    legendTitle: 'Would you like mashed potatoes with sausage?',
-    checkboxRef: React.createRef<HTMLInputElement>(),
+  const props: CheckboxProps = {
+    className: 'test-class-name',
+    id: 'test-id',
     checkboxData: checkboxData,
+    legendTitle: 'Would you like mashed potatoes with sausage?',
+    register: mockRegister(),
   };
 
   it('renders the label and checkbox correctly', () => {
-    const { getByTestId } = render(<Checkbox {...checkbox} />);
+    const { getByTestId } = render(<Checkbox {...props} />);
     expect(getByTestId('checkbox-fieldset')).toBeInTheDocument();
     expect(getByTestId('checkbox-legend')).toHaveTextContent(
       'Would you like mashed potatoes with sausage?'

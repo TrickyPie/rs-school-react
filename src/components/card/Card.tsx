@@ -20,11 +20,11 @@ export type props = {
 export const Card = (props: props) => {
   const { image, title, description, petFriendly, easyCare, bright, water } = props;
 
-  const petFriendlyImage = petFriendly ? (
+  const petFriendlyImage: JSX.Element | null = petFriendly ? (
     <img src={pet} alt="Pet-friendly icon" className="pet-friendly-icon" title="Pet friendly" />
   ) : null;
 
-  const easyCareImage = easyCare ? (
+  const easyCareImage: JSX.Element | null = easyCare ? (
     <img src={care} alt="Easy-care icon" className="easy-care-icon" title="Easy care" />
   ) : null;
 
