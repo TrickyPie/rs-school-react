@@ -9,7 +9,6 @@ export const FormPage = () => {
 
   const updateState = (newData: FormResult): void => {
     setData((prevState) => [...prevState, newData]);
-    console.log(newData, data);
   };
 
   return (
