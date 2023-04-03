@@ -21,6 +21,7 @@ export default defineConfig({
         'src/mock',
         'src/pages/page-form/form-type.tsx',
         'src/components/nav/nav-type.tsx',
+        ' src/tests/*',
       ],
       enabled: true,
       reporter: ['text'],

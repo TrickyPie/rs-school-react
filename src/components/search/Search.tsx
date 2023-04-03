@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './search-style.css';
 import search from '../../assets/png/search.png';
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
-
-  useEffect((): void => {
-    localStorage.setItem('searchValue', searchValue);
-  }, [searchValue]);
+  const searchValueRef = useRef<string>(searchValue);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchValue(event.target.value);
+    searchValueRef.current = event.target.value;
   };
+
+  useEffect(() => {
+    return () => {
+      localStorage.setItem('searchValue', searchValueRef.current);
+    };
+  }, []);
 
   return (
     <div className="search-bar-wrapper">
