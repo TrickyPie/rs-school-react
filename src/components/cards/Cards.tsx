@@ -1,18 +1,31 @@
-import React from 'react';
-import { Card } from '../card/Card';
-import cardData from '../../mock/mock';
+import { Card, props } from '../../components/card/Card';
+import React, { useEffect, useState } from 'react';
+// import { Card } from '../card/Card';
+/* import cardData from '../../mock/mock'; */
 
-type CardsProps = {
+/* type CardsProps = {
   cardData: typeof cardData;
-};
+}; */
 
-export const Cards = (props: CardsProps) => {
-  const { cardData } = props;
+export const Cards = (/* : CardsProps */) => {
+  const [plants, setPlants] = useState([]);
+
+  useEffect(() => {
+    fetch('https://my-json-server.typicode.com/TrickyPie/react-api/items')
+      .then((response) => response.json())
+      .then((data) => {
+        setPlants(data);
+        console.log(data, plants);
+      })
+      .catch((error) => console.log(error));
+  }, [plants]);
+
+  /*  const { cardData } = props; */
   return (
     <>
-      {cardData.map((cardData): JSX.Element => {
+      {plants.map((plant: JSX.IntrinsicAttributes & props): JSX.Element => {
         {
-          return <Card key={cardData.id} {...cardData} />;
+          return <Card key={plant.id} {...plant} />;
         }
       })}
     </>
