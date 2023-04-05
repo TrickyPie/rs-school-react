@@ -13,7 +13,6 @@ const MainPage: React.FC = () => {
       .then((response) => response.json())
       .then((data) => {
         setPlants(data);
-        console.log(data, plants);
       })
       .catch((error) => console.log(`Error: ${error}`));
   }, [plants]);
