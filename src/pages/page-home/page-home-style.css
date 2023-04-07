@@ -8,13 +8,21 @@
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(4, minmax(3vw, 22%));
+  grid-template-columns: repeat(auto-fit, minmax(3vw, 22%));
   justify-content: center;
   width: 100%;
   gap: 2rem;
 }
 
-@media (max-width: 768px) {
+.overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
   .cards-container {
     grid-template-columns: repeat(3, minmax(3vw, auto));
   }

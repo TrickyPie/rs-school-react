@@ -1,34 +1,38 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './page-home-style.css';
 import Search from '../../components/search/Search';
 import { Cards } from '../../components/cards/Cards';
-import { Plant } from '../../components/card/Card';
+import PlantModal from '../../components/PlantModal/PlantModal';
 
 const MainPage: React.FC = () => {
-  const [plants, setPlants] = useState<Plant[]>([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState<string>(localStorage.getItem('searchValue') || '');
+  const [clickedCardId, setClickedCardId] = useState<number>(0);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
-  useEffect((): void => {
-    fetch('https://my-json-server.typicode.com/TrickyPie/react-api/items')
-      .then((response) => response.json())
-      .then((data) => {
-        setPlants(data);
-      })
-      .catch((error) => console.log(`Error: ${error}`));
-  }, [plants]);
-
-  const handleSearchTermChange = (value: string): void => {
-    setSearchTerm(value);
-    console.log(value);
+  const handleSearchTermChange = (newSearchTerm: string): void => {
+    setSearchTerm(newSearchTerm);
   };
 
+  const handleClick = (id: number): void => {
+    setClickedCardId(id);
+    setIsModalOpen(true);
+  };
+
+  useEffect(() => {
+    localStorage.setItem('searchValue', searchTerm);
+  }, [searchTerm]);
+
   return (
-    <>
+    <div ref={modalRef} className="overlay">
       <Search onSearchTermChange={handleSearchTermChange} />
       <div className="cards-container">
-        <Cards plants={plants} searchTerm={searchTerm} />
+        <Cards searchTerm={searchTerm} onCardClick={handleClick} />
       </div>
-    </>
+      {isModalOpen && clickedCardId && (
+        <PlantModal id={clickedCardId} parent={modalRef.current} setIsModalOpen={setIsModalOpen} />
+      )}
+    </div>
   );
 };
 
