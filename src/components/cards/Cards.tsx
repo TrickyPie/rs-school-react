@@ -1,31 +1,28 @@
-import { Card, props } from '../../components/card/Card';
-import React, { useEffect, useState } from 'react';
-// import { Card } from '../card/Card';
-/* import cardData from '../../mock/mock'; */
+import { Card, Plant } from '../../components/card/Card';
+import React, { FC, useEffect, useState } from 'react';
+import MainPage from '../../pages/page-home/page-home';
 
-/* type CardsProps = {
-  cardData: typeof cardData;
-}; */
+export const Cards: React.FC<{
+  searchTerm: string;
+  onCardClick: (id: number) => void;
+}> = ({ searchTerm, onCardClick }) => {
+  const [plants, setPlants] = useState<Plant[]>([]);
 
-export const Cards = (/* : CardsProps */) => {
-  const [plants, setPlants] = useState([]);
-
-  useEffect(() => {
-    fetch('https://my-json-server.typicode.com/TrickyPie/react-api/items')
-      .then((response) => response.json())
-      .then((data) => {
+  useEffect((): void => {
+    fetch(`https://my-json-server.typicode.com/TrickyPie/react-api/items/?title_like=${searchTerm}`)
+      .then((response: Response): Promise<Plant[]> => response.json())
+      .then((data: Plant[]): void => {
         setPlants(data);
-        console.log(data, plants);
+        console.log(data);
       })
-      .catch((error) => console.log(error));
-  }, [plants]);
+      .catch((error: Error): void => console.log(`Error: ${error}`));
+  }, [searchTerm]);
 
-  /*  const { cardData } = props; */
   return (
     <>
-      {plants.map((plant: JSX.IntrinsicAttributes & props): JSX.Element => {
+      {plants.map((plant: JSX.IntrinsicAttributes & Plant): JSX.Element => {
         {
-          return <Card key={plant.id} {...plant} />;
+          return <Card key={plant.id} {...plant} onCardClick={() => onCardClick(plant.id)} />;
         }
       })}
     </>
