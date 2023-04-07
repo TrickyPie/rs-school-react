@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './slider-style.css';
 
 type props = {
-  image: string[];
+  image: string[] | undefined;
 };
 
 export const Slider = (props: props) => {
@@ -10,12 +10,18 @@ export const Slider = (props: props) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const timerID = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % image.length);
-    }, 3000);
+    if (Array.isArray(image)) {
+      const timerID = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % image.length);
+      }, 3000);
 
-    return () => clearInterval(timerID);
-  }, [image.length]);
+      return () => clearInterval(timerID);
+    }
+  }, [image]);
+
+  if (!Array.isArray(image)) {
+    return null;
+  }
 
   return (
     <div className="slider">
