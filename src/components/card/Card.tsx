@@ -20,7 +20,7 @@ export type CardProps = Plant & {
 };
 
 export const Card = (props: CardProps) => {
-  const { id, image, title, petFriendly, easyCare, onCardClick } = props;
+  const { image, title, petFriendly, easyCare, onCardClick } = props;
 
   const petFriendlyImage: JSX.Element | null = petFriendly ? (
     <img src={pet} alt="Pet-friendly icon" className="pet-friendly-icon" title="Pet friendly" />

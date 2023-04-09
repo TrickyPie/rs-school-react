@@ -12,10 +12,9 @@ type Props = {
   id: string;
   parent: Element | null;
   setIsModalOpen: (value: boolean) => void;
-  onLoaded: () => void;
 };
 
-const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen, onLoaded }) => {
+const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen }) => {
   const [data, setData] = useState<Plant | null>(null);
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -23,12 +22,13 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen, onLoaded }) =
     fetch(`https://my-json-server.typicode.com/TrickyPie/react-api/items/?id=${id}`)
       .then((response: Response) => response.json())
       .then((data): void => {
-        const { id, image, title, description, petFriendly, easyCare, bright, water } = data[0];
-        setData({ id, image, title, description, petFriendly, easyCare, bright, water });
-        onLoaded();
+        if (data[0]) {
+          const { id, image, title, description, petFriendly, easyCare, bright, water } = data[0];
+          setData({ id, image, title, description, petFriendly, easyCare, bright, water });
+        }
       })
       .catch((error: Error): void => console.log(`Error: ${error}`));
-  }, [id, onLoaded]);
+  }, [id]);
 
   const closeModal = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!modalRef.current?.contains(event.target as Node)) {
@@ -42,7 +42,7 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen, onLoaded }) =
   }
 
   return (
-    <div className="modal-overlay-wrapper" onClick={closeModal}>
+    <div className="modal-overlay-wrapper" onClick={closeModal} data-testid="modal">
       <div ref={modalRef} className="modal-overlay">
         <div
           className="modal-overlay-close"
@@ -57,9 +57,11 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen, onLoaded }) =
           </div>
           <div className="modal-overlay-data">
             <h3 data-testid="plant-title" className="modal-overlay-title">
-              {data?.title ?? ''}{' '}
+              {data?.title ?? ''}
             </h3>
-            <p className="modal-overlay-description">{data?.description ?? ''}</p>
+            <p data-testid="plant-description" className="modal-overlay-description">
+              {data?.description ?? ''}
+            </p>
             <div className="modal-overlay-care-block">
               {data?.petFriendly && (
                 <img
@@ -67,6 +69,7 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen, onLoaded }) =
                   alt="Pet-friendly icon"
                   className="modal-overlay-pet-friendly"
                   title="Pet friendly"
+                  data-testid="plant-pet-friendly"
                 />
               )}
               {data?.easyCare && (
@@ -75,18 +78,33 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen, onLoaded }) =
                   alt="Easy-care icon"
                   className="modal-overlay-care"
                   title="Easy care"
+                  data-testid="plant-easy-care"
                 />
               )}
             </div>
 
             <div className="modal-overlay-info">
               <div className="modal-overlay-sun-wrapper">
-                <img className="modal-overlay-sun-icon" src={sun ?? ''} alt="" />
-                <p className="modal-overlay-sun-info">{data?.bright ?? ''}</p>
+                <img
+                  className="modal-overlay-sun-icon"
+                  src={sun ?? ''}
+                  alt=""
+                  data-testid="plant-sun-icon"
+                />
+                <p className="modal-overlay-sun-info" data-testid="plant-bright-info">
+                  {data?.bright ?? ''}
+                </p>
               </div>
               <div className="modal-overlay-water-wrapper">
-                <img className="modal-overlay-water-icon" src={drop ?? ''} alt="" />
-                <p className="modal-overlay-water-info">{data?.water ?? ''}</p>
+                <img
+                  className="modal-overlay-water-icon"
+                  src={drop ?? ''}
+                  alt=""
+                  data-testid="plant-water-icon"
+                />
+                <p className="modal-overlay-water-info" data-testid="plant-water-info">
+                  {data?.water ?? ''}
+                </p>
               </div>
             </div>
           </div>

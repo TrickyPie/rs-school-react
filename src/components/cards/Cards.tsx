@@ -1,6 +1,5 @@
 import { Card, Plant } from '../../components/card/Card';
 import React, { useEffect, useState } from 'react';
-import Loader from '../loader/Loader';
 
 interface CardsProps {
   searchTerm: string;
@@ -11,10 +10,8 @@ interface CardsProps {
 export const Cards: React.FC<CardsProps> = ({ searchTerm, onCardClick, onLoaded }) => {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [error, setError] = useState<string>('');
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    setIsLoading(true);
     fetch(`https://my-json-server.typicode.com/TrickyPie/react-api/items/?title_like=${searchTerm}`)
       .then((response) => {
         if (!response.ok) {
@@ -30,13 +27,8 @@ export const Cards: React.FC<CardsProps> = ({ searchTerm, onCardClick, onLoaded 
           throw new Error('Response data is not an array');
         }
       })
-      .catch((error: Error) => setError(`Error: ${error.message}`))
-      .finally(() => setIsLoading(false));
+      .catch((error: Error) => setError(`Error: ${error.message}`));
   }, [searchTerm, onLoaded]);
-
-  if (isLoading) {
-    return <Loader />;
-  }
 
   if (error) {
     return <div data-testid="error-message">{error}</div>;
@@ -49,7 +41,7 @@ export const Cards: React.FC<CardsProps> = ({ searchTerm, onCardClick, onLoaded 
           key={plant.id}
           data-testid={`card-${plant.id}`}
           {...plant}
-          onCardClick={() => onCardClick(plant.id)}
+          onCardClick={() => onCardClick(plant?.id)}
         />
       ))}
     </>

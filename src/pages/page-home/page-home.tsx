@@ -5,12 +5,12 @@ import { Cards } from '../../components/cards/Cards';
 import PlantModal from '../../components/PlantModal/PlantModal';
 import Loader from '../../components/loader/Loader';
 
-const MainPage: React.FC = () => {
+export const MainPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>(localStorage.getItem('searchValue') || '');
   const [clickedCardId, setClickedCardId] = useState<number>(0);
   const modalRef = useRef<HTMLDivElement>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [showLoader, setShowLoader] = useState<boolean>(true);
 
   const handleSearchTermChange = (newSearchTerm: string): void => {
     setSearchTerm(newSearchTerm);
@@ -21,21 +21,19 @@ const MainPage: React.FC = () => {
     setIsModalOpen(true);
   };
 
+  const handleLoaded = () => {
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 2000);
+  };
+
   useEffect(() => {
     localStorage.setItem('searchValue', searchTerm);
   }, [searchTerm]);
 
-  const handleCardsLoaded = (): void => {
-    setIsLoading(false);
-  };
-
-  const handlePlantModalLoaded = (): void => {
-    setIsLoading(false);
-  };
-
   return (
     <div className="main-page">
-      {isLoading && (
+      {showLoader && (
         <div className="loader-wrapper">
           <Loader />
         </div>
@@ -43,19 +41,16 @@ const MainPage: React.FC = () => {
       <div ref={modalRef} className="overlay">
         <Search onSearchTermChange={handleSearchTermChange} />
         <div className="cards-container">
-          <Cards searchTerm={searchTerm} onCardClick={handleClick} onLoaded={handleCardsLoaded} />
+          <Cards searchTerm={searchTerm} onCardClick={handleClick} onLoaded={handleLoaded} />
         </div>
-        {isModalOpen && clickedCardId && (
-          <PlantModal
-            id={`${clickedCardId}`}
-            parent={modalRef.current}
-            setIsModalOpen={setIsModalOpen}
-            onLoaded={handlePlantModalLoaded}
-          />
-        )}
       </div>
+      {isModalOpen && clickedCardId && (
+        <PlantModal
+          id={`${clickedCardId}`}
+          parent={modalRef.current}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
     </div>
   );
 };
-
-export default MainPage;
