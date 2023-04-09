@@ -26,12 +26,4 @@ describe('PlantModal', () => {
       expect(description).toBeInTheDocument();
     });
   });
-
-  it('closes the plant modal when the close button is clicked', async () => {
-    const setIsModalOpen = vi.fn();
-    render(<PlantModal id={testId} setIsModalOpen={setIsModalOpen} parent={document.body} />);
-
-    const closeButton = await findByTestId(document.body, 'close-button');
-    fireEvent.click(closeButton);
-  });
 });

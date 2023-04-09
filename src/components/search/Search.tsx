@@ -27,7 +27,7 @@ const Search: React.FC<Props> = ({ onSearchTermChange }) => {
   return (
     <div className="search-bar-wrapper">
       <div className="search-bar">
-        <img className="search-bar__icon" src={search} alt="" />
+        <img className="search-bar__icon" src={search} alt="" role="search" />
         <input
           className="search-bar__input"
           type="search"

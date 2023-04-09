@@ -41,7 +41,7 @@ export const Cards: React.FC<CardsProps> = ({ searchTerm, onCardClick, onLoaded 
           key={plant.id}
           data-testid={`card-${plant.id}`}
           {...plant}
-          onCardClick={() => onCardClick(plant?.id)}
+          onCardClick={() => onCardClick(plant.id)}
         />
       ))}
     </>
