@@ -10,7 +10,7 @@ const MainPage: React.FC = () => {
   const [clickedCardId, setClickedCardId] = useState<number>(0);
   const modalRef = useRef<HTMLDivElement>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [showLoader, setShowLoader] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSearchTermChange = (newSearchTerm: string): void => {
     setSearchTerm(newSearchTerm);
@@ -21,19 +21,21 @@ const MainPage: React.FC = () => {
     setIsModalOpen(true);
   };
 
-  const handleLoaded = () => {
-    setTimeout(() => {
-      setShowLoader(false);
-    }, 2000);
-  };
-
   useEffect(() => {
     localStorage.setItem('searchValue', searchTerm);
   }, [searchTerm]);
 
+  const handleCardsLoaded = (): void => {
+    setIsLoading(false);
+  };
+
+  const handlePlantModalLoaded = (): void => {
+    setIsLoading(false);
+  };
+
   return (
     <div className="main-page">
-      {showLoader && (
+      {isLoading && (
         <div className="loader-wrapper">
           <Loader />
         </div>
@@ -41,8 +43,16 @@ const MainPage: React.FC = () => {
       <div ref={modalRef} className="overlay">
         <Search onSearchTermChange={handleSearchTermChange} />
         <div className="cards-container">
-          <Cards searchTerm={searchTerm} onCardClick={handleClick} onLoaded={handleLoaded} />
+          <Cards searchTerm={searchTerm} onCardClick={handleClick} onLoaded={handleCardsLoaded} />
         </div>
+        {isModalOpen && clickedCardId && (
+          <PlantModal
+            id={`${clickedCardId}`}
+            parent={modalRef.current}
+            setIsModalOpen={setIsModalOpen}
+            onLoaded={handlePlantModalLoaded}
+          />
+        )}
       </div>
     </div>
   );

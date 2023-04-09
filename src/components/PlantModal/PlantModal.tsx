@@ -7,30 +7,28 @@ import care from '../../assets/png/growth.png';
 import cross from '../../assets/png/cross.png';
 import { Slider } from '../../components/slider/Slider';
 import { Plant } from '../../components/card/Card';
-import Loader from '../../components/loader/Loader';
 
 type Props = {
   id: string;
   parent: Element | null;
   setIsModalOpen: (value: boolean) => void;
+  onLoaded: () => void;
 };
 
-const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen }) => {
+const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen, onLoaded }) => {
   const [data, setData] = useState<Plant | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsLoading(true);
     fetch(`https://my-json-server.typicode.com/TrickyPie/react-api/items/?id=${id}`)
       .then((response: Response) => response.json())
       .then((data): void => {
         const { id, image, title, description, petFriendly, easyCare, bright, water } = data[0];
         setData({ id, image, title, description, petFriendly, easyCare, bright, water });
-        setIsLoading(false);
+        onLoaded();
       })
       .catch((error: Error): void => console.log(`Error: ${error}`));
-  }, [id]);
+  }, [id, onLoaded]);
 
   const closeModal = (event: React.MouseEvent<HTMLDivElement>) => {
     if (!modalRef.current?.contains(event.target as Node)) {
