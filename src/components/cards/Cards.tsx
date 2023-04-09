@@ -33,7 +33,12 @@ export const Cards: React.FC<{
   return (
     <>
       {plants.map((plant: JSX.IntrinsicAttributes & Plant) => (
-        <Card key={plant.id} {...plant} onCardClick={() => onCardClick(plant.id)} />
+        <Card
+          key={plant.id}
+          data-testid={`card-${plant.id}`}
+          {...plant}
+          onCardClick={() => onCardClick(plant.id)}
+        />
       ))}
     </>
   );
