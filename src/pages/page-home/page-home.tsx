@@ -30,7 +30,11 @@ const MainPage: React.FC = () => {
         <Cards searchTerm={searchTerm} onCardClick={handleClick} />
       </div>
       {isModalOpen && clickedCardId && (
-        <PlantModal id={clickedCardId} parent={modalRef.current} setIsModalOpen={setIsModalOpen} />
+        <PlantModal
+          id={`${clickedCardId}`}
+          parent={modalRef.current}
+          setIsModalOpen={setIsModalOpen}
+        />
       )}
     </div>
   );

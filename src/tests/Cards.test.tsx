@@ -34,7 +34,7 @@ describe('Cards', () => {
     expect(cards).toHaveLength(2);
   });
 
-  it('renders cards with image', async () => {
+  it('renders cards with correct title', async () => {
     render(<Cards searchTerm="Money Tree Plant" onCardClick={() => {}} />);
     await waitFor(() => {
       const moneyTreeTitle = screen.queryByText((content, element) => {
