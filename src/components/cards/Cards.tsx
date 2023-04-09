@@ -1,10 +1,14 @@
 import { Card, Plant } from '../../components/card/Card';
 import React, { useEffect, useState } from 'react';
+import Loader from '../loader/Loader';
 
-export const Cards: React.FC<{
+interface CardsProps {
   searchTerm: string;
   onCardClick: (id: number) => void;
-}> = ({ searchTerm, onCardClick }) => {
+  onLoaded: () => void;
+}
+
+export const Cards: React.FC<CardsProps> = ({ searchTerm, onCardClick, onLoaded }) => {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [error, setError] = useState<string>('');
 
@@ -19,12 +23,13 @@ export const Cards: React.FC<{
       .then((data) => {
         if (Array.isArray(data)) {
           setPlants(data as Plant[]);
+          onLoaded();
         } else {
           throw new Error('Response data is not an array');
         }
       })
       .catch((error: Error) => setError(`Error: ${error.message}`));
-  }, [searchTerm]);
+  }, [searchTerm, onLoaded]);
 
   if (error) {
     return <div data-testid="error-message">{error}</div>;
