@@ -25,12 +25,12 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen }) => {
     fetch(`https://my-json-server.typicode.com/TrickyPie/react-api/items/?id=${id}`)
       .then((response: Response) => response.json())
       .then((data): void => {
-        setTimeout(() => {
-          const { id, image, title, description, petFriendly, easyCare, bright, water } = data[0];
-          setData({ id, image, title, description, petFriendly, easyCare, bright, water });
-          setIsLoading(false);
-          setIsDataLoaded(true);
-        }, 2000);
+        /* setTimeout(() => { */
+        const { id, image, title, description, petFriendly, easyCare, bright, water } = data[0];
+        setData({ id, image, title, description, petFriendly, easyCare, bright, water });
+        setIsLoading(false);
+        setIsDataLoaded(true);
+        /* }, 2000); */
       })
       .catch((error: Error): void => console.log(`Error: ${error}`));
   }, [id]);
