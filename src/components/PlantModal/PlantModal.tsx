@@ -30,7 +30,7 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen }) => {
           setData({ id, image, title, description, petFriendly, easyCare, bright, water });
           setIsLoading(false);
           setIsDataLoaded(true);
-        }, 13000);
+        }, 2000);
       })
       .catch((error: Error): void => console.log(`Error: ${error}`));
   }, [id]);
@@ -54,7 +54,7 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen }) => {
       )}
       {isDataLoaded && !isLoading && (
         <div className="modal-overlay">
-          <div className="modal-overlay-close" onClick={closeModal}>
+          <div className="modal-overlay-close" onClick={closeModal} data-testid="close-button">
             <img src={cross} alt="Close icon" className="modal-overlay-close-icon" />
           </div>
           <div className="modal-overlay-info-block">
@@ -62,7 +62,9 @@ const PlantModal: React.FC<Props> = ({ id, parent, setIsModalOpen }) => {
               <Slider image={data?.image} />
             </div>
             <div className="modal-overlay-data">
-              <h3 className="modal-overlay-title">{data?.title ?? ''}</h3>
+              <h3 data-testid="plant-title" className="modal-overlay-title">
+                {data?.title ?? ''}{' '}
+              </h3>
               <p className="modal-overlay-description">{data?.description ?? ''}</p>
               <div className="modal-overlay-care-block">
                 {data?.petFriendly && (
