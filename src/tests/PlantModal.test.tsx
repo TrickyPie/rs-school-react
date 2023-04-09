@@ -1,6 +1,6 @@
 import React from 'react';
 import { setupServer } from 'msw/node';
-import { findByTestId, fireEvent, render, waitFor } from '@testing-library/react';
+import { findByTestId, fireEvent, render } from '@testing-library/react';
 import { vi } from 'vitest';
 import PlantModal from '../components/PlantModal/PlantModal';
 import { serverData } from './mocks-test';
