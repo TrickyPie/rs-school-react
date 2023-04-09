@@ -15,12 +15,12 @@ export type Plant = {
   water?: string;
 };
 
-type CardProps = Plant & {
+export type CardProps = Plant & {
   onCardClick: () => void;
 };
 
 export const Card = (props: CardProps) => {
-  const { image, title, petFriendly, easyCare, onCardClick } = props;
+  const { id, image, title, petFriendly, easyCare, onCardClick } = props;
 
   const petFriendlyImage: JSX.Element | null = petFriendly ? (
     <img src={pet} alt="Pet-friendly icon" className="pet-friendly-icon" title="Pet friendly" />
@@ -31,18 +31,16 @@ export const Card = (props: CardProps) => {
   ) : null;
 
   return (
-    <>
-      <div className="card-wrapper" data-testid="card-test" onClick={onCardClick}>
-        <div className="slider-wrapper">
-          <Slider image={image} />
-        </div>
-
-        <h3 className="card-title" data-testid="title">
-          {title}
-        </h3>
-        {petFriendlyImage}
-        {easyCareImage}
+    <div className="card-wrapper" data-testid="card-test" onClick={onCardClick}>
+      <div className="slider-wrapper">
+        <Slider image={image} />
       </div>
-    </>
+
+      <h3 className="card-title" data-testid="title">
+        {title}
+      </h3>
+      {petFriendlyImage}
+      {easyCareImage}
+    </div>
   );
 };
