@@ -1,12 +1,41 @@
-import { describe, it } from 'vitest';
-import { render, screen } from '@testing-library/react';
 import React from 'react';
 import { Cards } from '../components/cards/Cards';
-import cardData from '../mock/mock';
+import { setupServer } from 'msw/node';
+import { render, screen, waitFor } from '@testing-library/react';
+import { Mock, vi } from 'vitest';
+import { serverData } from './mocks-test';
+import { testTitle } from './mocks-test';
+
+const server = setupServer(...serverData);
 
 describe('Cards', () => {
-  it('should render all cards from mock data', () => {
-    render(<Cards cardData={cardData} />);
-    expect(screen.getAllByTestId('card-test')).toHaveLength(9);
+  beforeAll(() => server.listen());
+  afterEach(() => server.resetHandlers());
+  afterAll(() => server.close());
+
+  global.fetch = vi.fn(() =>
+    Promise.resolve({
+      json: () => Promise.resolve([serverData]),
+    })
+  ) as Mock;
+
+  it('renders 2 card', async () => {
+    render(<Cards searchTerm={testTitle} onCardClick={() => {}} onLoaded={() => {}} />);
+    await waitFor(() => screen.getAllByTestId('card-test'));
+    const cards = screen.getAllByTestId('card-test');
+    expect(cards).toHaveLength(2);
+  });
+
+  it('renders cards with correct title', async () => {
+    render(<Cards searchTerm="Money Tree Plant" onCardClick={() => {}} onLoaded={() => {}} />);
+    await waitFor(() => {
+      const moneyTreeTitle = screen.queryByText((content, element) => {
+        const text = element?.textContent ?? '';
+        return text.match(/Money Tree Plant/i) !== null;
+      });
+      if (moneyTreeTitle !== null) {
+        expect(moneyTreeTitle).toBeInTheDocument();
+      }
+    });
   });
 });

@@ -1,26 +1,28 @@
-import { Card } from '../components/card/Card';
+import { Card, CardProps, Plant } from '../components/card/Card';
 import React from 'react';
 import { render } from '@testing-library/react';
+import { vi } from 'vitest';
 
 describe('Card', () => {
-  const props = {
+  const plant: Plant = {
     id: 1,
-    image: ['image1', 'image2'],
-    title: 'Title',
-    description: 'Description',
+    image: ['https://example.com/image.jpg'],
+    title: 'Example Plant',
     petFriendly: true,
     easyCare: false,
-    bright: 'Bright',
-    water: 'Water',
+  };
+
+  const onCardClick = vi.fn();
+
+  const props: CardProps = {
+    ...plant,
+    onCardClick,
   };
 
   it('renders the card with right data', () => {
     const { getByTestId, queryByTestId } = render(<Card {...props} />);
-    expect(getByTestId('title')?.textContent).toBe('Title');
-    expect(getByTestId('description')?.textContent).toBe('Description');
+    expect(getByTestId('title')?.textContent).toBe('Example Plant');
     expect(queryByTestId('pet-friendly-icon')).toBeDefined();
     expect(queryByTestId('easy-care-icon')).toBeNull();
-    expect(getByTestId('bright')?.textContent).toBe('Bright');
-    expect(getByTestId('water')?.textContent).toBe('Water');
   });
 });

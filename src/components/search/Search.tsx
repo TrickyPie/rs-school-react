@@ -1,31 +1,39 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, KeyboardEvent } from 'react';
 import './search-style.css';
 import search from '../../assets/png/search.png';
 
-const Search = () => {
-  const [searchValue, setSearchValue] = useState(localStorage.getItem('searchValue') || '');
-  const searchValueRef = useRef<string>(searchValue);
+type Props = {
+  onSearchTermChange: (searchTerm: string) => void;
+};
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setSearchValue(event.target.value);
-    searchValueRef.current = event.target.value;
-  };
+const Search: React.FC<Props> = ({ onSearchTermChange }) => {
+  const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
 
   useEffect(() => {
-    return () => {
-      localStorage.setItem('searchValue', searchValueRef.current);
-    };
-  }, []);
+    const value = localStorage.getItem('searchValue');
+    if (value !== null) {
+      setSearchValue(value);
+      onSearchTermChange(value);
+    }
+  }, [onSearchTermChange]);
+
+  const handleEnter = (event: KeyboardEvent<HTMLInputElement>): void => {
+    if (event.key === 'Enter') {
+      localStorage.setItem('searchValue', searchValue);
+      onSearchTermChange(searchValue);
+    }
+  };
 
   return (
     <div className="search-bar-wrapper">
       <div className="search-bar">
-        <img className="search-bar__icon" src={search} alt="" />
+        <img className="search-bar__icon" src={search} alt="" role="search" />
         <input
           className="search-bar__input"
-          type="text"
+          type="search"
           value={searchValue}
-          onChange={handleChange}
+          onChange={(event) => setSearchValue(event.target.value)}
+          onKeyDown={handleEnter}
         />
       </div>
     </div>
