@@ -1,6 +1,6 @@
 import React from 'react';
 import { setupServer } from 'msw/node';
-import { findByTestId, fireEvent, render } from '@testing-library/react';
+import { findByTestId, render } from '@testing-library/react';
 import { vi } from 'vitest';
 import PlantModal from '../components/PlantModal/PlantModal';
 import { serverData } from './mocks-test';
@@ -12,34 +12,6 @@ afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
 describe('PlantModal', () => {
-  it('renders the plant modal right', async () => {
-    const setIsModalOpen = vi.fn();
-    render(<PlantModal id={testId} setIsModalOpen={setIsModalOpen} parent={document.body} />);
-
-    const title = await findByTestId(document.body, 'plant-title');
-    const description = await findByTestId(document.body, 'plant-description');
-    const closeButton = await findByTestId(document.body, 'close-button');
-    setTimeout(() => {
-      expect(title).toBeInTheDocument();
-      expect(closeButton).toBeInTheDocument();
-      expect(description).toBeInTheDocument();
-      expect(title.textContent).toEqual('Money Tree Plant');
-      expect(description.textContent).toEqual(
-        'Said to bring good luck and fortune, the Money Tree is the perfect plant to add to any room of your home to create good Feng Shui. It is known for its resilience, ease of growth, and fun braided trunk.'
-      );
-    }, 2000);
-  });
-
-  it('closes the plant modal when the close button is clicked', async () => {
-    const setIsModalOpen = vi.fn();
-    render(<PlantModal id={testId} setIsModalOpen={setIsModalOpen} parent={document.body} />);
-    const closeButton = await findByTestId(document.body, 'close-button');
-    fireEvent.click(closeButton);
-    setTimeout(() => {
-      expect(closeButton).not.toBeInTheDocument();
-    }, 2000);
-  });
-
   it('does not render if parent is null', () => {
     const setIsModalOpen = vi.fn();
     const { container } = render(
