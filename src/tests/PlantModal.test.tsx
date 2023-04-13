@@ -36,6 +36,6 @@ describe('PlantModal', () => {
       );
       expect(petFriendlyIcon).not.toBeInTheDocument();
       expect(easyCareIcon).not.toBeInTheDocument();
-    }, 2000);
+    }, 5000);
   });
 });

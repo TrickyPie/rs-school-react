@@ -39,7 +39,7 @@ export const MainPage: React.FC = () => {
         </div>
       )}
       <div ref={modalRef} className="overlay">
-        <Search onSearchTermChange={handleSearchTermChange} />
+        <Search />
         <div className="cards-container">
           <Cards searchTerm={searchTerm} onCardClick={handleClick} onLoaded={handleLoaded} />
         </div>

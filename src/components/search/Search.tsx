@@ -1,27 +1,23 @@
-import React, { useState, useEffect, KeyboardEvent } from 'react';
+import React, { useState, KeyboardEvent } from 'react';
 import './search-style.css';
 import search from '../../assets/png/search.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../redux/reducer';
+import { addSearch } from '../../redux/actions';
 
-type Props = {
-  onSearchTermChange: (searchTerm: string) => void;
-};
-
-const Search: React.FC<Props> = ({ onSearchTermChange }) => {
-  const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
-
-  useEffect(() => {
-    const value = localStorage.getItem('searchValue');
-    if (value !== null) {
-      setSearchValue(value);
-      onSearchTermChange(value);
-    }
-  }, [onSearchTermChange]);
+const Search: React.FC = () => {
+  const dispatch = useDispatch();
+  const searchTerm = useSelector((state: RootState) => state.searchTerm);
+  const [searchValue, setSearchValue] = useState(searchTerm);
 
   const handleEnter = (event: KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === 'Enter') {
-      localStorage.setItem('searchValue', searchValue);
-      onSearchTermChange(searchValue);
+      dispatch(addSearch(searchValue));
     }
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value);
   };
 
   return (
@@ -32,7 +28,7 @@ const Search: React.FC<Props> = ({ onSearchTermChange }) => {
           className="search-bar__input"
           type="search"
           value={searchValue}
-          onChange={(event) => setSearchValue(event.target.value)}
+          onChange={handleChange}
           onKeyDown={handleEnter}
         />
       </div>
