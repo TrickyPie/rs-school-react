@@ -1,15 +1,12 @@
+import { Plant } from '../components/card/Card';
+
 export const ADD_SEARCH = 'ADD_SEARCH';
-export const GET_SEARCH = 'GET_SEARCH';
-export const DO_REQUEST = 'DO_REQUEST';
+export const ADD_CARDS = 'ADD_CARDS';
 
 export function addSearch(payload: string) {
   return { type: ADD_SEARCH, payload };
 }
 
-export function getSearch(payload: string) {
-  return { type: GET_SEARCH, payload };
+export function addCards(payload: Plant[]) {
+  return { type: ADD_CARDS, payload };
 }
-
-/* export function doRequest(payload: string) {
-  return { type: DO_REQUEST, payload };
-} */

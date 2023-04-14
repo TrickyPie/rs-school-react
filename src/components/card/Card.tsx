@@ -16,7 +16,7 @@ export type Plant = {
 };
 
 export type CardProps = Plant & {
-  onCardClick: () => void;
+  onCardClick?: () => void;
 };
 
 export const Card = (props: CardProps) => {

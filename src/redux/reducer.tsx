@@ -1,18 +1,38 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { ADD_SEARCH, GET_SEARCH } from './actions';
+import { store } from '../store';
+import { Plant } from '../components/card/Card';
+import { CardsState, initialState } from '../components/cards/cards-slice';
+import { ADD_CARDS, ADD_SEARCH } from './actions';
 
-const defaultState = {
+export const defaultState: defaultStateType = {
   searchTerm: '',
+  searchCards: initialState,
 };
 
-export type RootState = ReturnType<typeof rootReducer>;
+type defaultStateType = {
+  searchTerm: string;
+  searchCards: CardsState;
+};
 
-export const rootReducer = (state = defaultState, action: { type: string; payload: string }) => {
+type AddSearchAction = {
+  type: typeof ADD_SEARCH;
+  payload: string;
+};
+
+type AddCardsAction = {
+  type: typeof ADD_CARDS;
+  payload: Plant[];
+};
+
+export type RootAction = AddSearchAction | AddCardsAction;
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export const rootReducer = (state = defaultState, action: RootAction) => {
   switch (action.type) {
     case ADD_SEARCH:
       return { ...state, searchTerm: action.payload };
-    case GET_SEARCH:
-      return { ...state, searchTerm: state.searchTerm };
+    case ADD_CARDS:
+      return { ...state, searchCards: action.payload };
 
     default:
       return state;

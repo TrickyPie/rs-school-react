@@ -1,47 +1,54 @@
 import { Card, Plant } from '../../components/card/Card';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { defaultState, RootState } from '../../redux/reducer';
+import { setError, setSearchCards } from './cards-slice';
+import { fetchCards } from './thunk';
+import { cardsSlice, CardsState, selectSearchCards } from './cards-slice';
+import { Action, AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
+import { addSearch } from '../../redux/actions';
+import { ThunkAction } from 'redux-thunk';
+import { AppDispatch } from '../../store';
 
-interface CardsProps {
-  searchTerm: string;
-  onCardClick: (id: number) => void;
-  onLoaded: () => void;
-}
+export const useAppDispatch = () => useDispatch();
 
-export const Cards: React.FC<CardsProps> = ({ searchTerm, onCardClick, onLoaded }) => {
-  const [plants, setPlants] = useState<Plant[]>([]);
-  const [error, setError] = useState<string>('');
+export const Cards = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const searchTerm = useSelector((state: typeof defaultState) => state.searchTerm);
+  const searchCards = useSelector(selectSearchCards);
+  const isLoading = useSelector((state: typeof defaultState) => state.searchCards);
+  const error = useSelector((state: typeof defaultState) => state.searchCards);
 
-  useEffect(() => {
-    fetch(`https://my-json-server.typicode.com/TrickyPie/react-api/items/?title_like=${searchTerm}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('No results found');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (Array.isArray(data)) {
-          setPlants(data as Plant[]);
-          onLoaded();
-        } else {
-          throw new Error('Response data is not an array');
-        }
-      })
-      .catch((error: Error) => setError(`Error: ${error.message}`));
-  }, [searchTerm, onLoaded]);
+  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const searchTerm = event.target.value;
+    dispatch(addSearch(searchTerm));
+    if (searchTerm) {
+      dispatch(fetchCards(searchTerm));
+    } else {
+      dispatch(setSearchCards([]));
+    }
+  };
+
+  if (isLoading) {
+    return <div data-testid="loading-message">Loading...</div>;
+  }
 
   if (error) {
-    return <div data-testid="error-message">{error}</div>;
+    return <div data-testid="error-message">{error.error}</div>;
   }
 
   return (
     <>
-      {plants.map((plant: JSX.IntrinsicAttributes & Plant) => (
+      <input type="text" value={searchTerm} onChange={handleSearchInputChange} />
+      {searchCards.map((plant: Plant) => (
         <Card
           key={plant.id}
           data-testid={`card-${plant.id}`}
-          {...plant}
-          onCardClick={() => onCardClick(plant.id)}
+          id={plant.id}
+          image={plant.image}
+          title={plant.title}
+          petFriendly={plant.petFriendly}
+          easyCare={plant.easyCare}
         />
       ))}
     </>
