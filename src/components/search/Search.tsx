@@ -2,12 +2,11 @@ import React, { useState, KeyboardEvent } from 'react';
 import './search-style.css';
 import search from '../../assets/png/search.png';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux/reducer';
-import { addSearch } from '../../redux/actions';
+import { addSearch, RootState } from '../../redux/reducer';
 
 const Search: React.FC = () => {
   const dispatch = useDispatch();
-  const searchTerm = useSelector((state: RootState) => state.searchTerm);
+  const searchTerm = useSelector((state: RootState) => state.root.searchTerm);
   const [searchValue, setSearchValue] = useState(searchTerm);
 
   const handleEnter = (event: KeyboardEvent<HTMLInputElement>): void => {
@@ -17,7 +16,7 @@ const Search: React.FC = () => {
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchValue(event.target.value);
+    setSearchValue(event.target.value.trim());
   };
 
   return (

@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { cardsSlice } from './components/cards/cards-slice';
 import { rootReducer } from './redux/reducer';
+import { cardsSlice } from './components/cards/cards-slice';
 
 export type AppDispatch = typeof store.dispatch;
 

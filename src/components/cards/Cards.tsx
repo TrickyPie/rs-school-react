@@ -1,56 +1,77 @@
 import { Card, Plant } from '../../components/card/Card';
-import React from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { defaultState, RootState } from '../../redux/reducer';
-import { setError, setSearchCards } from './cards-slice';
+import { selectAllCards } from './cards-slice';
 import { fetchCards } from './thunk';
-import { cardsSlice, CardsState, selectSearchCards } from './cards-slice';
-import { Action, AnyAction, ThunkDispatch } from '@reduxjs/toolkit';
-import { addSearch } from '../../redux/actions';
-import { ThunkAction } from 'redux-thunk';
+import { selectSearchCards } from './cards-slice';
 import { AppDispatch } from '../../store';
+import React from 'react';
+import { addSearch, RootState } from '../../redux/reducer';
+import Loader from '../../components/loader/Loader';
 
 export const useAppDispatch = () => useDispatch();
 
 export const Cards = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const searchTerm = useSelector((state: typeof defaultState) => state.searchTerm);
+  const searchTerm = useSelector((state: RootState) => state.root.searchTerm);
   const searchCards = useSelector(selectSearchCards);
-  const isLoading = useSelector((state: typeof defaultState) => state.searchCards);
-  const error = useSelector((state: typeof defaultState) => state.searchCards);
+  const allCards = useSelector(selectAllCards);
+  const isLoading = useSelector((state: RootState) => state.cards.isLoading);
+  const error = useSelector((state: RootState) => state.cards.error);
 
-  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const searchTerm = event.target.value;
+  useEffect(() => {
     dispatch(addSearch(searchTerm));
-    if (searchTerm) {
+    if (searchTerm !== '') {
       dispatch(fetchCards(searchTerm));
     } else {
-      dispatch(setSearchCards([]));
+      dispatch(fetchCards(''));
     }
-  };
+  }, [dispatch, searchTerm]);
 
   if (isLoading) {
-    return <div data-testid="loading-message">Loading...</div>;
+    return (
+      <div className="loader-wrapper">
+        <Loader />
+      </div>
+    );
   }
 
   if (error) {
-    return <div data-testid="error-message">{error.error}</div>;
+    return (
+      <div className="not-found" data-testid="error-message">
+        Sorry, we have problem with API. Please, try later.
+      </div>
+    );
+  }
+
+  let cardsToRender: Plant[];
+
+  if (searchTerm && searchCards.length === 0) {
+    return (
+      <div className="not-found" data-testid="no-results-message">
+        No results found
+      </div>
+    );
+  } else if (!searchTerm) {
+    cardsToRender = allCards;
+  } else {
+    cardsToRender = searchCards;
   }
 
   return (
     <>
-      <input type="text" value={searchTerm} onChange={handleSearchInputChange} />
-      {searchCards.map((plant: Plant) => (
-        <Card
-          key={plant.id}
-          data-testid={`card-${plant.id}`}
-          id={plant.id}
-          image={plant.image}
-          title={plant.title}
-          petFriendly={plant.petFriendly}
-          easyCare={plant.easyCare}
-        />
-      ))}
+      {cardsToRender &&
+        cardsToRender.map((plant: Plant) => (
+          <Card
+            key={plant.id}
+            data-testid={`card-${plant.id}`}
+            id={plant.id}
+            image={plant.image}
+            title={plant.title}
+            petFriendly={plant.petFriendly}
+            easyCare={plant.easyCare}
+          />
+        ))}
     </>
   );
 };

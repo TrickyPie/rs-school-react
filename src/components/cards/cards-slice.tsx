@@ -5,12 +5,14 @@ import { fetchCards } from './thunk';
 
 export interface CardsState {
   searchCards: Plant[];
+  selectAllCards: Plant[];
   isLoading: boolean;
   error: string | null;
 }
 
 export const initialState: CardsState = {
   searchCards: [],
+  selectAllCards: [],
   isLoading: false,
   error: null,
 };
@@ -47,5 +49,8 @@ export const cardsSlice = createSlice({
 export const { setSearchCards, setLoading, setError } = cardsSlice.actions;
 
 export const selectSearchCards = (state: RootState) => state.cards.searchCards;
-
+export const selectAllCards = (state: RootState) => [
+  ...state.cards.searchCards,
+  ...state.cards.selectAllCards,
+];
 export default cardsSlice.reducer;
