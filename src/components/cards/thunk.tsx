@@ -15,8 +15,6 @@ export const fetchCards = createAsyncThunk<
     ? `https://my-json-server.typicode.com/TrickyPie/react-api/items/?title_like=${searchTerm}`
     : 'https://my-json-server.typicode.com/TrickyPie/react-api/items/?title_like=';
 
-  console.log('searchTerm', searchTerm, 'apiUrl', apiUrl);
-
   try {
     dispatch(setLoading(true));
     const response = await fetch(apiUrl);
@@ -24,7 +22,6 @@ export const fetchCards = createAsyncThunk<
       throw new Error('No results found');
     }
     const data = await response.json();
-    console.log(data);
     if (!Array.isArray(data)) {
       throw new Error('Response data is not an array');
     }
