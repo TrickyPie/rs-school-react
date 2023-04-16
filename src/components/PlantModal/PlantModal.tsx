@@ -39,7 +39,7 @@ export const PlantModal = () => {
 
   if (cardId && plantLoading) {
     return (
-      <div className="loader-wrapper">
+      <div className="loader-wrapper" data-testid="loading">
         <Loader />
       </div>
     );
