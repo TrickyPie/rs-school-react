@@ -2,7 +2,7 @@ interface FormResult {
   fName: string;
   lName: string;
   avatar: FileList;
-  updatedAvatar: string;
+  avatarUrl: string;
   birthday: string;
   region: string;
   promo: boolean;
@@ -10,3 +10,5 @@ interface FormResult {
 }
 
 export default FormResult;
+
+export type FormResultForState = Omit<FormResult, 'avatar'>;

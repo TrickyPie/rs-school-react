@@ -1,49 +1,77 @@
 import { Card, Plant } from '../../components/card/Card';
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectAllCards } from './cards-slice';
+import { fetchCards } from './thunk';
+import { selectSearchCards } from './cards-slice';
+import { AppDispatch } from '../../store';
+import React from 'react';
+import { addSearch, RootState } from '../../redux/reducer';
+import Loader from '../../components/loader/Loader';
 
-interface CardsProps {
-  searchTerm: string;
-  onCardClick: (id: number) => void;
-  onLoaded: () => void;
-}
+export const useAppDispatch = () => useDispatch();
 
-export const Cards: React.FC<CardsProps> = ({ searchTerm, onCardClick, onLoaded }) => {
-  const [plants, setPlants] = useState<Plant[]>([]);
-  const [error, setError] = useState<string>('');
+export const Cards = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const searchTerm = useSelector((state: RootState) => state.root.searchTerm);
+  const searchCards = useSelector(selectSearchCards);
+  const allCards = useSelector(selectAllCards);
+  const isLoading = useSelector((state: RootState) => state.cards.isLoading);
+  const error = useSelector((state: RootState) => state.cards.error);
 
   useEffect(() => {
-    fetch(`https://my-json-server.typicode.com/TrickyPie/react-api/items/?title_like=${searchTerm}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('No results found');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (Array.isArray(data)) {
-          setPlants(data as Plant[]);
-          onLoaded();
-        } else {
-          throw new Error('Response data is not an array');
-        }
-      })
-      .catch((error: Error) => setError(`Error: ${error.message}`));
-  }, [searchTerm, onLoaded]);
+    dispatch(addSearch(searchTerm));
+    if (searchTerm !== '') {
+      dispatch(fetchCards(searchTerm));
+    } else {
+      dispatch(fetchCards(''));
+    }
+  }, [dispatch, searchTerm]);
+
+  if (isLoading) {
+    return (
+      <div className="loader-wrapper" data-testid="loading">
+        <Loader />
+      </div>
+    );
+  }
 
   if (error) {
-    return <div data-testid="error-message">{error}</div>;
+    return (
+      <div className="not-found" data-testid="error-message">
+        Sorry, we have problem with API. Please, try later.
+      </div>
+    );
+  }
+
+  let cardsToRender: Plant[];
+
+  if (searchTerm && searchCards.length === 0) {
+    return (
+      <div className="not-found" data-testid="no-results-message">
+        No results found
+      </div>
+    );
+  } else if (!searchTerm) {
+    cardsToRender = allCards;
+  } else {
+    cardsToRender = searchCards;
   }
 
   return (
     <>
-      {plants.map((plant: JSX.IntrinsicAttributes & Plant) => (
-        <Card
-          key={plant.id}
-          data-testid={`card-${plant.id}`}
-          {...plant}
-          onCardClick={() => onCardClick(plant.id)}
-        />
-      ))}
+      {cardsToRender &&
+        cardsToRender.map((plant: Plant) => (
+          <Card
+            key={plant.id}
+            data-testid={`card-${plant.id}`}
+            id={plant.id}
+            image={plant.image}
+            title={plant.title}
+            petFriendly={plant.petFriendly}
+            easyCare={plant.easyCare}
+          />
+        ))}
     </>
   );
 };

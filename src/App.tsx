@@ -4,7 +4,7 @@ import AppRouter from './router';
 const App = () => {
   return (
     <>
-      <AppRouter />
+      <AppRouter data-testId="app-router" />
     </>
   );
 };

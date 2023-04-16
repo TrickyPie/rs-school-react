@@ -1,38 +1,33 @@
-import React, { useState, useEffect, KeyboardEvent } from 'react';
+import React, { useState, KeyboardEvent } from 'react';
 import './search-style.css';
 import search from '../../assets/png/search.png';
+import { useDispatch, useSelector } from 'react-redux';
+import { addSearch, RootState } from '../../redux/reducer';
 
-type Props = {
-  onSearchTermChange: (searchTerm: string) => void;
-};
-
-const Search: React.FC<Props> = ({ onSearchTermChange }) => {
-  const [searchValue, setSearchValue] = useState<string>(localStorage.getItem('searchValue') || '');
-
-  useEffect(() => {
-    const value = localStorage.getItem('searchValue');
-    if (value !== null) {
-      setSearchValue(value);
-      onSearchTermChange(value);
-    }
-  }, [onSearchTermChange]);
+const Search: React.FC = () => {
+  const dispatch = useDispatch();
+  const searchTerm = useSelector((state: RootState) => state.root.searchTerm);
+  const [searchValue, setSearchValue] = useState(searchTerm);
 
   const handleEnter = (event: KeyboardEvent<HTMLInputElement>): void => {
     if (event.key === 'Enter') {
-      localStorage.setItem('searchValue', searchValue);
-      onSearchTermChange(searchValue);
+      dispatch(addSearch(searchValue));
     }
   };
 
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(event.target.value.trim());
+  };
+
   return (
-    <div className="search-bar-wrapper">
+    <div className="search-bar-wrapper" data-testid="search">
       <div className="search-bar">
         <img className="search-bar__icon" src={search} alt="" role="search" />
         <input
           className="search-bar__input"
           type="search"
           value={searchValue}
-          onChange={(event) => setSearchValue(event.target.value)}
+          onChange={handleChange}
           onKeyDown={handleEnter}
         />
       </div>

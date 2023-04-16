@@ -1,41 +1,145 @@
 import React from 'react';
-import { setupServer } from 'msw/node';
-import { findByTestId, render } from '@testing-library/react';
-import { vi } from 'vitest';
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { Provider } from 'react-redux';
 import PlantModal from '../components/PlantModal/PlantModal';
-import { serverData } from './mocks-test';
-import { testId } from './mocks-test';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
 
-const server = setupServer(...serverData);
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+const mockStore = configureMockStore([thunk]);
 
 describe('PlantModal', () => {
-  it('does not render if parent is null', () => {
-    const setIsModalOpen = vi.fn();
-    const { container } = render(
-      <PlantModal id={testId} setIsModalOpen={setIsModalOpen} parent={null} />
+  it('should show loading spinner when plant data is loading', async () => {
+    const store = mockStore({
+      root: {
+        cardId: 1,
+      },
+      card: {
+        entities: {},
+        plantLoading: true,
+        plantError: null,
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <PlantModal />
+      </Provider>
     );
-    expect(container.firstChild).toBeNull();
+    await waitFor(() => {
+      const loaderElement = screen.getByTestId('loading');
+      expect(loaderElement).toBeInTheDocument(), { timeout: 5000 };
+      expect(loaderElement).toBeInTheDocument();
+    });
   });
 
-  it('renders the plant modal correctly if plant is not pet-friendly and not easy to care for', async () => {
-    const setIsModalOpen = vi.fn();
-    render(<PlantModal id="3" setIsModalOpen={setIsModalOpen} parent={document.body} />);
-    const title = await findByTestId(document.body, 'plant-title');
-    const description = await findByTestId(document.body, 'plant-description');
-    const petFriendlyIcon = document.querySelector('.modal-overlay-pet-friendly');
-    const easyCareIcon = document.querySelector('.modal-overlay-care');
-    setTimeout(() => {
-      expect(title).toBeInTheDocument();
-      expect(description).toBeInTheDocument();
-      expect(title.textContent).toEqual('Monstera');
-      expect(description.textContent).toEqual(
-        'The Monstera is a very popular indoor plant due to its unique foliage! It loves bright, indirect light, and can grow quite large if given the space. Its leaves have natural holes called fenestrations, which make it a favorite among plant enthusiasts.'
-      );
-      expect(petFriendlyIcon).not.toBeInTheDocument();
-      expect(easyCareIcon).not.toBeInTheDocument();
-    }, 2000);
+  it('should close the modal when the close button is clicked', () => {
+    const store = mockStore({
+      root: {
+        cardId: 1,
+      },
+      card: {
+        entities: {
+          1: {
+            id: 1,
+            title: 'Monstera',
+            description: 'A popular indoor plant with large, glossy leaves',
+          },
+        },
+        plantLoading: false,
+        plantError: null,
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <PlantModal />
+      </Provider>
+    );
+
+    const closeButton = screen.getByTestId('close-button');
+    fireEvent.click(closeButton);
+
+    const modal = screen.queryByTestId('modal');
+    expect(modal).not.toBeInTheDocument();
+  });
+
+  it('should close the modal when the overlay is clicked', () => {
+    const store = mockStore({
+      root: {
+        cardId: 1,
+      },
+      card: {
+        entities: {
+          1: {
+            id: 1,
+            title: 'Monstera',
+            description: 'A popular indoor plant with large, glossy leaves',
+          },
+        },
+        plantLoading: false,
+        plantError: null,
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <PlantModal />
+      </Provider>
+    );
+
+    const overlay = screen.getByTestId('modal');
+    fireEvent.click(overlay);
+
+    const modal = screen.queryByTestId('modal');
+    expect(modal).not.toBeInTheDocument();
+  });
+
+  it('should display the correct plant data', () => {
+    const store = mockStore({
+      root: {
+        cardId: 1,
+      },
+      card: {
+        entities: {
+          1: {
+            id: 1,
+            title: 'Monstera',
+            description: 'A popular indoor plant with large, glossy leaves',
+            petFriendly: true,
+            easyCare: false,
+            bright: 'Indirect sunlight',
+            water: 'Once a week',
+            image: 'monstera.jpg',
+          },
+        },
+        plantLoading: false,
+        plantError: null,
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <PlantModal />
+      </Provider>
+    );
+
+    const title = screen.getByTestId('plant-title');
+    expect(title).toHaveTextContent('Monstera');
+
+    const description = screen.getByTestId('plant-description');
+    expect(description).toHaveTextContent('A popular indoor plant with large, glossy leaves');
+
+    const petFriendly = screen.getByTestId('plant-pet-friendly');
+    expect(petFriendly).toBeInTheDocument();
+
+    const easyCare = screen.queryByTestId('plant-easy-care');
+    expect(easyCare).not.toBeInTheDocument();
+
+    const bright = screen.getByTestId('plant-bright-info');
+    expect(bright).toHaveTextContent('Indirect sunlight');
+
+    const water = screen.getByTestId('plant-water-info');
+    expect(water).toHaveTextContent('Once a week');
   });
 });
