@@ -11,4 +11,11 @@ export const store = configureStore({
     cards: cardsSlice.reducer,
     card: plantSlice.reducer,
   }),
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware({
+      serializableCheck: {
+        ignoredPaths: ['payload.0.avatar'],
+      },
+    });
+  },
 });

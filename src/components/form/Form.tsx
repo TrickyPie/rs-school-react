@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './form-style.css';
 import {
   validateCapitalize,
@@ -11,16 +11,17 @@ import {
 import { Select } from '../../components/UI/select/Select';
 import { Checkbox } from '../../components/UI/checkbox/Checkbox';
 import { Radio } from '../../components/UI/radioBtn/Radio';
-import FormResult from '../../pages/page-form/form-type';
-import { ConfirmationPopup } from '../../components/confirmationPopup/ConfirmationPopup';
+import FormResult, { FormResultForState } from '../../pages/page-form/form-type';
 import { RadioData } from '../../mock/radio-mock';
 import { RegionData } from '../../mock/select-mock';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState, setFormCards } from '../../redux/reducer';
 
-export interface FormProps {
-  callback: (data: FormResult) => void;
-}
+export const CustomForm = () => {
+  const formCards = useSelector((state: RootState) => state.root.formCards);
+  const dispatch = useDispatch();
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
-export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -30,25 +31,41 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
     mode: 'onSubmit',
     reValidateMode: 'onSubmit',
   });
-  const [isConfirmationVisible, setIsConfirmationVisible] = useState(false);
-
-  const showConfirmationPopup = (): void => {
-    setIsConfirmationVisible(true);
-  };
 
   const onSubmitHandler = (formData: FormResult): void => {
     if (formData.avatar) {
-      formData.updatedAvatar = URL.createObjectURL(formData.avatar[0]);
+      const avatarFile = formData.avatar[0];
+      const imageUrl = URL.createObjectURL(avatarFile);
+      formData.avatarUrl = imageUrl;
     }
-    if (typeof callback === 'function') {
-      callback(formData);
-    }
-    showConfirmationPopup();
-    reset();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { avatar, ...formDataWithoutAvatar } = formData;
+    submit(formDataWithoutAvatar);
   };
+
+  const submit = (data: FormResultForState) => {
+    const newFormCards = [...formCards, data];
+    dispatch(setFormCards(newFormCards));
+    reset();
+    setShowConfirmation(true);
+  };
+
+  useEffect(() => {
+    if (showConfirmation) {
+      const timer = setTimeout(() => {
+        setShowConfirmation(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [showConfirmation]);
 
   return (
     <>
+      {showConfirmation && (
+        <div className="confirmation-popup" data-testid="confirmationPopup">
+          Form submitted!
+        </div>
+      )}
       <form className="form" onSubmit={handleSubmit(onSubmitHandler)}>
         <div className="form-firstname-wrapper form-input-wrapper wrapper-text">
           <label className="form-fName title" htmlFor="fName" data-testid="firstNameLabel">
@@ -180,13 +197,6 @@ export const CustomForm: React.FC<FormProps> = ({ callback }: FormProps) => {
           Submit
         </button>
       </form>
-      {isConfirmationVisible && (
-        <ConfirmationPopup
-          message="Form submitted!"
-          hideOn={() => setIsConfirmationVisible(false)}
-          data-testid="confirmationPopup"
-        />
-      )}
     </>
   );
 };
