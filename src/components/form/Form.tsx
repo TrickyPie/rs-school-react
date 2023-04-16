@@ -66,7 +66,7 @@ export const CustomForm = () => {
           Form submitted!
         </div>
       )}
-      <form className="form" onSubmit={handleSubmit(onSubmitHandler)}>
+      <form className="form" onSubmit={handleSubmit(onSubmitHandler)} data-testid="custom-form">
         <div className="form-firstname-wrapper form-input-wrapper wrapper-text">
           <label className="form-fName title" htmlFor="fName" data-testid="firstNameLabel">
             First Name:

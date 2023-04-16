@@ -17,7 +17,7 @@ export const InputCards = () => {
   return (
     <>
       {' '}
-      <div className="input-cards-container">
+      <div className="input-cards-container" data-testid="input-cards">
         {newCards.map((card: FormResult, index: React.Key | null | undefined) => (
           <div key={index} data-testid={`card-${index}`}>
             <InputCard ind={`card-${index}`} card={card} onRendered={handleCardRendered} />

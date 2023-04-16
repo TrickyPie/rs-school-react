@@ -30,7 +30,7 @@ export const Cards = () => {
 
   if (isLoading) {
     return (
-      <div className="loader-wrapper">
+      <div className="loader-wrapper" data-testid="loading">
         <Loader />
       </div>
     );

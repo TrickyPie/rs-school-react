@@ -6,14 +6,14 @@ import PlantModal from '../../components/PlantModal/PlantModal';
 
 export const MainPage: React.FC = () => {
   return (
-    <div className="main-page">
+    <div className="main-page" data-testid="main-page">
       <div className="overlay">
         <Search />
-        <div className="cards-container">
-          <Cards />
+        <div className="cards-container" data-testid="cards-container">
+          <Cards data-testid="cards" />
         </div>
       </div>
-      <PlantModal />
+      <PlantModal data-testid="plant-modal" />
     </div>
   );
 };
