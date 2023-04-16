@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 import './card-style.css';
 import { Slider } from '../slider/Slider';
 import pet from '../../assets/png/pet.png';
@@ -18,16 +18,32 @@ export type Plant = {
   water?: string;
 };
 
-export const Card = (props: Plant) => {
+export type CardProps = Plant & {
+  onClick?: MouseEventHandler<HTMLDivElement>;
+};
+
+export const Card = (props: CardProps) => {
   const { id, title, image, petFriendly, easyCare } = props;
   const dispatch = useDispatch<AppDispatch>();
 
   const petFriendlyImage: JSX.Element | null = petFriendly ? (
-    <img src={pet} alt="Pet-friendly icon" className="pet-friendly-icon" title="Pet friendly" />
+    <img
+      src={pet}
+      alt="Pet-friendly icon"
+      className="pet-friendly-icon"
+      title="Pet friendly"
+      data-testid="pet-friendly-icon"
+    />
   ) : null;
 
   const easyCareImage: JSX.Element | null = easyCare ? (
-    <img src={care} alt="Easy-care icon" className="easy-care-icon" title="Easy care" />
+    <img
+      src={care}
+      alt="Easy-care icon"
+      className="easy-care-icon"
+      title="Easy care"
+      data-testid="easy-care-icon"
+    />
   ) : null;
 
   const handleClick = () => {

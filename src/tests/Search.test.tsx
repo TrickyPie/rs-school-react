@@ -1,60 +1,62 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import configureMockStore, { MockStoreEnhanced } from 'redux-mock-store';
+import { RootState, addSearch } from '../redux/reducer';
 import Search from '../components/search/Search';
 import { vi } from 'vitest';
 
-describe('Search component', () => {
-  afterEach(() => localStorage.clear());
+const mockStore = configureMockStore<RootState>();
 
-  it('renders the search bar', () => {
-    render(<Search onSearchTermChange={() => {}} />);
-    const searchBar = screen.getByRole('search');
-    expect(searchBar).toBeInTheDocument();
+describe('Search component', () => {
+  let store: MockStoreEnhanced<RootState>;
+
+  beforeEach(() => {
+    store = mockStore({
+      root: {
+        searchTerm: '',
+      },
+    });
   });
 
-  it('stores search value in local storage and calls onSearchTermChange when Enter key is pressed', () => {
-    const onSearchTermChange = vi.fn();
-    const searchTerm = 'test';
+  it('should render the search bar', () => {
+    render(
+      <Provider store={store}>
+        <Search />
+      </Provider>
+    );
 
-    render(<Search onSearchTermChange={onSearchTermChange} />);
-    const searchInput = screen.getByRole('searchbox');
-    fireEvent.change(searchInput, { target: { value: searchTerm } });
+    const searchInput = screen.getByRole('searchbox') as HTMLInputElement;
+    expect(searchInput).toBeInTheDocument();
+  });
+
+  it('should update search value on change event', () => {
+    render(
+      <Provider store={store}>
+        <Search />
+      </Provider>
+    );
+
+    const searchInput = screen.getByRole('searchbox') as HTMLInputElement;
+    fireEvent.change(searchInput, { target: { value: 'test' } });
+
+    expect(searchInput.value).toBe('test');
+  });
+
+  it('should dispatch addSearch action on enter key press', () => {
+    store.dispatch = vi.fn();
+
+    render(
+      <Provider store={store}>
+        <Search />
+      </Provider>
+    );
+
+    const searchInput = screen.getByRole('searchbox') as HTMLInputElement;
+    fireEvent.change(searchInput, { target: { value: 'test' } });
     fireEvent.keyDown(searchInput, { key: 'Enter', code: 'Enter' });
 
-    expect(onSearchTermChange).toHaveBeenCalledWith(searchTerm);
-    expect(localStorage.getItem('searchValue')).toEqual(searchTerm);
-  });
-
-  it('restores search value from local storage and calls onSearchTermChange when component is mounted', () => {
-    const onSearchTermChange = vi.fn();
-    const searchTerm = 'test';
-
-    localStorage.setItem('searchValue', searchTerm);
-    render(<Search onSearchTermChange={onSearchTermChange} />);
-
-    expect(onSearchTermChange).toHaveBeenCalledWith(searchTerm);
-    expect(screen.getByRole('searchbox')).toHaveValue(searchTerm);
-  });
-
-  it('clears search value from local storage when component is unmounted', () => {
-    const onSearchTermChange = vi.fn();
-    const searchTerm = 'test';
-
-    const localStorageMock = (() => {
-      let store: { [key: string]: string } = {};
-      return {
-        getItem: (key: string) => store[key],
-        setItem: (key: string, value: string) => (store[key] = value),
-        clear: () => (store = {}),
-      };
-    })();
-
-    Object.defineProperty(window, 'localStorage', { value: localStorageMock });
-    localStorage.setItem('searchValue', searchTerm);
-
-    const { unmount } = render(<Search onSearchTermChange={onSearchTermChange} />);
-    expect(localStorage.getItem('searchValue')).toEqual(searchTerm);
-    unmount();
-    expect(localStorage.getItem('searchValue')).toEqual(searchTerm);
+    expect(store.dispatch).toHaveBeenCalledTimes(1);
+    expect(store.dispatch).toHaveBeenCalledWith(addSearch('test'));
   });
 });
