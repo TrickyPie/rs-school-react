@@ -6,9 +6,20 @@ import { store } from './store';
 import App from './App';
 import './index.scss';
 
-const rootElement: HTMLElement | null = document.getElementById('root');
+/* const rootElement: HTMLElement | null = document.getElementById('root');
 
 ReactDOM.createRoot(rootElement as HTMLElement).render(
+  <React.StrictMode>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>
+); */
+
+ReactDOM.hydrateRoot(
+  document.getElementById('root') as HTMLElement,
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
