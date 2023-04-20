@@ -1,13 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { renderToPipeableStream } from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server';
+import ReactDOMServer from 'react-dom/server';
 
 import App from './App';
 import { store } from './store';
 
 export const render = (url: string, options?: object) => {
-  return renderToPipeableStream(
+  return ReactDOMServer.renderToPipeableStream(
     <React.StrictMode>
       <Provider store={store}>
         <StaticRouter location={url}>
