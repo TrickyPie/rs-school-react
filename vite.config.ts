@@ -3,15 +3,28 @@
 
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import eslint from 'vite-plugin-eslint';
+import istanbul from 'vite-plugin-istanbul';
 
 // https://vitejs.dev/config/
+
 export default defineConfig({
-  plugins: [react()],
+  build: {
+    sourcemap: true,
+  },
+  plugins: [
+    react(),
+    eslint(),
+    istanbul({
+      cypress: true,
+      requireEnv: false,
+    }),
+  ],
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: ['./src/setupTests.ts'],
-    css: true,
+    setupFiles: './src/test/setupTests.ts',
+    exclude: ['node_modules', 'dist', 'coverage', 'cypress'],
     coverage: {
       include: ['src/**/*'],
       exclude: [
@@ -29,9 +42,14 @@ export default defineConfig({
         'src/components/PlantModal/plant-thunk.tsx',
         'src/store.tsx',
       ],
+      provider: 'c8',
+      all: true,
       enabled: true,
       reporter: ['text'],
-      all: true,
     },
+  },
+  server: {
+    host: true,
+    port: 3000,
   },
 });

@@ -1,6 +1,5 @@
 {
-  "watch": ["src"],
   "ignore": ["node_modules"],
-  "ext": ".tsx",
-  "exec": "ts-node --experimental-specifier-resolution=node ./src/server.tsx"
+  "exec": "ts-node --experimental-specifier-resolution=node ./src/server.tsx",
+  "ext": ".tsx"
 }
