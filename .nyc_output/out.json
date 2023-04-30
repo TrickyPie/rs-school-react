@@ -1,6 +1,6 @@
 {
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/nav/Nav.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/nav/Nav.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/nav/Nav.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/nav/Nav.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -69,7 +69,7 @@
         },
         "end": {
           "line": 12,
-          "column": 126
+          "column": 132
         }
       },
       "7": {
@@ -169,7 +169,7 @@
         },
         "end": {
           "line": 67,
-          "column": 152
+          "column": 158
         }
       },
       "17": {
@@ -551,15 +551,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/nav/Nav.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/nav/Nav.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/nav/Nav.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/nav/Nav.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "615e02c5bafb8a7cd539660c1202d80ed65cc0f2"
+    "hash": "2a7041d2f1703deb08a4dfb130f5057fbeeb5069"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/header/Header.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/header/Header.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/header/Header.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/header/Header.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -628,7 +628,7 @@
         },
         "end": {
           "line": 12,
-          "column": 132
+          "column": 138
         }
       },
       "7": {
@@ -728,7 +728,7 @@
         },
         "end": {
           "line": 54,
-          "column": 158
+          "column": 164
         }
       },
       "17": {
@@ -1059,8 +1059,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -1070,7 +1070,7 @@
     "f": {
       "0": 13,
       "1": 32,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -1108,15 +1108,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/header/Header.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/header/Header.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/header/Header.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/header/Header.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "6e4283a2453c6e6f1eed0a0ba9355488ac94f311"
+    "hash": "83086baee89cf4e19ebc70f49397b4f6695ef1b2"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/layout/Layout.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/layout/Layout.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/layout/Layout.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/layout/Layout.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -1185,7 +1185,7 @@
         },
         "end": {
           "line": 12,
-          "column": 132
+          "column": 138
         }
       },
       "7": {
@@ -1285,7 +1285,7 @@
         },
         "end": {
           "line": 50,
-          "column": 158
+          "column": 164
         }
       },
       "17": {
@@ -1616,8 +1616,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -1627,7 +1627,7 @@
     "f": {
       "0": 13,
       "1": 32,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -1666,15 +1666,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/layout/Layout.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/layout/Layout.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/layout/Layout.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/layout/Layout.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "f44557d757449a1707bb9de70a4b28b1d3c8c93c"
+    "hash": "7d889230ef677cf46b25cefba4e5bd465d0bb6ad"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/search/Search.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/search/Search.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/search/Search.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/search/Search.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -1743,7 +1743,7 @@
         },
         "end": {
           "line": 12,
-          "column": 132
+          "column": 138
         }
       },
       "7": {
@@ -1973,7 +1973,7 @@
         },
         "end": {
           "line": 70,
-          "column": 158
+          "column": 164
         }
       },
       "30": {
@@ -2427,7 +2427,7 @@
       "10": 50,
       "11": 50,
       "12": 50,
-      "13": 173,
+      "13": 175,
       "14": 50,
       "15": 50,
       "16": 15,
@@ -2454,7 +2454,7 @@
     "f": {
       "0": 13,
       "1": 50,
-      "2": 173,
+      "2": 175,
       "3": 15,
       "4": 13,
       "5": 10,
@@ -2515,15 +2515,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/search/Search.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/search/Search.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/search/Search.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/search/Search.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "fc29594bcaea55640e6888fb87580c61407fd7f6"
+    "hash": "7f1eba0f72284f67435ca6383a1dc15806025790"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/slider/Slider.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/slider/Slider.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/slider/Slider.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/slider/Slider.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -2592,7 +2592,7 @@
         },
         "end": {
           "line": 12,
-          "column": 132
+          "column": 138
         }
       },
       "7": {
@@ -2832,7 +2832,7 @@
         },
         "end": {
           "line": 64,
-          "column": 158
+          "column": 164
         }
       },
       "31": {
@@ -3313,19 +3313,19 @@
       "7": 13,
       "8": 13,
       "9": 13,
-      "10": 550,
-      "11": 550,
-      "12": 550,
-      "13": 550,
-      "14": 224,
-      "15": 224,
+      "10": 568,
+      "11": 568,
+      "12": 568,
+      "13": 568,
+      "14": 233,
+      "15": 233,
       "16": 0,
       "17": 0,
-      "18": 224,
-      "19": 185,
-      "20": 550,
+      "18": 233,
+      "19": 194,
+      "20": 568,
       "21": 0,
-      "22": 550,
+      "22": 568,
       "23": 13,
       "24": 13,
       "25": 13,
@@ -3343,11 +3343,11 @@
     },
     "f": {
       "0": 13,
-      "1": 550,
-      "2": 224,
+      "1": 568,
+      "2": 233,
       "3": 0,
       "4": 0,
-      "5": 185,
+      "5": 194,
       "6": 13,
       "7": 0
     },
@@ -3361,12 +3361,12 @@
         13
       ],
       "2": [
-        224,
+        233,
         0
       ],
       "3": [
         0,
-        550
+        568
       ],
       "4": [
         13,
@@ -3404,15 +3404,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/slider/Slider.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/slider/Slider.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/slider/Slider.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/slider/Slider.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "24cb92c5b2b95107bc4338cdca267151e56c7c78"
+    "hash": "7678ac2388a0bb775f8c30df8f3d429cfcb7dbae"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/card/Card.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/card/Card.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/card/Card.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/card/Card.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -3481,7 +3481,7 @@
         },
         "end": {
           "line": 12,
-          "column": 128
+          "column": 134
         }
       },
       "7": {
@@ -3681,7 +3681,7 @@
         },
         "end": {
           "line": 82,
-          "column": 154
+          "column": 160
         }
       },
       "27": {
@@ -4126,14 +4126,14 @@
       "7": 13,
       "8": 13,
       "9": 13,
-      "10": 544,
-      "11": 544,
-      "12": 544,
-      "13": 544,
-      "14": 544,
-      "15": 544,
+      "10": 562,
+      "11": 562,
+      "12": 562,
+      "13": 562,
+      "14": 562,
+      "15": 562,
       "16": 3,
-      "17": 544,
+      "17": 562,
       "18": 13,
       "19": 8,
       "20": 13,
@@ -4152,7 +4152,7 @@
     },
     "f": {
       "0": 13,
-      "1": 544,
+      "1": 562,
       "2": 3,
       "3": 8,
       "4": 13,
@@ -4168,12 +4168,12 @@
         13
       ],
       "2": [
-        242,
-        302
+        250,
+        312
       ],
       "3": [
-        364,
-        180
+        376,
+        186
       ],
       "4": [
         13,
@@ -4213,15 +4213,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/card/Card.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/card/Card.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/card/Card.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/card/Card.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "12cd19142c742bc125f08ea565b891acec28a751"
+    "hash": "eca20424af5d8e1c4ccf699891eb7f5b356bd555"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/loader/Loader.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/loader/Loader.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/loader/Loader.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/loader/Loader.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -4290,7 +4290,7 @@
         },
         "end": {
           "line": 12,
-          "column": 132
+          "column": 138
         }
       },
       "7": {
@@ -4390,7 +4390,7 @@
         },
         "end": {
           "line": 42,
-          "column": 158
+          "column": 164
         }
       },
       "17": {
@@ -4721,8 +4721,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -4732,7 +4732,7 @@
     "f": {
       "0": 13,
       "1": 30,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -4767,15 +4767,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/loader/Loader.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/loader/Loader.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/loader/Loader.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/loader/Loader.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "7321ff98e53accc4eb2eaea9e0f272f5df5701dc"
+    "hash": "740abffb43702963a7d9d2474105ad1d06aae9dc"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/cards/Cards.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/cards/Cards.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/cards/Cards.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/cards/Cards.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -4844,7 +4844,7 @@
         },
         "end": {
           "line": 12,
-          "column": 130
+          "column": 136
         }
       },
       "7": {
@@ -5284,7 +5284,7 @@
         },
         "end": {
           "line": 101,
-          "column": 156
+          "column": 162
         }
       },
       "51": {
@@ -6047,32 +6047,32 @@
       "13": 13,
       "14": 0,
       "15": 13,
-      "16": 124,
-      "17": 124,
-      "18": 124,
-      "19": 243,
-      "20": 124,
-      "21": 124,
-      "22": 124,
-      "23": 221,
-      "24": 124,
-      "25": 243,
-      "26": 124,
+      "16": 126,
+      "17": 126,
+      "18": 126,
+      "19": 246,
+      "20": 126,
+      "21": 126,
+      "22": 126,
+      "23": 224,
+      "24": 126,
+      "25": 246,
+      "26": 126,
       "27": 22,
       "28": 22,
       "29": 2,
       "30": 20,
-      "31": 124,
+      "31": 126,
       "32": 24,
-      "33": 100,
+      "33": 102,
       "34": 0,
-      "35": 100,
+      "35": 102,
       "36": 2,
-      "37": 98,
+      "37": 100,
       "38": 86,
-      "39": 12,
-      "40": 98,
-      "41": 544,
+      "39": 14,
+      "40": 100,
+      "41": 562,
       "42": 13,
       "43": 10,
       "44": 13,
@@ -6081,8 +6081,8 @@
       "47": 13,
       "48": 13,
       "49": 13,
-      "50": 12,
-      "51": 12,
+      "50": 13,
+      "51": 13,
       "52": 0,
       "53": 0,
       "54": 0,
@@ -6093,14 +6093,14 @@
       "0": 13,
       "1": 0,
       "2": 0,
-      "3": 124,
-      "4": 243,
-      "5": 221,
-      "6": 243,
+      "3": 126,
+      "4": 246,
+      "5": 224,
+      "6": 246,
       "7": 22,
-      "8": 544,
+      "8": 562,
       "9": 10,
-      "10": 12,
+      "10": 13,
       "11": 0
     },
     "b": {
@@ -6118,27 +6118,27 @@
       ],
       "3": [
         24,
-        100
+        102
       ],
       "4": [
         0,
-        100
+        102
       ],
       "5": [
         2,
-        98
+        100
       ],
       "6": [
-        100,
-        14
+        102,
+        16
       ],
       "7": [
         86,
-        12
+        14
       ],
       "8": [
-        98,
-        98
+        100,
+        100
       ],
       "9": [
         13,
@@ -6192,15 +6192,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/cards/Cards.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/cards/Cards.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/cards/Cards.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/cards/Cards.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "68f4db30b49de062b37b56bc7fc42a5cbbed35d5"
+    "hash": "78443d7cac186874e9831a4b88e5993e050316a0"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/PlantModal/PlantModal.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/PlantModal/PlantModal.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/PlantModal/PlantModal.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/PlantModal/PlantModal.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -6269,7 +6269,7 @@
         },
         "end": {
           "line": 12,
-          "column": 140
+          "column": 146
         }
       },
       "7": {
@@ -6769,7 +6769,7 @@
         },
         "end": {
           "line": 210,
-          "column": 166
+          "column": 172
         }
       },
       "57": {
@@ -7937,13 +7937,13 @@
       "16": 54,
       "17": 54,
       "18": 54,
-      "19": 125,
+      "19": 126,
       "20": 54,
-      "21": 125,
+      "21": 126,
       "22": 54,
-      "23": 122,
+      "23": 123,
       "24": 54,
-      "25": 125,
+      "25": 126,
       "26": 54,
       "27": 54,
       "28": 25,
@@ -7987,10 +7987,10 @@
       "1": 0,
       "2": 0,
       "3": 54,
-      "4": 125,
-      "5": 125,
-      "6": 122,
-      "7": 125,
+      "4": 126,
+      "5": 126,
+      "6": 123,
+      "7": 126,
       "8": 25,
       "9": 28,
       "10": 2,
@@ -8137,15 +8137,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/PlantModal/PlantModal.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/PlantModal/PlantModal.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/PlantModal/PlantModal.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/PlantModal/PlantModal.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "092bd2a6c0551ee100843c5dea61ccb4398928ff"
+    "hash": "0854149ea2f85f9cb1ba5418e7ca1f381c0a673d"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-home/page-home.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-home/page-home.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-home/page-home.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-home/page-home.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -8214,7 +8214,7 @@
         },
         "end": {
           "line": 12,
-          "column": 133
+          "column": 139
         }
       },
       "7": {
@@ -8314,7 +8314,7 @@
         },
         "end": {
           "line": 63,
-          "column": 159
+          "column": 165
         }
       },
       "17": {
@@ -8645,8 +8645,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -8656,7 +8656,7 @@
     "f": {
       "0": 13,
       "1": 20,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -8694,15 +8694,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-home/page-home.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-home/page-home.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-home/page-home.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-home/page-home.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "7efa02a86b65a6d2960ed7f25ba14e2a32c45c42"
+    "hash": "82a54548d0faf8badb4d3672e38749f3b514862e"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-about.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-about.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-about.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-about.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -8771,7 +8771,7 @@
         },
         "end": {
           "line": 12,
-          "column": 124
+          "column": 130
         }
       },
       "7": {
@@ -8871,7 +8871,7 @@
         },
         "end": {
           "line": 33,
-          "column": 150
+          "column": 156
         }
       },
       "17": {
@@ -9202,8 +9202,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -9213,7 +9213,7 @@
     "f": {
       "0": 13,
       "1": 4,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -9248,15 +9248,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-about.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-about.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-about.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-about.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "b43e3c231449dba32d82b794dc8eddcd4501fc22"
+    "hash": "6937b2488b66daa94188d71a967a3cd874b1cd79"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-notfound.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-notfound.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-notfound.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-notfound.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -9325,7 +9325,7 @@
         },
         "end": {
           "line": 12,
-          "column": 127
+          "column": 133
         }
       },
       "7": {
@@ -9425,7 +9425,7 @@
         },
         "end": {
           "line": 37,
-          "column": 153
+          "column": 159
         }
       },
       "17": {
@@ -9756,8 +9756,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -9767,7 +9767,7 @@
     "f": {
       "0": 13,
       "1": 2,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -9802,15 +9802,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-notfound.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-notfound.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-notfound.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-notfound.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "b7d5c2341053b642ead5c43eea31d829fc48d667"
+    "hash": "7940b3e494e207be5f8794d6a9bbe531c5129430"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/form/form-utils.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/form/form-utils.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/form-utils.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/form-utils.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -10392,15 +10392,15 @@
         "type"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/form/form-utils.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/form-utils.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/form/form-utils.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/form-utils.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "43bceaacd93ce301049185b3b24b2101b4c7fd19"
+    "hash": "f1246c0cae48674a443773bd7bfad4bd216820ba"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/select/Select.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/select/Select.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/select/Select.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/select/Select.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -10469,7 +10469,7 @@
         },
         "end": {
           "line": 12,
-          "column": 135
+          "column": 141
         }
       },
       "7": {
@@ -10589,7 +10589,7 @@
         },
         "end": {
           "line": 65,
-          "column": 161
+          "column": 167
         }
       },
       "19": {
@@ -10946,8 +10946,8 @@
       "15": 13,
       "16": 13,
       "17": 13,
-      "18": 12,
-      "19": 12,
+      "18": 13,
+      "19": 13,
       "20": 0,
       "21": 0,
       "22": 0,
@@ -10958,7 +10958,7 @@
       "0": 13,
       "1": 12,
       "2": 84,
-      "3": 12,
+      "3": 13,
       "4": 0
     },
     "b": {
@@ -11005,15 +11005,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/select/Select.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/select/Select.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/select/Select.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/select/Select.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "812d2a174753e369367d9d4ceb256880c339c12b"
+    "hash": "640cf4bf04dd1208f2ce2eac999cae3520e6561c"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/checkbox/Checkbox.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/checkbox/Checkbox.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/checkbox/Checkbox.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/checkbox/Checkbox.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -11082,7 +11082,7 @@
         },
         "end": {
           "line": 12,
-          "column": 139
+          "column": 145
         }
       },
       "7": {
@@ -11192,7 +11192,7 @@
         },
         "end": {
           "line": 62,
-          "column": 165
+          "column": 171
         }
       },
       "18": {
@@ -11524,8 +11524,8 @@
       "14": 13,
       "15": 13,
       "16": 13,
-      "17": 12,
-      "18": 12,
+      "17": 13,
+      "18": 13,
       "19": 0,
       "20": 0,
       "21": 0,
@@ -11535,7 +11535,7 @@
     "f": {
       "0": 13,
       "1": 12,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -11577,15 +11577,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/checkbox/Checkbox.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/checkbox/Checkbox.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/checkbox/Checkbox.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/checkbox/Checkbox.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "cb1746def4418b095e2b6302caa0a71079d1c87d"
+    "hash": "30071c4b3c442b4ca12ff24a3f3d2bd97a4a6321"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/radioBtn/Radio.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/radioBtn/Radio.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/radioBtn/Radio.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/radioBtn/Radio.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -11654,7 +11654,7 @@
         },
         "end": {
           "line": 12,
-          "column": 136
+          "column": 142
         }
       },
       "7": {
@@ -11774,7 +11774,7 @@
         },
         "end": {
           "line": 65,
-          "column": 162
+          "column": 168
         }
       },
       "19": {
@@ -12131,8 +12131,8 @@
       "15": 13,
       "16": 13,
       "17": 13,
-      "18": 12,
-      "19": 12,
+      "18": 13,
+      "19": 13,
       "20": 0,
       "21": 0,
       "22": 0,
@@ -12143,7 +12143,7 @@
       "0": 13,
       "1": 12,
       "2": 36,
-      "3": 12,
+      "3": 13,
       "4": 0
     },
     "b": {
@@ -12187,15 +12187,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/radioBtn/Radio.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/radioBtn/Radio.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/UI/radioBtn/Radio.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/radioBtn/Radio.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "beec70a900901523d3f036cc5e6123d51916dc79"
+    "hash": "1282e471c9cbf19bbf7e34cabb441b3e9e43a54f"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/form/Form.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/form/Form.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/Form.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/Form.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -12264,7 +12264,7 @@
         },
         "end": {
           "line": 12,
-          "column": 128
+          "column": 134
         }
       },
       "7": {
@@ -12634,7 +12634,7 @@
         },
         "end": {
           "line": 252,
-          "column": 154
+          "column": 160
         }
       },
       "44": {
@@ -13662,15 +13662,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/form/Form.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/Form.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/form/Form.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/Form.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "62f68e1dcecd2263b8addd0a01ac24441f076e30"
+    "hash": "fc13c243c525f46ef0bb88a06f19856ffabdc083"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/InputCard/InputCard.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/InputCard/InputCard.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/InputCard/InputCard.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/InputCard/InputCard.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -13739,7 +13739,7 @@
         },
         "end": {
           "line": 12,
-          "column": 138
+          "column": 144
         }
       },
       "7": {
@@ -13859,7 +13859,7 @@
         },
         "end": {
           "line": 117,
-          "column": 164
+          "column": 170
         }
       },
       "19": {
@@ -14216,8 +14216,8 @@
       "15": 13,
       "16": 13,
       "17": 13,
-      "18": 12,
-      "19": 12,
+      "18": 13,
+      "19": 13,
       "20": 0,
       "21": 0,
       "22": 0,
@@ -14228,7 +14228,7 @@
       "0": 13,
       "1": 2,
       "2": 0,
-      "3": 12,
+      "3": 13,
       "4": 0
     },
     "b": {
@@ -14273,15 +14273,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/InputCard/InputCard.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/InputCard/InputCard.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/InputCard/InputCard.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/InputCard/InputCard.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "d6771f334a8d48d05f8cfd3c847770278b988ec9"
+    "hash": "ee7a1d5af49d3ed05e7f840d0c3dc63eafc0391f"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/input-cards-list/InputCardslist.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/input-cards-list/InputCardslist.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/input-cards-list/InputCardslist.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/input-cards-list/InputCardslist.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -14350,7 +14350,7 @@
         },
         "end": {
           "line": 12,
-          "column": 150
+          "column": 156
         }
       },
       "7": {
@@ -14570,7 +14570,7 @@
         },
         "end": {
           "line": 59,
-          "column": 176
+          "column": 182
         }
       },
       "29": {
@@ -15099,15 +15099,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/input-cards-list/InputCardslist.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/input-cards-list/InputCardslist.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/components/input-cards-list/InputCardslist.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/input-cards-list/InputCardslist.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "a500e252239f97899925442386e05341f8aa7941"
+    "hash": "97cb019480c469cc34b1a0361ba3d9802bccc746"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-form/page-form.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-form/page-form.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-form/page-form.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-form/page-form.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -15176,7 +15176,7 @@
         },
         "end": {
           "line": 12,
-          "column": 133
+          "column": 139
         }
       },
       "7": {
@@ -15276,7 +15276,7 @@
         },
         "end": {
           "line": 47,
-          "column": 159
+          "column": 165
         }
       },
       "17": {
@@ -15607,8 +15607,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -15618,7 +15618,7 @@
     "f": {
       "0": 13,
       "1": 6,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -15655,15 +15655,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-form/page-form.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-form/page-form.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/pages/page-form/page-form.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-form/page-form.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "912379d3132b985f495d8f2f077a8e472db9c7d7"
+    "hash": "f30c5d59b7c658f5d30cc6c0391c0d2f3bdaab0e"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/router.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/router.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/router.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/router.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -15732,7 +15732,7 @@
         },
         "end": {
           "line": 12,
-          "column": 114
+          "column": 120
         }
       },
       "7": {
@@ -15832,7 +15832,7 @@
         },
         "end": {
           "line": 93,
-          "column": 140
+          "column": 146
         }
       },
       "17": {
@@ -16163,8 +16163,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -16174,7 +16174,7 @@
     "f": {
       "0": 13,
       "1": 26,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -16216,15 +16216,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/router.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/router.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/router.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/router.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "7e4a2ce43cded5274e0bc89d037fd5a47d5e7bc4"
+    "hash": "2950975afea59ffc7b9f9fbcd765f8162f5a7773"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/App.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/App.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/App.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/App.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -16293,7 +16293,7 @@
         },
         "end": {
           "line": 12,
-          "column": 111
+          "column": 117
         }
       },
       "7": {
@@ -16393,7 +16393,7 @@
         },
         "end": {
           "line": 39,
-          "column": 137
+          "column": 143
         }
       },
       "17": {
@@ -16724,8 +16724,8 @@
       "13": 13,
       "14": 13,
       "15": 13,
-      "16": 12,
-      "17": 12,
+      "16": 13,
+      "17": 13,
       "18": 0,
       "19": 0,
       "20": 0,
@@ -16735,7 +16735,7 @@
     "f": {
       "0": 13,
       "1": 26,
-      "2": 12,
+      "2": 13,
       "3": 0
     },
     "b": {
@@ -16771,15 +16771,15 @@
         "$RefreshReg$"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/App.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/App.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/App.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/App.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "68f42e195f5f275b0db64b4970baa730d49504e0"
+    "hash": "2bff43cd8c0af98a3772a3b47727e162493b0c6a"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/store.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/store.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/store.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/store.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -16857,15 +16857,15 @@
         "ignoredPaths"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/store.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/store.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/store.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/store.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "7b6d4dd81ec0291e1f2d4904422a1090de696f25"
+    "hash": "a025b0c8eabd4c15ad78d25f97ac057aa0004cf8"
   },
-  "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/main.tsx": {
-    "path": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/main.tsx",
+  "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/main.tsx": {
+    "path": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/main.tsx",
     "statementMap": {
       "0": {
         "start": {
@@ -16978,11 +16978,11 @@
         "error"
       ],
       "sources": [
-        "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/main.tsx"
+        "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/main.tsx"
       ],
-      "file": "D:/D/_learning_frontend/_Narnia/2022/_RSS/st3-react-ssr/src/main.tsx"
+      "file": "C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/main.tsx"
     },
     "_coverageSchema": "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    "hash": "b90113251e725972ef99c4c22defa83eb477929a"
+    "hash": "ca65563b78542aa4857c97313beaeffab0a3d2d7"
   }
 }
