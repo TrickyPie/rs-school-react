@@ -72,7 +72,7 @@ export const PlantModal = () => {
   return (
     <>
       <div className="modal-overlay-wrapper" data-testid="modal" onClick={handleModalClick}>
-        <div className="modal-overlay">
+        <div className="modal-overlay" data-testid="modal-overlay">
           <div className="modal-overlay-close" data-testid="close-button" onClick={closeModal}>
             <img src={cross} alt="Close icon" className="modal-overlay-close-icon" />
           </div>

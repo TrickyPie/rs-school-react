@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">26.66% </span>
+                <span class="strong">93.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>4/15</span>
+                <span class='fraction'>14/15</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>5/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">88.88% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>3/9</span>
+                <span class='fraction'>8/9</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -97,49 +97,49 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useState } from 'react';
 import { InputCard } from '../InputCard/InputCard';
 import FormResult from 'pages/page-form/form-type';
 import { useSelector } from 'react-redux';
 import { RootState } from 'redux/reducer';
 &nbsp;
-export const InputCards<span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" > = <span class="fstat-no" title="function not covered" >(</span>) =&gt; <span class="cstat-no" title="statement not covered" >{</span></span></span>
-  const [renderedCards, setRenderedCards] = <span class="cstat-no" title="statement not covered" >useState&lt;FormResult[]&gt;([]);</span>
-  const formCards = <span class="cstat-no" title="statement not covered" >useSelector(<span class="fstat-no" title="function not covered" >(s</span>tate: RootState) =&gt; <span class="cstat-no" title="statement not covered" >state.root.formCards)</span>;</span>
+export const InputCards = () =&gt; {
+  const [renderedCards, setRenderedCards] = useState&lt;FormResult[]&gt;([]);
+  const formCards = useSelector((state: RootState) =&gt; state.root.formCards);
 &nbsp;
-  const newCards = <span class="cstat-no" title="statement not covered" >formCards.filter(<span class="fstat-no" title="function not covered" >(c</span>ard: FormResult) =&gt; <span class="cstat-no" title="statement not covered" >!renderedCards.includes(card))</span>;</span>
+  const newCards = formCards.filter((card: FormResult) =&gt; !renderedCards.includes(card));
 &nbsp;
-  const handleCardRendered = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(c</span>ard: FormResult) =&gt; {</span>
+  const handleCardRendered = <span class="fstat-no" title="function not covered" >(c</span>ard: FormResult) =&gt; {
 <span class="cstat-no" title="statement not covered" >    setRenderedCards([...renderedCards, card]);</span>
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;div className="input-cards-container" data-testid="input-cards"&gt;
-        {newCards.map(<span class="fstat-no" title="function not covered" >(c</span>ard: FormResult, index: React.Key | null | undefined) =&gt; (
-<span class="cstat-no" title="statement not covered" >          &lt;div key={index} data-testid={`card-${index}`}&gt;</span>
+        {newCards.map((card: FormResult, index: React.Key | null | undefined) =&gt; (
+          &lt;div key={index} data-testid={`card-${index}`}&gt;
             &lt;InputCard ind={`card-${index}`} card={card} onRendered={handleCardRendered} /&gt;
           &lt;/div&gt;
         ))}
@@ -154,7 +154,7 @@ export const InputCards<span class="cstat-no" title="statement not covered" ><sp
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-28T17:27:30.357Z
+                at 2023-04-30T11:04:51.306Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">61.53% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/12</span>
+                <span class='fraction'>8/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/15</span>
+                <span class='fraction'>15/15</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -96,70 +96,70 @@
 <a name='L31'></a><a href='#L31'>31</a>
 <a name='L32'></a><a href='#L32'>32</a>
 <a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<a name='L34'></a><a href='#L34'>34</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const validateCapitalize = <span class="fstat-no" title="function not covered" >(n</span>ame: string): string | boolean =&gt; {
-  const trimmedName = <span class="cstat-no" title="statement not covered" >name.trim();</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const validateCapitalize = (name: string): string | boolean =&gt; {
+  const trimmedName = name.trim();
+  return (
     trimmedName.charAt(0) === trimmedName.charAt(0).toUpperCase() ||
-    'Name must start with a capital letter'
+<span class="branch-1 cbranch-no" title="branch not covered" >    'Name must start with a capital letter'</span>
   );
 };
 &nbsp;
-export const validateLang = <span class="fstat-no" title="function not covered" >(n</span>ame: string): string | boolean =&gt; {
-  const regex = <span class="cstat-no" title="statement not covered" >/^[A-Z][a-z]{2,}$/;</span>
-<span class="cstat-no" title="statement not covered" >  return regex.test(name) || 'Name must contain at least 3 characters and be on english';</span>
+export const validateLang = (name: string): string | boolean =&gt; {
+  const regex = /^[A-Z][a-z]{2,}$/;
+  return regex.test(name) || 'Name must contain at least 3 characters and be on english';
 };
 &nbsp;
-export const validateNotFutureDate = <span class="fstat-no" title="function not covered" >(v</span>alue: string): string | boolean =&gt; {
-  const selectedDate = <span class="cstat-no" title="statement not covered" >new Date(value);</span>
-  const currentDate = <span class="cstat-no" title="statement not covered" >new Date();</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
+export const validateNotFutureDate = (value: string): string | boolean =&gt; {
+  const selectedDate = new Date(value);
+  const currentDate = new Date();
+  return (
     selectedDate &lt;= currentDate ||
-    `Date must not be greater than the current one (${currentDate.toLocaleDateString()})`
+    `<span class="branch-1 cbranch-no" title="branch not covered" >Date must not be greater than the current one (${currentDate.toLocaleDateString()})`</span>
   );
 };
 &nbsp;
-export const validateNotEmpty = <span class="fstat-no" title="function not covered" >(v</span>alue: string): string | boolean =&gt; {
-<span class="cstat-no" title="statement not covered" >  return value !== '' || 'Please select a valid date';</span>
+export const validateNotEmpty = (value: string): string | boolean =&gt; {
+  return value !== '' || <span class="branch-1 cbranch-no" title="branch not covered" >'Please select a valid date';</span>
 };
 &nbsp;
-export const validateFileType = <span class="fstat-no" title="function not covered" >(f</span>ile: FileList | null): boolean | string =&gt; {
-  const selectedFile: File | undefined = <span class="cstat-no" title="statement not covered" >file?.[0];</span>
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    ['image/png', 'image/jpeg', 'image/jpg'].includes(selectedFile?.type || '') ||
-    'File should be png or jpeg'
+export const validateFileType = (file: FileList | null): boolean | string =&gt; {
+  const selectedFile: File | undefined = file ? file[0] : <span class="branch-1 cbranch-no" title="branch not covered" >undefined;</span>
+  return (
+    (selectedFile &amp;&amp; ['image/png', 'image/jpeg', 'image/jpg'].includes(selectedFile.type)) ||
+<span class="branch-2 cbranch-no" title="branch not covered" >    'File should be png or jpeg'</span>
   );
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -169,7 +169,7 @@ export const validateFileType = <span class="fstat-no" title="function not cover
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-04-28T17:27:30.357Z
+                at 2023-04-30T11:04:51.306Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>
