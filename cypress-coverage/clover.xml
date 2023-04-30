@@ -1,343 +1,343 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1682865308287" clover="3.2.0">
-  <project timestamp="1682865308287" name="All files">
+<coverage generated="1682874769986" clover="3.2.0">
+  <project timestamp="1682874769986" name="All files">
     <metrics statements="209" coveredstatements="201" conditionals="93" coveredconditionals="78" methods="85" coveredmethods="75" elements="387" coveredelements="354" complexity="0" loc="209" ncloc="209" packages="19" files="24" classes="24"/>
     <package name="src">
       <metrics statements="16" coveredstatements="15" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="5"/>
       <file name="App.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/App.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="13" type="stmt"/>
-        <line num="5" count="26" type="stmt"/>
-        <line num="10" count="13" type="stmt"/>
-        <line num="12" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="26" type="stmt"/>
+        <line num="5" count="52" type="stmt"/>
+        <line num="10" count="26" type="stmt"/>
+        <line num="12" count="26" type="stmt"/>
       </file>
       <file name="main.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/main.tsx">
         <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
-        <line num="10" count="13" type="stmt"/>
-        <line num="12" count="13" type="cond" truecount="1" falsecount="1"/>
-        <line num="13" count="13" type="stmt"/>
+        <line num="10" count="26" type="stmt"/>
+        <line num="12" count="26" type="cond" truecount="1" falsecount="1"/>
+        <line num="13" count="26" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
       </file>
       <file name="router.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/router.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="13" type="stmt"/>
-        <line num="10" count="26" type="stmt"/>
-        <line num="18" count="13" type="stmt"/>
-        <line num="20" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="26" type="stmt"/>
+        <line num="10" count="52" type="stmt"/>
+        <line num="18" count="26" type="stmt"/>
+        <line num="20" count="26" type="stmt"/>
       </file>
       <file name="store.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/store.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="8" count="13" type="stmt"/>
-        <line num="15" count="13" type="stmt"/>
+        <line num="8" count="26" type="stmt"/>
+        <line num="15" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.InputCard">
       <metrics statements="6" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="2"/>
       <file name="InputCard.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/InputCard/InputCard.tsx">
         <metrics statements="6" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="13" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="26" type="stmt"/>
+        <line num="12" count="4" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="55" count="13" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+        <line num="55" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.PlantModal">
       <metrics statements="31" coveredstatements="30" conditionals="27" coveredconditionals="20" methods="12" coveredmethods="10"/>
       <file name="PlantModal.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/PlantModal/PlantModal.tsx">
         <metrics statements="31" coveredstatements="30" conditionals="27" coveredconditionals="20" methods="12" coveredmethods="10"/>
-        <line num="16" count="13" type="stmt"/>
-        <line num="18" count="54" type="stmt"/>
-        <line num="19" count="54" type="stmt"/>
-        <line num="20" count="126" type="stmt"/>
-        <line num="21" count="126" type="stmt"/>
-        <line num="22" count="123" type="stmt"/>
-        <line num="23" count="126" type="stmt"/>
-        <line num="24" count="54" type="stmt"/>
-        <line num="26" count="54" type="stmt"/>
-        <line num="27" count="25" type="cond" truecount="1" falsecount="0"/>
-        <line num="28" count="3" type="stmt"/>
-        <line num="32" count="54" type="stmt"/>
-        <line num="33" count="28" type="cond" truecount="1" falsecount="0"/>
-        <line num="34" count="6" type="cond" truecount="1" falsecount="0"/>
-        <line num="35" count="3" type="stmt"/>
-        <line num="40" count="54" type="cond" truecount="3" falsecount="0"/>
-        <line num="41" count="6" type="stmt"/>
-        <line num="48" count="48" type="cond" truecount="2" falsecount="1"/>
+        <line num="16" count="26" type="stmt"/>
+        <line num="18" count="108" type="stmt"/>
+        <line num="19" count="108" type="stmt"/>
+        <line num="20" count="253" type="stmt"/>
+        <line num="21" count="253" type="stmt"/>
+        <line num="22" count="247" type="stmt"/>
+        <line num="23" count="253" type="stmt"/>
+        <line num="24" count="108" type="stmt"/>
+        <line num="26" count="108" type="stmt"/>
+        <line num="27" count="50" type="cond" truecount="1" falsecount="0"/>
+        <line num="28" count="6" type="stmt"/>
+        <line num="32" count="108" type="stmt"/>
+        <line num="33" count="56" type="cond" truecount="1" falsecount="0"/>
+        <line num="34" count="12" type="cond" truecount="1" falsecount="0"/>
+        <line num="35" count="6" type="stmt"/>
+        <line num="40" count="108" type="cond" truecount="3" falsecount="0"/>
+        <line num="41" count="12" type="stmt"/>
+        <line num="48" count="96" type="cond" truecount="2" falsecount="1"/>
         <line num="49" count="0" type="stmt"/>
-        <line num="56" count="48" type="cond" truecount="1" falsecount="0"/>
-        <line num="57" count="42" type="stmt"/>
-        <line num="60" count="6" type="stmt"/>
-        <line num="61" count="2" type="stmt"/>
-        <line num="62" count="2" type="stmt"/>
-        <line num="65" count="6" type="stmt"/>
-        <line num="66" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="67" count="1" type="stmt"/>
-        <line num="69" count="1" type="stmt"/>
-        <line num="72" count="6" type="stmt"/>
-        <line num="141" count="13" type="stmt"/>
-        <line num="143" count="13" type="stmt"/>
+        <line num="56" count="96" type="cond" truecount="1" falsecount="0"/>
+        <line num="57" count="84" type="stmt"/>
+        <line num="60" count="12" type="stmt"/>
+        <line num="61" count="4" type="stmt"/>
+        <line num="62" count="4" type="stmt"/>
+        <line num="65" count="12" type="stmt"/>
+        <line num="66" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="69" count="2" type="stmt"/>
+        <line num="72" count="12" type="stmt"/>
+        <line num="141" count="26" type="stmt"/>
+        <line num="143" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.UI.checkbox">
       <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="Checkbox.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/checkbox/Checkbox.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="13" type="stmt"/>
-        <line num="18" count="12" type="stmt"/>
-        <line num="20" count="12" type="stmt"/>
-        <line num="44" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="26" type="stmt"/>
+        <line num="18" count="24" type="stmt"/>
+        <line num="20" count="24" type="stmt"/>
+        <line num="44" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.UI.radioBtn">
       <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
       <file name="Radio.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/radioBtn/Radio.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="17" count="13" type="stmt"/>
-        <line num="18" count="12" type="stmt"/>
-        <line num="19" count="12" type="stmt"/>
-        <line num="27" count="36" type="stmt"/>
-        <line num="45" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="26" type="stmt"/>
+        <line num="18" count="24" type="stmt"/>
+        <line num="19" count="24" type="stmt"/>
+        <line num="27" count="72" type="stmt"/>
+        <line num="45" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.UI.select">
       <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
       <file name="Select.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/UI/select/Select.tsx">
         <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="3"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="19" count="13" type="stmt"/>
-        <line num="29" count="12" type="stmt"/>
-        <line num="30" count="12" type="stmt"/>
-        <line num="38" count="84" type="stmt"/>
-        <line num="45" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="19" count="26" type="stmt"/>
+        <line num="29" count="24" type="stmt"/>
+        <line num="30" count="24" type="stmt"/>
+        <line num="38" count="168" type="stmt"/>
+        <line num="45" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.card">
       <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
       <file name="Card.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/card/Card.tsx">
         <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
-        <line num="25" count="562" type="stmt"/>
-        <line num="26" count="562" type="stmt"/>
-        <line num="27" count="562" type="stmt"/>
-        <line num="29" count="562" type="cond" truecount="2" falsecount="0"/>
-        <line num="39" count="562" type="cond" truecount="2" falsecount="0"/>
-        <line num="49" count="562" type="stmt"/>
-        <line num="50" count="3" type="stmt"/>
-        <line num="53" count="562" type="stmt"/>
-        <line num="66" count="13" type="stmt"/>
+        <line num="25" count="1124" type="stmt"/>
+        <line num="26" count="1124" type="stmt"/>
+        <line num="27" count="1124" type="stmt"/>
+        <line num="29" count="1124" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="1124" type="cond" truecount="2" falsecount="0"/>
+        <line num="49" count="1124" type="stmt"/>
+        <line num="50" count="6" type="stmt"/>
+        <line num="53" count="1124" type="stmt"/>
+        <line num="66" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.cards">
       <metrics statements="25" coveredstatements="24" conditionals="12" coveredconditionals="11" methods="9" coveredmethods="7"/>
       <file name="Cards.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/cards/Cards.tsx">
         <metrics statements="25" coveredstatements="24" conditionals="12" coveredconditionals="11" methods="9" coveredmethods="7"/>
-        <line num="12" count="13" type="stmt"/>
-        <line num="14" count="126" type="stmt"/>
-        <line num="15" count="126" type="stmt"/>
-        <line num="16" count="246" type="stmt"/>
-        <line num="17" count="126" type="stmt"/>
-        <line num="18" count="126" type="stmt"/>
-        <line num="19" count="224" type="stmt"/>
-        <line num="20" count="246" type="stmt"/>
-        <line num="22" count="126" type="stmt"/>
-        <line num="23" count="22" type="stmt"/>
-        <line num="24" count="22" type="cond" truecount="2" falsecount="0"/>
-        <line num="25" count="2" type="stmt"/>
-        <line num="27" count="20" type="stmt"/>
-        <line num="31" count="126" type="cond" truecount="1" falsecount="0"/>
-        <line num="32" count="24" type="stmt"/>
-        <line num="39" count="102" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="26" type="stmt"/>
+        <line num="14" count="252" type="stmt"/>
+        <line num="15" count="252" type="stmt"/>
+        <line num="16" count="492" type="stmt"/>
+        <line num="17" count="252" type="stmt"/>
+        <line num="18" count="252" type="stmt"/>
+        <line num="19" count="448" type="stmt"/>
+        <line num="20" count="492" type="stmt"/>
+        <line num="22" count="252" type="stmt"/>
+        <line num="23" count="44" type="stmt"/>
+        <line num="24" count="44" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="27" count="40" type="stmt"/>
+        <line num="31" count="252" type="cond" truecount="1" falsecount="0"/>
+        <line num="32" count="48" type="stmt"/>
+        <line num="39" count="204" type="cond" truecount="0" falsecount="1"/>
         <line num="40" count="0" type="stmt"/>
-        <line num="49" count="102" type="cond" truecount="4" falsecount="0"/>
-        <line num="50" count="2" type="stmt"/>
-        <line num="55" count="100" type="cond" truecount="2" falsecount="0"/>
-        <line num="56" count="86" type="stmt"/>
-        <line num="58" count="14" type="stmt"/>
-        <line num="61" count="100" type="stmt"/>
-        <line num="65" count="562" type="stmt"/>
-        <line num="77" count="13" type="stmt"/>
+        <line num="49" count="204" type="cond" truecount="4" falsecount="0"/>
+        <line num="50" count="4" type="stmt"/>
+        <line num="55" count="200" type="cond" truecount="2" falsecount="0"/>
+        <line num="56" count="172" type="stmt"/>
+        <line num="58" count="28" type="stmt"/>
+        <line num="61" count="200" type="stmt"/>
+        <line num="65" count="1124" type="stmt"/>
+        <line num="77" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.form">
       <metrics statements="39" coveredstatements="38" conditionals="31" coveredconditionals="26" methods="13" coveredmethods="11"/>
       <file name="Form.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/Form.tsx">
         <metrics statements="24" coveredstatements="23" conditionals="18" coveredconditionals="18" methods="8" coveredmethods="6"/>
-        <line num="20" count="13" type="stmt"/>
-        <line num="21" count="13" type="stmt"/>
-        <line num="22" count="12" type="stmt"/>
-        <line num="23" count="12" type="stmt"/>
-        <line num="30" count="13" type="stmt"/>
-        <line num="35" count="12" type="stmt"/>
-        <line num="36" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="37" count="1" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
-        <line num="42" count="1" type="stmt"/>
-        <line num="43" count="1" type="stmt"/>
-        <line num="46" count="12" type="stmt"/>
-        <line num="47" count="1" type="stmt"/>
-        <line num="48" count="1" type="stmt"/>
-        <line num="49" count="1" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="53" count="12" type="stmt"/>
-        <line num="54" count="7" type="cond" truecount="1" falsecount="0"/>
-        <line num="55" count="1" type="stmt"/>
+        <line num="20" count="26" type="stmt"/>
+        <line num="21" count="26" type="stmt"/>
+        <line num="22" count="24" type="stmt"/>
+        <line num="23" count="24" type="stmt"/>
+        <line num="30" count="26" type="stmt"/>
+        <line num="35" count="24" type="stmt"/>
+        <line num="36" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="37" count="2" type="stmt"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="46" count="24" type="stmt"/>
+        <line num="47" count="2" type="stmt"/>
+        <line num="48" count="2" type="stmt"/>
+        <line num="49" count="2" type="stmt"/>
+        <line num="50" count="2" type="stmt"/>
+        <line num="53" count="24" type="stmt"/>
+        <line num="54" count="14" type="cond" truecount="1" falsecount="0"/>
+        <line num="55" count="2" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
-        <line num="58" count="1" type="stmt"/>
-        <line num="62" count="12" type="stmt"/>
-        <line num="202" count="13" type="stmt"/>
+        <line num="58" count="2" type="stmt"/>
+        <line num="62" count="24" type="stmt"/>
+        <line num="202" count="26" type="stmt"/>
       </file>
       <file name="form-utils.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/form/form-utils.tsx">
         <metrics statements="15" coveredstatements="15" conditionals="13" coveredconditionals="8" methods="5" coveredmethods="5"/>
-        <line num="1" count="13" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
-        <line num="3" count="4" type="stmt"/>
-        <line num="9" count="13" type="stmt"/>
-        <line num="10" count="4" type="stmt"/>
-        <line num="11" count="4" type="cond" truecount="2" falsecount="0"/>
-        <line num="14" count="13" type="stmt"/>
-        <line num="15" count="1" type="stmt"/>
-        <line num="16" count="1" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="23" count="13" type="stmt"/>
-        <line num="24" count="3" type="cond" truecount="1" falsecount="1"/>
-        <line num="27" count="13" type="stmt"/>
-        <line num="28" count="1" type="cond" truecount="1" falsecount="1"/>
-        <line num="29" count="1" type="stmt"/>
+        <line num="1" count="26" type="stmt"/>
+        <line num="2" count="8" type="stmt"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="9" count="26" type="stmt"/>
+        <line num="10" count="8" type="stmt"/>
+        <line num="11" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="26" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="23" count="26" type="stmt"/>
+        <line num="24" count="6" type="cond" truecount="1" falsecount="1"/>
+        <line num="27" count="26" type="stmt"/>
+        <line num="28" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="29" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.components.header">
       <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="Header.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/header/Header.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="13" type="stmt"/>
-        <line num="10" count="32" type="stmt"/>
-        <line num="20" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="26" type="stmt"/>
+        <line num="10" count="64" type="stmt"/>
+        <line num="20" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.input-cards-list">
       <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
       <file name="InputCardslist.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/input-cards-list/InputCardslist.tsx">
         <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
-        <line num="7" count="13" type="stmt"/>
-        <line num="8" count="8" type="stmt"/>
-        <line num="9" count="13" type="stmt"/>
-        <line num="11" count="8" type="stmt"/>
-        <line num="13" count="8" type="stmt"/>
+        <line num="7" count="26" type="stmt"/>
+        <line num="8" count="16" type="stmt"/>
+        <line num="9" count="26" type="stmt"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="13" count="16" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
-        <line num="17" count="8" type="stmt"/>
-        <line num="21" count="2" type="stmt"/>
-        <line num="28" count="13" type="stmt"/>
+        <line num="17" count="16" type="stmt"/>
+        <line num="21" count="4" type="stmt"/>
+        <line num="28" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.layout">
       <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="Layout.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/layout/Layout.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="9" count="13" type="stmt"/>
-        <line num="10" count="32" type="stmt"/>
-        <line num="19" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="9" count="26" type="stmt"/>
+        <line num="10" count="64" type="stmt"/>
+        <line num="19" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.loader">
       <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="Loader.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/loader/Loader.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="13" type="stmt"/>
-        <line num="5" count="30" type="stmt"/>
-        <line num="11" count="13" type="stmt"/>
-        <line num="13" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="26" type="stmt"/>
+        <line num="5" count="60" type="stmt"/>
+        <line num="11" count="26" type="stmt"/>
+        <line num="13" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.nav">
       <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="Nav.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/nav/Nav.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="13" type="stmt"/>
-        <line num="6" count="32" type="stmt"/>
-        <line num="21" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="26" type="stmt"/>
+        <line num="6" count="64" type="stmt"/>
+        <line num="21" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.search">
       <metrics statements="12" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="5" coveredmethods="5"/>
       <file name="Search.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/search/Search.tsx">
         <metrics statements="12" coveredstatements="12" conditionals="1" coveredconditionals="1" methods="5" coveredmethods="5"/>
-        <line num="7" count="50" type="stmt"/>
-        <line num="8" count="50" type="stmt"/>
-        <line num="9" count="175" type="stmt"/>
-        <line num="10" count="50" type="stmt"/>
-        <line num="12" count="50" type="stmt"/>
-        <line num="13" count="15" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="2" type="stmt"/>
-        <line num="18" count="50" type="stmt"/>
-        <line num="19" count="13" type="stmt"/>
-        <line num="22" count="50" type="stmt"/>
-        <line num="36" count="13" type="stmt"/>
-        <line num="38" count="13" type="stmt"/>
+        <line num="7" count="100" type="stmt"/>
+        <line num="8" count="100" type="stmt"/>
+        <line num="9" count="350" type="stmt"/>
+        <line num="10" count="100" type="stmt"/>
+        <line num="12" count="100" type="stmt"/>
+        <line num="13" count="30" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="4" type="stmt"/>
+        <line num="18" count="100" type="stmt"/>
+        <line num="19" count="26" type="stmt"/>
+        <line num="22" count="100" type="stmt"/>
+        <line num="36" count="26" type="stmt"/>
+        <line num="38" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.components.slider">
       <metrics statements="12" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3"/>
       <file name="Slider.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/components/slider/Slider.tsx">
         <metrics statements="12" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="5" coveredmethods="3"/>
-        <line num="8" count="568" type="stmt"/>
-        <line num="9" count="568" type="stmt"/>
-        <line num="10" count="568" type="stmt"/>
-        <line num="12" count="568" type="stmt"/>
-        <line num="13" count="233" type="cond" truecount="1" falsecount="0"/>
-        <line num="14" count="233" type="stmt"/>
+        <line num="8" count="1136" type="stmt"/>
+        <line num="9" count="1136" type="stmt"/>
+        <line num="10" count="1136" type="stmt"/>
+        <line num="12" count="1136" type="stmt"/>
+        <line num="13" count="466" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="466" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="18" count="233" type="stmt"/>
-        <line num="22" count="568" type="cond" truecount="0" falsecount="1"/>
+        <line num="18" count="466" type="stmt"/>
+        <line num="22" count="1136" type="cond" truecount="0" falsecount="1"/>
         <line num="23" count="0" type="stmt"/>
-        <line num="26" count="568" type="stmt"/>
-        <line num="42" count="13" type="stmt"/>
+        <line num="26" count="1136" type="stmt"/>
+        <line num="42" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.pages">
       <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="4" coveredmethods="4"/>
       <file name="page-about.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-about.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="3" count="13" type="stmt"/>
-        <line num="4" count="4" type="stmt"/>
-        <line num="5" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="3" count="26" type="stmt"/>
+        <line num="4" count="8" type="stmt"/>
+        <line num="5" count="26" type="stmt"/>
       </file>
       <file name="page-notfound.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-notfound.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="3" count="13" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="9" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="3" count="26" type="stmt"/>
+        <line num="4" count="4" type="stmt"/>
+        <line num="9" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.page-form">
       <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="page-form.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-form/page-form.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="6" count="13" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="13" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="6" count="26" type="stmt"/>
+        <line num="7" count="12" type="stmt"/>
+        <line num="13" count="26" type="stmt"/>
       </file>
     </package>
     <package name="src.pages.page-home">
       <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
       <file name="page-home.tsx" path="C:/Users/Tricky/Desktop/nastya-test/rs-school-react-react-ssr/src/pages/page-home/page-home.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
-        <line num="1" count="91" type="cond" truecount="1" falsecount="0"/>
-        <line num="7" count="13" type="stmt"/>
-        <line num="8" count="20" type="stmt"/>
-        <line num="19" count="13" type="stmt"/>
+        <line num="1" count="182" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="26" type="stmt"/>
+        <line num="8" count="40" type="stmt"/>
+        <line num="19" count="26" type="stmt"/>
       </file>
     </package>
   </project>
