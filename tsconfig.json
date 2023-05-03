@@ -13,7 +13,15 @@
     "strict": true,
     "skipLibCheck": true,
     "baseUrl": "./src",
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["node", "jest", "cypress", "express"],
+    "noEmit": true,
+    "isolatedModules": true
   },
-  "include": ["./src/**/*", "styled.d.ts", "vite.config.ts"]
+  "include": ["./src/**/*", "styled.d.ts", "vite.config.ts"],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node",
+    "transpileOnly": true
+  }
 }

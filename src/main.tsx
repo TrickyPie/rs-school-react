@@ -1,19 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Provider from 'react-redux/es/components/Provider';
+import { hydrateRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { store } from './store';
+
 import App from './App';
+import { store } from './store';
 import './index.scss';
 
-const rootElement: HTMLElement | null = document.getElementById('root');
+const rootElement = document.getElementById('root');
 
-ReactDOM.createRoot(rootElement as HTMLElement).render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
-  </React.StrictMode>
-);
+if (rootElement) {
+  hydrateRoot(
+    rootElement,
+    <React.StrictMode>
+      <Provider store={store}>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </React.StrictMode>
+  );
+} else {
+  console.error("Could not find root element with ID 'root'");
+}

@@ -1,0 +1,25 @@
+{
+  "all": true,
+  "extends": "@istanbuljs/nyc-config-typescript",
+  "check-coverage": true,
+  "report-dir": "cypress-coverage",
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": [
+    "src/assets/**/*.*",
+    "src/redux/**/*.*",
+    "src/mock/**/*.*",
+    "src/entry-server.tsx",
+    "src/server.tsx",
+    "src/setupTests.ts",
+    "src/tests/**/*.*",
+    "cypress/**/*.*",
+    "**/*.d.ts",
+    "**/*.test.tsx",
+    "src/pages/page-form/form-type.tsx",
+    "src/components/nav/nav-type.tsx",
+    "src/components/PlantModal/plant-slice.tsx",
+    "src/components/PlantModal/plant-thunk.tsx",
+    "src/components/cards/cards-slice.tsx",
+    "src/components/cards/thunk.tsx"
+  ]
+}

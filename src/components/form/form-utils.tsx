@@ -25,9 +25,9 @@ export const validateNotEmpty = (value: string): string | boolean => {
 };
 
 export const validateFileType = (file: FileList | null): boolean | string => {
-  const selectedFile: File | undefined = file?.[0];
+  const selectedFile: File | undefined = file ? file[0] : undefined;
   return (
-    ['image/png', 'image/jpeg', 'image/jpg'].includes(selectedFile?.type || '') ||
+    (selectedFile && ['image/png', 'image/jpeg', 'image/jpg'].includes(selectedFile.type)) ||
     'File should be png or jpeg'
   );
 };
